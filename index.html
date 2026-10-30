@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Bred Minds</title>
+<meta name="description" content="Pattern-models of six great minds, grown on one laptop from their own public-domain books, then tested blind: can a cold judge tell whose pattern of thought a new answer carries, and can a model with no language model inside it tell too? Every claim sealed before its code, measured once, failures kept.">
+<link rel="stylesheet" href="page/page.css">
+<link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+<div class="boot" id="boot">This page needs a modern browser with JavaScript modules. <button id="reload">Reload</button></div>
+<header class="top">
+  <button class="theme" id="theme" aria-label="Switch light or dark">◐</button>
+  <h1>Bred Minds</h1>
+  <p class="lede">Six great minds, grown as small pattern-models from their own public-domain books, on one laptop. Then a hard test: a small local model writes new answers from each model alone, and a judge who never sees the models has to say whose pattern of thought each answer carries.</p>
+  <p class="honest"><b>What these are.</b> Models of thought-patterns grown from public texts. They are not the people, not resurrections and not conscious. A mind here is a <b>card</b>: twelve one-sentence maxims drawn from the author's own words, each checked against the passage it came from, plus two short samples of the author's voice. Nothing here claims to know what the author would really say.</p>
+  <p class="note" id="sealnote">Every claim below was written down and sealed before the code that measures it, then measured once. The failures are kept. Every number on this page is read from the committed records as it loads.</p>
+</header>
+<nav class="tabs" aria-label="Sections"><div class="in" id="tabs">
+  <a href="#overview">Overview</a><a href="#start">Start here</a><a href="#cards">The cards</a><a href="#blind">Blind test</a><a href="#trace">Trace model</a><a href="#results">Results</a><a href="#how">How it works</a><a href="#blueprint">Blueprint</a><a href="#business">For your business</a><a href="#case">The case</a><a href="#paper">White paper</a><a href="#answers">Straight answers</a>
+</div></nav>
+<main>
+
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="kpi" id="kpis"><div class="panel"><small>Loading the receipt…</small></div></div>
+  <p id="headline"></p>
+  <div class="grid g3" id="minds"></div>
+</section>
+
+<section id="start">
+  <h2>Start here</h2>
+  <ol class="steps">
+    <li><b>Open a card</b> (<a href="#cards">The cards</a>). Pick a mind and read its twelve maxims. Open any maxim to see the passage of the book it came from, and why the gate kept it.</li>
+    <li><b>Take the blind test</b> (<a href="#blind">Blind test</a>). You get an answer the local model wrote from one card, from a sham card, or from no card at all. Guess whose pattern it carries. Then see the truth, and what the judge said.</li>
+    <li><b>Grow the trace model in your browser</b> (<a href="#trace">Trace model</a>). The page fetches the six books from this site (5.4 MB), checks each one's fingerprint, cuts the passages, fits the model and re-runs its test on passages it never saw. Then paste any text and see whose words it reads most like.</li>
+    <li><b>Read the results</b> (<a href="#results">Results</a>): the seven sealed claims, each held or failed, with its numbers.</li>
+    <li><b>Re-run it yourself.</b> Everything the measurement reads is committed. On any machine with Node 20 or later:
+      <pre>git clone https://github.com/sjgant80-hub/bred-minds
+cd bred-minds
+npm test
+node tools/measure-1.mjs --check</pre>
+      The last line rebuilds the receipt from the committed replies and says whether it matches byte for byte. No model is asked anything.</li>
+  </ol>
+</section>
+
+<section id="cards">
+  <h2>The cards</h2>
+  <p>Each card was grown from one author's own words. The local model (qwen2.5:7b, on the laptop, temperature 0) read 24 passages drawn from the book and stated each passage's main claim in one plain sentence. A gate kept a sentence only if it had 6 to 40 words, shared at least two content words with its passage, and named no author, book or school of thought. The first twelve kept are the card's maxims. The first 60 words of the passages behind the first two are its voice.</p>
+  <div class="controls" role="group" aria-label="Pick a mind" id="cardpick"></div>
+  <div class="panel" id="card"><p class="out">Loading the cards…</p></div>
+  <details class="panel"><summary>The sham cards</summary>
+    <p>A sham card is the control. It holds twelve maxims drawn at random from all six cards pooled together, and the voice of two cards, and it is labelled with one mind. If a judge "recognises" sham answers as that mind about as often as real ones, the real cards carry nothing. The receipt checks that real cards beat shams.</p>
+    <div id="shams"></div>
+  </details>
+</section>
+
+<section id="blind">
+  <h2>Blind test</h2>
+  <p>This is the test the judge took, one answer at a time. Each answer was written by the local model to one of 20 questions about how to live, from one card, from a sham card, or from no card. You do not see which. Guess.</p>
+  <div class="panel" id="blindbox"><p class="out">The 200 answers are being written by the local model; this test opens when they are committed.</p></div>
+  <p class="note" id="blindscore"></p>
+</section>
+
+<section id="trace">
+  <h2>The trace model</h2>
+  <p>The judge is a large language model, and it knows these six thinkers well. The trace model is the other check: it has no language model inside it. It counts words. It was fitted on 8 of every 10 passages of the six old books, and it attributes a text to the author whose word counts make that text most likely. If it recognises a card's answers too, the pattern carried into the words themselves.</p>
+  <div class="controls"><button class="go" id="load">Load the six books and grow the model (5.4 MB)</button><span class="out" id="loadout" aria-live="polite"></span></div>
+  <div id="books"></div>
+  <div class="panel" id="tryit" hidden>
+    <label for="mine"><b>Paste any text</b> (a paragraph works best), or take a passage the model never saw</label>
+    <textarea id="mine">What is the point of being angry at a man who has wronged me? His wrong is his own; my anger would be mine, and would hurt me more than him.</textarea>
+    <div class="controls"><button class="go" id="attr">Whose words does it read most like?</button><button id="unseen">Give me a passage it never saw</button></div>
+    <div id="attrout" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="results">
+  <h2>Results</h2>
+  <div id="resultsbody"><p class="out">Loading the receipt…</p></div>
+  <div id="permind"></div>
+  <details class="panel"><summary>What was written down before the run</summary><p id="expect"></p></details>
+</section>
+
+<section id="how">
+  <h2>How it works</h2>
+  <svg viewBox="0 0 980 300" role="img" aria-labelledby="flowt" id="flow">
+    <title id="flowt">From six books to the receipt, in seven steps</title>
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="fl-ar"/></marker></defs>
+    <g class="fl">
+      <rect x="10" y="20" width="130" height="80" rx="9"/><text x="75" y="52">1 · six books</text><text x="75" y="72" class="s">own words only</text>
+      <rect x="170" y="20" width="130" height="80" rx="9"/><text x="235" y="52">2 · passages</text><text x="235" y="72" class="s">FIT 8 · TEST 2 in 10</text>
+      <rect x="330" y="20" width="150" height="80" rx="9"/><text x="405" y="52">3 · 24 maxims</text><text x="405" y="72" class="s">local model, temp 0</text>
+      <rect x="510" y="20" width="130" height="80" rx="9"/><text x="575" y="52">4 · the gate</text><text x="575" y="72" class="s">6–40 words, 2 shared</text>
+      <rect x="670" y="20" width="140" height="80" rx="9"/><text x="740" y="52">5 · the card</text><text x="740" y="72" class="s">12 maxims + voice</text>
+      <rect x="330" y="190" width="200" height="80" rx="9"/><text x="430" y="222">6 · 200 answers</text><text x="430" y="242" class="s">120 card · 20 none · 60 sham</text>
+      <rect x="600" y="160" width="170" height="60" rx="9"/><text x="685" y="195">7a · cold judge</text>
+      <rect x="600" y="235" width="170" height="60" rx="9"/><text x="685" y="270">7b · trace model</text>
+      <rect x="830" y="190" width="140" height="80" rx="9" class="rc"/><text x="900" y="222">receipt</text><text x="900" y="242" class="s">7 claims, held or failed</text>
+    </g>
+    <g class="fl-l">
+      <path d="M140 60H168" marker-end="url(#ar)"/><path d="M300 60H328" marker-end="url(#ar)"/><path d="M480 60H508" marker-end="url(#ar)"/><path d="M640 60H668" marker-end="url(#ar)"/>
+      <path d="M740 100V140H430V188" marker-end="url(#ar)"/>
+      <path d="M530 215H598" marker-end="url(#ar)"/><path d="M530 250H598" marker-end="url(#ar)"/>
+      <path d="M770 190H800V215H828" marker-end="url(#ar)"/><path d="M770 265H800V245H828" marker-end="url(#ar)"/>
+      <path d="M235 100V170Q235 268 598 268" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+    </g>
+    <text x="10" y="294" class="fl-n">dashed: FIT passages fit the trace model; TEST passages only test it</text>
+  </svg>
+  <ol class="steps">
+    <li><b>Six books.</b> Six Project Gutenberg files, byte for byte, each read only from the heading where the author's own words begin to where they end, so no editor's introduction is in it.</li>
+    <li><b>Passages.</b> Paragraphs joined into passages of 120 to 400 words, numbered in book order. Passages 8 and 9 of every ten are TEST: nothing reads them but the trace model's test.</li>
+    <li><b>Maxims.</b> For each mind, 24 FIT passages drawn by a seeded shuffle. The local model states each one's main claim in one sentence, at temperature 0, so the same passage always gives the same sentence.</li>
+    <li><b>The gate.</b> A sentence is kept only if it has 6 to 40 words, shares at least two content words with its own passage, and names no author, book or school.</li>
+    <li><b>The card.</b> The first twelve kept, and two 60-word samples of the author's voice. A card's id is the SHA-256 of its canonical JSON, so one changed word is a different card.</li>
+    <li><b>200 answers.</b> The local model answers 20 questions about how to live from each card (120), with no card (20), and from six sham cards (60). Any answer that names a thinker is asked once more; if it still names one, it counts as a miss.</li>
+    <li><b>Two checks, then the receipt.</b> The cold judge (Claude Opus 5.5, a fresh agent per batch that sees only the 50 answers in front of it) gives each answer a number for each of the six thinkers and for none. The trace model attributes each answer too. The measurement reads only committed files and writes the receipt.</li>
+  </ol>
+  <h3>Traced from the real run</h3>
+  <div class="panel" id="traced"><p class="out">Loading…</p></div>
+</section>
+
+<section id="blueprint">
+  <h2>Blueprint</h2>
+  <p>Built organ by organ. Each kernel is pure and deterministic: nonsense in gives an empty result, never a crash. Each one is under a mutation gate: the gate changes the code in every way it can, and the tests must catch every change.</p>
+  <div class="scroll"><table id="kernels"><thead><tr><th>Kernel</th><th>What it does</th><th class="num">Mutants killed</th></tr></thead><tbody></tbody></table></div>
+  <h3>The tools and the records</h3>
+  <ul>
+    <li><code>claims/organ-1.json</code>: the seal. Every prompt word for word, every seed, every threshold, the 20 questions, the blocked words, the seven claims and what was expected. Committed before any model was asked anything.</li>
+    <li><code>tools/stock.mjs</code>: builds every prompt from the seal's own words (a test checks them word for word) and draws each mind's passages.</li>
+    <li><code>tools/ollama.mjs</code>: the local model, pinned by its digest; every reply is kept with the hash of the prompt that asked it.</li>
+    <li><code>tools/grow-maxims.mjs</code> → <code>data/local/maxims.json</code>; <code>tools/cards.mjs</code> → <code>data/cards.json</code> (rebuilds byte for byte).</li>
+    <li><code>tools/write.mjs</code> → <code>data/local/perspectives.json</code>: the 200 answers with their seeds.</li>
+    <li><code>tools/judge.mjs</code> → <code>data/judge/</code>: the four shuffled batches, the order kept apart, and the judge's replies.</li>
+    <li><code>tools/measure-1.mjs</code> → <code>receipts/organ-1.json</code>. It refuses to run if the seal has changed since it was committed.</li>
+    <li>On every push, GitHub's own runner runs every test, the mutation gate on every kernel, and rebuilds the receipt from the committed replies.</li>
+  </ul>
+</section>
+
+<section id="business">
+  <h2>For your business</h2>
+  <p><b>Who it is for:</b> anyone who builds AI that speaks in the manner of a source. A tutor in the manner of a classic author. An assistant that follows your firm's own written methods. A brand voice. A model of a retiring expert's written reasoning, with their agreement.</p>
+  <p><b>What it gives you:</b> a pattern grown from the source's own words, with every line traced to the passage it came from, and a blind test against shams before anyone relies on it. When the pattern did not carry, the receipt says so, so you ship only what held.</p>
+  <h3>Rolling it out</h3>
+  <ol class="steps">
+    <li><b>Choose the source.</b> Texts you own, or public domain. They stay on your machine.</li>
+    <li><b>Seal what counts.</b> Write down, before anything runs, what "the pattern carried" means for you: the questions, the shams, the bar to beat.</li>
+    <li><b>Grow the cards</b> on your own laptop with a local model. No cloud account is needed for this step.</li>
+    <li><b>Run the blind test:</b> a judge that never sees the cards, a sham control, and the trace model.</li>
+    <li><b>Ship what held, and re-run</b> whenever the source or the model changes. The receipt rebuilds from the committed records, so an auditor can check it without trusting you.</li>
+  </ol>
+</section>
+
+<section id="case">
+  <h2>The case</h2>
+  <p class="lede">Bred Minds turns a body of writing into a small, checkable pattern-model, and proves whether the pattern carried with a blind, sham-controlled test anyone can re-run.</p>
+  <h3>People with an AI seat, against this rail, for one check like this one</h3>
+  <div id="costlead" class="big"></div>
+  <div class="vs" id="costvs"></div>
+  <details class="panel" open><summary>Move the assumptions</summary>
+    <p class="note">Every price and rate is read from <code>data/prices.lock.json</code>, each with its source and the date it was checked. The amounts of work (words read, seconds the model ran, characters the judge read and wrote) are counted from this run's own records. The assumptions start at the floor; move them and the kernel (<code>src/cost.mjs</code>) recomputes.</p>
+    <div class="sliders" id="sliders"></div>
+  </details>
+  <div class="panel" id="year"></div>
+  <details class="panel"><summary>The sources behind every figure</summary><div class="scroll"><table id="sources"><thead><tr><th>Figure</th><th>Value</th><th>Source</th><th>Checked</th></tr></thead><tbody></tbody></table></div></details>
+  <h3>For each role</h3>
+  <div class="grid g2">
+    <div class="panel role"><h3>Chief executive</h3><p>A persona product that can prove it carries its source, blind and against shams. That is a claim others in the market do not make, because they cannot show it.</p></div>
+    <div class="panel role"><h3>Finance</h3><p>The check runs on a laptop you already own: pennies of electricity and a few pence of judge, against hours of staff reading. No per-seat licence for the rail, no new hardware. The figures above are computed, not typed.</p></div>
+    <div class="panel role"><h3>Operations</h3><p>No review panel to schedule. Re-run on every change of source or model; the receipt says held or failed, claim by claim.</p></div>
+    <div class="panel role"><h3>Technology and security</h3><p>The books, the maxims and the answers are made on your machine by a local model pinned by its digest. The one cloud step is the judge, and it reads only the generated answers: never the source text, never the card. Swap in a local judge and nothing leaves the machine. Open code, MIT licence, no lock-in.</p></div>
+    <div class="panel role"><h3>Editorial, content and learning teams</h3><p>Every maxim is traced to the passage it came from, and the gate's reason is kept for every one it dropped. Review the few that failed, not everything.</p></div>
+    <div class="panel role"><h3>Audit and compliance</h3><p>The claims were committed before the code that measures them; the receipt rebuilds byte for byte from committed records on GitHub's own runner. An auditor re-runs it instead of trusting a report.</p></div>
+  </div>
+  <h3>Security and data protection</h3>
+  <ul>
+    <li>Private by construction: the source texts, the local model and every draft stay on the machine that runs it.</li>
+    <li>The judge batches hold only generated answers and the six labels. They hold no source text, no card and no personal data.</li>
+    <li>Built for consent: a living person's writing is modelled only with their written agreement, and it stays on your machine.</li>
+    <li>The page itself sends nothing anywhere: it loads only files from this site (its content security policy allows nothing else) and works offline once loaded.</li>
+  </ul>
+  <h3>Deployment</h3>
+  <p>Node 20 or later, Ollama, and qwen2.5:7b (a 4.7 GB download). This run used an ordinary laptop: an Intel Core i7-1255U with 16 GB of memory and no graphics card. <span id="runtime"></span></p>
+  <h3>Ownership, support and exit</h3>
+  <p>The code is MIT-licensed: no licence fee, and it keeps running without us. The supplier is <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Support, service levels, warranty and liability are agreed per deployment, in each deployment's agreement. To leave, keep the repository: everything it needs is in it.</p>
+  <h3>Risks, answered straight</h3>
+  <div id="risks"></div>
+  <h3>For the board</h3>
+  <p id="board" class="panel"></p>
+</section>
+
+<section id="paper">
+  <h2>White paper</h2>
+  <article class="panel" id="paperbody">
+    <h3>Breeding stock: growing pattern-models of thought from public-domain text, and testing them blind</h3>
+    <p><b>The question.</b> Can a small card, twelve maxims drawn from an author's own words and two short samples of the author's voice, carry a pattern of thought that others recognise? If it can, such cards can be checked, compared and later bred. If it cannot, any persona built this way is decoration.</p>
+    <p><b>Stock.</b> Six public-domain books from Project Gutenberg: Marcus Aurelius's <i>Meditations</i> (Meric Casaubon's translation, 1634), Michel de Montaigne's <i>Essays</i> (Charles Cotton's translation), Ralph Waldo Emerson's <i>Essays, First Series</i>, William James's <i>Pragmatism</i>, Friedrich Nietzsche's <i>Beyond Good and Evil</i> (Helen Zimmern's translation) and Henry David Thoreau's <i>Walden</i> with <i>Civil Disobedience</i>. Each is read only from where the author's own words begin, cut into passages of 120 to 400 words and split by a fixed rule: two of every ten passages are held out for testing.</p>
+    <p><b>Growth.</b> A 7-billion-parameter model running locally states the main claim of each of 24 drawn passages in one sentence, at temperature 0. A gate keeps a sentence only if it is 6 to 40 words, shares two or more content words with its passage, and names no thinker, book or school. Twelve kept sentences and two 60-word voice samples make the card.</p>
+    <p><b>The test.</b> The same local model answers twenty questions about how to live from each card, from no card, and from sham cards that pool maxims from all six cards under one mind's label. A cold judge, which sees only batches of fifty shuffled answers, gives every answer a number for each thinker and for none. A word-count model fitted on the books, with no language model inside it, attributes every answer too. Seven claims, with their thresholds, were committed before any of this code existed.</p>
+    <div id="paperresults"></div>
+    <p><b>What it does not claim.</b> These are models of thought-patterns. They are not the people, not resurrections and not conscious. Recognition by a judge that knows these thinkers well shows that a pattern carried far enough to be named; it does not show that a card says what the author would have said.</p>
+    <p><b>Next.</b> Organ 2 breeds two cards into one and asks, sealed before it is measured, whether the child carries both parents' patterns and more than a random mix of them.</p>
+  </article>
+</section>
+
+<section id="answers">
+  <h2>Straight answers</h2>
+  <details class="panel"><summary>Is this the real Marcus Aurelius?</summary><p>No. It is a card of twelve sentences a small model drew from a 1634 translation of his notebooks, checked against the passages they came from. It is a model of a pattern of thought, not the man, and it is not conscious.</p></details>
+  <details class="panel"><summary>Why these six?</summary><p>Their books are public domain in the UK and the US, their patterns of thought are distinct, and a judge knows them well enough to be a hard test. Carl Jung was left out: his writing is in UK copyright until 2031. William James carries psychology instead.</p></details>
+  <details class="panel"><summary>Why a sham card?</summary><p>A judge that knows these thinkers might guess "Marcus" for anything stoical-sounding. A sham card is labelled with a mind but holds maxims from all six. If sham answers were "recognised" as often as real ones, the real cards would carry nothing. The receipt checks that the real cards beat the shams by more than chance.</p></details>
+  <details class="panel"><summary>Why a trace model as well as the judge?</summary><p>Because the judge is itself a language model that has read about these thinkers. The trace model has read nothing but the six old books and counts words. If it also recognises a card's answers, the pattern reached the words, not just the ideas a judge associates with a name.</p></details>
+  <details class="panel"><summary>Can I trust numbers I cannot re-run?</summary><p>You do not have to. Clone the repository and run <code>node tools/measure-1.mjs --check</code>: it rebuilds the receipt from the committed replies, byte for byte, without asking any model anything. GitHub's runner does the same on every push.</p></details>
+  <details class="panel"><summary>Can I use my own texts?</summary><p>Yes. Put the files in <code>data/texts/</code>, name them in <code>data/sources.json</code> with their hashes and where the author's own words begin and end, write and commit your own seal, then run the tools in order.</p></details>
+  <details class="panel"><summary>What happens to an answer that names the thinker?</summary><p>It is asked once more with a different seed. If it still names a thinker, book or school, it is kept, marked, and counted as a miss for the card, so a giveaway can never count as recognition.</p></details>
+</section>
+</main>
+<footer>
+  <p>Texts from <a href="https://www.gutenberg.org/">Project Gutenberg</a>, public domain; Project Gutenberg's licence travels with each file. Translators: Meric Casaubon (Marcus Aurelius), Charles Cotton (Montaigne), Helen Zimmern (Nietzsche).</p>
+  <p>Powered by the Konomi architecture, created by Thomas Frumkin (the seed library's seeded shuffle draws every passage and order here).</p>
+  <p>Code: MIT. Supplier and support: <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Source: <a href="https://github.com/sjgant80-hub/bred-minds">github.com/sjgant80-hub/bred-minds</a>.</p>
+</footer>
+<script type="module" src="page/app.mjs"></script>
+<script src="page/boot.js"></script>
+</body>
+</html>

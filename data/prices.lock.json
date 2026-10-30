@@ -1,0 +1,93 @@
+{
+ "kind": "bred-minds.prices",
+ "v": 1,
+ "registry": "sjgant80-hub/fallstack (registry/prices.json)",
+ "registryCommit": "91064b633626f34d345194c2443bb1a2aaf96686",
+ "registryBlob": "afdc76d5786f69ba0847912712f03df1c8e3e10e",
+ "pulled": "2026-10-30",
+ "why": "every price and rate the cost case reads: six copied verbatim from the estate registry with their sources and the dates they were checked, two added here from their primary sources; the page reads nothing else",
+ "entries": [
+  {
+   "id": "uk-national-living-wage",
+   "kind": "rate",
+   "value": 12.71,
+   "what": "National Living Wage (21 and over), per hour, from 1 April 2026 — the legal floor, used as the cost of an hour of the staff time the AI takes over",
+   "quote": "National Living Wage (21 and over) £12.71",
+   "source": "https://www.gov.uk/government/news/national-living-wage-increases-to-1271-per-hour",
+   "checked": "2026-09-29"
+  },
+  {
+   "id": "ons-ashe-2025-median-hourly",
+   "kind": "rate",
+   "value": 19.67,
+   "what": "ONS Annual Survey of Hours and Earnings 2025: median hourly earnings (excluding overtime), full-time employees, UK, April 2025 — used only in the sensitivity table",
+   "quote": "Median hourly earnings (excluding overtime) for full-time employees were £19.67 an hour in April 2025",
+   "source": "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2025",
+   "checked": "2026-09-29"
+  },
+  {
+   "id": "chatgpt-business",
+   "kind": "seat",
+   "product": "ChatGPT Business (standard seat)",
+   "price": 15,
+   "currency": "GBP",
+   "per": "seat / month, billed annually",
+   "vat": "not stated",
+   "quote": "Standard seat £15 / month … £15/month if billed annually.",
+   "addOn": null,
+   "maxSeats": null,
+   "source": "https://chatgpt.com/pricing/",
+   "checked": "2026-09-29"
+  },
+  {
+   "id": "intel-i7-1255u-power",
+   "kind": "power",
+   "wattsLow": 15,
+   "wattsHigh": 55,
+   "chip": "Intel Core i7-1255U",
+   "how": "Intel's published figures for the chip: Processor Base Power 15 W (the rated sustained power) and Maximum Turbo Power 55 W. The model uses 15 W for the extra draw of AI work on a laptop that is already on for the employee — change it on the page.",
+   "source": "https://www.intel.com/content/www/us/en/products/sku/226259/intel-core-i71255u-processor-12m-cache-up-to-4-70-ghz/specifications.html",
+   "checked": "2026-09-29"
+  },
+  {
+   "id": "desnz-electricity-nondomestic",
+   "kind": "energy",
+   "pencePerKwh": 24.51,
+   "what": "UK non-domestic electricity, average price including Climate Change Levy, quarter 2 2026",
+   "quote": "In quarter 2 2026, the average electricity price including CCL was 24.51 pence per kWh",
+   "source": "https://assets.publishing.service.gov.uk/media/6aba2810fe72ed1e2b02f0e7/Quarterly_Energy_Prices_September_2026.pdf",
+   "publisher": "DESNZ, Quarterly Energy Prices, September 2026 (published 29 September 2026)",
+   "checked": "2026-09-29"
+  },
+  {
+   "id": "fx-gbp-usd",
+   "kind": "fx",
+   "gbpPerUsd": 0.75396,
+   "how": "ECB euro reference rates for 2026-09-28: USD 1.1378 and GBP 0.85785 per euro, so GBP per USD = 0.85785 / 1.1378",
+   "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+   "checked": "2026-09-29"
+  },
+  {
+   "id": "claude-opus-5-5",
+   "kind": "api",
+   "provider": "Anthropic",
+   "model": "Claude Opus 5.5",
+   "inPerM": 4,
+   "outPerM": 20,
+   "currency": "USD",
+   "quote": "Claude Opus 5.5 | $4 / MTok (base input) | $20 / MTok (output)",
+   "note": "the model the cold judge ran on; priced at its base rates, no cache discount",
+   "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "checked": "2026-10-30"
+  },
+  {
+   "id": "brysbaert-2019-reading-rate",
+   "kind": "rate",
+   "wpm": 238,
+   "what": "average silent reading rate of adults in English, non-fiction, words per minute: a meta-analysis of 190 studies",
+   "quote": "the average silent reading rate for adults in English is 238 words per minute (wpm) for non-fiction and 260 wpm for fiction",
+   "source": "Brysbaert, M. (2019). How many words do we read per minute? A review and meta-analysis of reading rate. Journal of Memory and Language, 109, 104047. https://doi.org/10.1016/j.jml.2019.104047",
+   "checked": "2026-10-30"
+  }
+ ]
+}

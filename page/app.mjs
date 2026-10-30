@@ -1,0 +1,289 @@
+// page/app.mjs — the live page. It reads only committed files from this site and runs the same kernels the measurement
+// runs (src/*.mjs): the passages are cut, the gate re-checked, the trace model fitted and the cost case computed here, in
+// the reader's browser. Every piece of text from a file reaches the page through textContent, never as markup.
+import { span, passages, isTest, words, tokens, content } from '../src/text.mjs';
+import { fit, scores, attribute } from '../src/trace.mjs';
+import { readReply, recognises, LABELS } from '../src/judge.mjs';
+import { gate, firstWords } from '../src/card.mjs';
+import { compare, ASSUME } from '../src/cost.mjs';
+
+window.__bm = true;
+const $ = (id) => document.getElementById(id);
+const BATCH = 50;
+
+/** an element: attributes (class, href, aria-*, hidden…), then children (strings become text) */
+function h(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) { if (v === false || v == null) continue; if (k === 'class') e.className = v; else if (k === 'on') for (const [ev, f] of Object.entries(v)) e.addEventListener(ev, f); else e.setAttribute(k, v === true ? '' : v); }
+  for (const k of kids.flat()) if (k != null && k !== false) e.append(k instanceof Node ? k : String(k));
+  return e;
+}
+const fill = (id, ...kids) => { const e = typeof id === 'string' ? $(id) : id; e.replaceChildren(...kids.flat().filter((k) => k != null && k !== false)); return e; };
+const getJSON = async (p) => { try { const r = await fetch(p, { cache: 'no-cache' }); return r.ok ? await r.json() : null; } catch { return null; } };
+const getText = async (p) => { try { const r = await fetch(p, { cache: 'no-cache' }); return r.ok ? await r.text() : null; } catch { return null; } };
+const pct = (x, d = 0) => (x * 100).toFixed(d) + '%';
+const gbp = (x) => (x < 1 ? Math.round(x * 100) + 'p' : '£' + (x < 100 ? x.toFixed(2) : Math.round(x).toLocaleString('en-GB')));
+const hrs = (x) => (x < 1 ? Math.round(x * 60) + ' minutes' : x.toFixed(1) + ' hours');
+const mindTag = (m, names) => h('span', { class: 'mind m-' + m }, m === 'none' ? 'none' : (names[m] || m));
+const keyOf = (x) => x.kind + ':' + x.mind + ':' + x.q;
+
+// theme switch and the tab underline
+(() => {
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('bm-theme'); if (t) root.dataset.theme = t; } catch {}
+  $('theme').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('bm-theme', root.dataset.theme); } catch {}
+  });
+  const links = [...document.querySelectorAll('#tabs a')], secs = links.map((a) => document.querySelector(a.getAttribute('href')));
+  const on = () => { let k = 0; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 90) k = i; }); links.forEach((a, i) => a.classList.toggle('on', i === k)); };
+  addEventListener('scroll', on, { passive: true }); on();
+})();
+
+const [seal, sources, cards, drawn, maxims, persp, order, receipt, lock, witness] = await Promise.all([
+  getJSON('claims/organ-1.json'), getJSON('data/sources.json'), getJSON('data/cards.json'), getJSON('data/drawn.json'), getJSON('data/local/maxims.json'),
+  getJSON('data/local/perspectives.json'), getJSON('data/judge/order.json'), getJSON('receipts/organ-1.json'), getJSON('data/prices.lock.json'), getJSON('data/witness.json')]);
+const batches = order ? await Promise.all([1, 2, 3, 4].map((n) => getJSON('data/judge/batch-' + n + '.json'))) : [];
+const prompts = batches.every(Boolean) ? await Promise.all([1, 2, 3, 4].map((n) => getText('data/judge/batch-' + n + '.prompt.txt'))) : [];
+const MINDS = sources ? sources.minds.map((m) => m.mind) : [];
+const NAMES = Object.fromEntries((sources ? sources.minds : []).map((m) => [m.mind, m.name]));
+const Q = seal ? seal.questions : [];
+const items = persp && persp.items && persp.items.length === 200 ? persp.items : null;
+const byKey = new Map((items || []).map((x) => [keyOf(x), x]));
+const verdict = (id) => receipt && receipt.verdicts.find((v) => v.id === id);
+const held = (id) => !!(verdict(id) && verdict(id).held);
+
+// the judge's reading of every answer, by key
+const reading = new Map();
+if (order && batches.every(Boolean)) order.keys.forEach((k, i) => { const b = batches[Math.floor(i / BATCH)]; reading.set(k, readReply(b.reply, BATCH)[i % BATCH]); });
+
+// ---------- overview ----------
+function overview() {
+  if (!receipt) {
+    fill('kpis', h('div', { class: 'panel' }, h('small', {}, 'Organ 1'), h('div', { class: 'big' }, 'Being measured'), h('small', {}, 'the receipt appears here when it is committed')));
+    fill('headline', 'The six cards are grown and committed. The answers, the judge and the receipt follow, in that order, each committed before the next step reads it.');
+  } else {
+    const d = receipt.detail, macro = d.recall.reduce((a, r) => a + r.right / r.n, 0) / d.recall.length;
+    fill('kpis',
+      h('div', { class: 'panel' }, h('small', {}, 'Sealed claims held'), h('div', { class: 'big' }, receipt.held + ' of ' + receipt.verdicts.length), h('small', {}, 'the failures are kept')),
+      h('div', { class: 'panel' }, h('small', {}, 'Card answers the judge recognised'), h('div', { class: 'big' }, d.cardJudge ? pct(d.cardJudge.rate) : '—'), h('small', {}, d.cardJudge ? d.cardJudge.k + ' of ' + d.cardJudge.n + '; chance is 1 in 6 (17%)' : '')),
+      h('div', { class: 'panel' }, h('small', {}, 'Sham answers "recognised" as their label'), h('div', { class: 'big' }, d.shamJudge ? pct(d.shamJudge.rate) : '—'), h('small', {}, d.shamJudge ? d.shamJudge.k + ' of ' + d.shamJudge.n + ', the control' : '')),
+      h('div', { class: 'panel' }, h('small', {}, 'Trace model on unseen book passages'), h('div', { class: 'big' }, pct(macro)), h('small', {}, 'right author, mean of the six; no language model inside')));
+    fill('headline', headline());
+  }
+  if (cards) fill('minds', cards.minds.map((m) => {
+    const src = sources.minds.find((s) => s.mind === m.mind), pm = receipt && receipt.detail.perMind.find((x) => x.mind === m.mind);
+    return h('div', { class: 'panel' }, mindTag(m.mind, NAMES), h('p', { class: 'note' }, src.work.split(/;(?![^(]*\))/)[0].split(', with')[0]),
+      h('p', {}, m.kept + ' of 24 maxims kept by the gate; card ', h('code', {}, m.id.slice(0, 12))),
+      pm ? h('p', {}, 'Judge recognised ', h('b', {}, pm.judge + ' of ' + pm.n), ' of its answers; the trace model ', h('b', {}, pm.trace + ' of ' + pm.n), '; its sham ', pm.sham + ' of 10.') : null);
+  }));
+}
+
+/** the headline sentence, from what held */
+function headline() {
+  const d = receipt.detail, n = receipt.verdicts.length;
+  const s = [receipt.held + ' of ' + n + ' sealed claims held.'];
+  if (held('B4') && held('B5')) s.push('A cold judge recognised whose pattern of thought a card\'s answers carried far more often than chance, and far more often than it "recognised" the sham cards.');
+  else if (held('B4')) s.push('A cold judge recognised the cards\' answers more often than chance, but not clearly more often than the shams, so the recognition is not shown to come from the cards.');
+  else s.push('The cold judge did not recognise the cards\' answers at the sealed bar: the pattern did not carry far enough to be named reliably.');
+  s.push(held('B6') ? 'The trace model, with no language model inside it, recognised them too: the pattern reached the words.' : 'The trace model, with no language model inside it, did not: what carried was the ideas, not the old books\' words.');
+  return s.join(' ');
+}
+
+// ---------- the cards ----------
+let shown = MINDS[0];
+const CJK = /[　-鿿＀-￯]/;
+function cardView() {
+  if (!cards) { fill('card', h('p', { class: 'out' }, 'The cards could not be loaded.')); return; }
+  fill('cardpick', MINDS.map((m) => h('button', { 'aria-pressed': String(m === shown), class: m === shown ? 'go' : null, on: { click: () => { shown = m; cardView(); } } }, NAMES[m])));
+  const m = cards.minds.find((x) => x.mind === shown), src = sources.minds.find((s) => s.mind === shown);
+  const texts = new Map(((drawn && drawn.minds.find((x) => x.mind === shown)) || { passages: [] }).passages.map((p) => [p.index, p.text]));
+  const dropped = m.steps.filter((s) => !s.kept);
+  fill('card',
+    h('h3', {}, NAMES[shown], ' ', h('span', { class: 'pill' }, 'card ' + m.id.slice(0, 16))),
+    h('p', { class: 'note' }, src.work + '. ', h('a', { href: src.from.split(' ')[0] }, 'Project Gutenberg'), '.'),
+    h('ol', { class: 'maxims' }, m.card.maxims.map((x, i) => {
+      const g = gate(x.maxim, texts.get(x.from) || '', seal ? seal.blocked : []);
+      return h('li', {}, h('details', {}, h('summary', {}, (i + 1) + '. ' + x.maxim),
+        h('p', { class: 'note' }, 'From passage ' + x.from + ' of the book. The gate, re-run here: ' + (g.ok ? 'kept' : g.why) + ' (' + words(x.maxim).length + ' words).'),
+        h('div', { class: 'quote' }, texts.get(x.from) || 'passage not loaded')));
+    })),
+    h('h3', {}, 'Voice'), m.card.voice.map((v) => h('div', { class: 'quote' }, '“' + v + '”')),
+    dropped.length ? h('details', {}, h('summary', {}, 'The ' + dropped.length + ' the gate dropped, and why'), h('ul', {}, dropped.map((s) => h('li', {}, s.maxim + ' — ', h('i', {}, s.why))))) : h('p', { class: 'note' }, 'The gate dropped none.'),
+    h('p', { class: 'note' }, m.kept + ' of 24 kept; the card takes the first 12.'),
+    m.card.maxims.some((x) => CJK.test(x.maxim)) ? h('p', { class: 'note' }, 'One maxim on this card ends in Chinese: the local model switched language mid-sentence. The sealed gate does not check language, so it was kept, and it is shown as it is. It is the only one of the ' + cards.minds.reduce((a, c) => a + c.card.maxims.length, 0) + ' maxims on the six cards.') : null);
+  fill('shams', cards.shams.map((s) => h('details', {}, h('summary', {}, 'Sham labelled ' + NAMES[s.mind] + ' · ' + s.id.slice(0, 12)), h('ol', {}, s.card.maxims.map((x) => h('li', {}, x.maxim))))));
+}
+
+// ---------- the blind test ----------
+let model = null;
+const score = { you: 0, judge: 0, n: 0 };
+function blind() {
+  if (!items) return;
+  const pool = items.filter((x) => x.kind !== 'sham'), x = pool[Math.floor(Math.random() * pool.length)], truth = x.kind === 'base' ? 'none' : x.mind;
+  const box = fill('blindbox', h('p', { class: 'note' }, 'Question ' + x.q + ' of 20'), h('h3', {}, Q[x.q - 1]), h('div', { class: 'quote' }, x.reply.replace(/\s+/g, ' ').trim()),
+    h('p', {}, h('b', {}, 'Whose pattern of thought does it carry?')));
+  const out = h('div', { 'aria-live': 'polite' });
+  const buttons = h('div', { class: 'guess' }, [...MINDS, 'none'].map((m) => h('button', { on: { click: () => reveal(m) } }, m === 'none' ? 'None of them' : NAMES[m])));
+  box.append(buttons, out);
+  function reveal(guess) {
+    for (const b of buttons.children) b.disabled = true;
+    const p = reading.get(keyOf(x)), jRight = p ? (truth === 'none' ? LABELS.every((l) => l === 'none' || p.none > p[l]) : recognises(p, truth)) : false;
+    score.n++; if (guess === truth) score.you++; if (jRight) score.judge++;
+    out.append(h('p', { class: 'verdict' }, guess === truth ? 'Right. ' : 'Not this time. ', 'It was written ', truth === 'none' ? 'from no card at all.' : h('span', {}, 'from the card of ', mindTag(truth, NAMES), '.')),
+      x.named ? h('p', { class: 'note' }, 'This answer named a thinker even when asked again, so the receipt counts it as a miss whatever the judge said.') : null,
+      p ? h('div', {}, h('p', { class: 'note' }, 'The judge\'s numbers (it saw this answer among 50, cold):'), bars(p)) : h('p', { class: 'note' }, 'The judge\'s reading appears here once its replies are committed.'),
+      model ? h('p', { class: 'note' }, 'The trace model reads it as ', mindTag(attribute(model, x.reply), NAMES), '.') : h('p', { class: 'note' }, 'Grow the trace model below to see its call as well.'),
+      h('button', { class: 'go', on: { click: blind } }, 'Next answer'));
+    fill('blindscore', 'You: ' + score.you + ' of ' + score.n + '. The judge, on the same answers: ' + score.judge + ' of ' + score.n + '. Sham answers are left out of this game: they have no single right mind.');
+  }
+}
+function bars(p) {
+  return h('div', { class: 'bars' }, LABELS.map((l) => { const i = h('i', { class: 'm-' + l }); i.style.width = Math.max(0, Math.min(100, p[l])) + '%'; return h('div', { class: 'bar' }, h('span', {}, l === 'none' ? 'none' : NAMES[l].split(' ').pop()), h('span', { class: 't' }, i), h('span', { class: 'mono' }, Math.round(p[l]))); }));
+}
+
+// ---------- the trace model in the browser ----------
+async function hex(buf) { return [...new Uint8Array(await crypto.subtle.digest('SHA-256', buf))].map((b) => b.toString(16).padStart(2, '0')).join(''); }
+async function grow() {
+  const btn = $('load'); btn.disabled = true;
+  const rows = [], stock = {};
+  for (const s of sources.minds) {
+    fill('loadout', 'Fetching ' + s.name + ' (' + (s.bytes / 1e6).toFixed(1) + ' MB)…');
+    let buf; try { const r = await fetch(s.path); buf = await r.arrayBuffer(); } catch { fill('loadout', 'Could not fetch ' + s.path + '.'); btn.disabled = false; return; }
+    const sum = await hex(buf), ps = passages(span(new TextDecoder('utf-8').decode(buf), s.start, s.end)).map((text, index) => ({ index, text, test: isTest(index) }));
+    stock[s.mind] = ps; rows.push({ s, ok: sum === s.sha256, fit: ps.filter((p) => !p.test).length, test: ps.filter((p) => p.test).length });
+  }
+  fill('loadout', 'Fitting the model on the FIT passages…');
+  await new Promise((r) => setTimeout(r, 30));
+  model = fit(Object.fromEntries(MINDS.map((m) => [m, stock[m].filter((p) => !p.test).map((p) => p.text)])), MINDS);
+  const recall = MINDS.map((m) => { const t = stock[m].filter((p) => p.test); return { mind: m, n: t.length, right: t.filter((p) => attribute(model, p.text) === m).length }; });
+  const macro = recall.reduce((a, r) => a + r.right / r.n, 0) / recall.length, same = receipt ? JSON.stringify(recall) === JSON.stringify(receipt.detail.recall) : null;
+  fill('loadout', 'Grown in this tab: ' + model.vocab.size.toLocaleString('en-GB') + ' words in its vocabulary.');
+  fill('books', h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Book'), h('th', {}, 'Fingerprint'), h('th', { class: 'num' }, 'FIT'), h('th', { class: 'num' }, 'TEST'), h('th', { class: 'num' }, 'Right on TEST'))),
+    h('tbody', {}, rows.map((r, i) => h('tr', {}, h('td', {}, r.s.name), h('td', { class: r.ok ? 'held' : 'failed' }, r.ok ? 'matches the record' : 'DIFFERS'), h('td', { class: 'num' }, r.fit), h('td', { class: 'num' }, r.test), h('td', { class: 'num' }, recall[i].right + ' / ' + recall[i].n)))))),
+    h('p', {}, 'Mean accuracy on passages the model never saw: ', h('b', {}, pct(macro, 1)), '. ', same === null ? 'The receipt is not committed yet.' : same ? h('span', { class: 'held' }, 'Identical to the receipt, mind by mind.') : h('span', { class: 'failed' }, 'Different from the receipt.')));
+  unseen = MINDS.flatMap((m) => stock[m].filter((p) => p.test).map((p) => ({ mind: m, index: p.index, text: p.text })));
+  $('tryit').hidden = false;
+}
+let unseen = [], picked = null;
+function pickUnseen() {
+  picked = unseen[Math.floor(Math.random() * unseen.length)];
+  $('mine').value = picked.text; fill('attrout', h('p', { class: 'note' }, 'A TEST passage: the model was never fitted on it. Whose is it? Press the button to see the model\'s call and the answer.'));
+}
+function attributeMine() {
+  const t = $('mine').value, s = scores(model, t), known = tokens(t).filter((w) => model.vocab.has(w)).length;
+  if (!known) { fill('attrout', h('p', { class: 'out' }, 'None of these words is in the model\'s vocabulary.')); return; }
+  const truth = picked && picked.text === t ? picked : null;
+  const top = Math.max(...s), z = s.map((v) => Math.exp(v - top)), sumz = z.reduce((a, b) => a + b, 0), post = z.map((v) => v / sumz);
+  const ranked = MINDS.map((m, i) => ({ m, p: post[i] })).sort((a, b) => b.p - a.p);
+  fill('attrout', h('p', {}, 'Reads most like ', mindTag(ranked[0].m, NAMES), ' (' + known + ' words in the vocabulary).'),
+    truth ? h('p', { class: 'verdict' }, 'It was by ', mindTag(truth.mind, NAMES), ' (passage ' + truth.index + ' of the book): the model is ', ranked[0].m === truth.mind ? h('span', { class: 'held' }, 'right') : h('span', { class: 'failed' }, 'wrong'), '.') : null,
+    h('div', { class: 'bars' }, ranked.map((r) => { const i = h('i', { class: 'm-' + r.m }); i.style.width = (r.p * 100).toFixed(1) + '%'; return h('div', { class: 'bar' }, h('span', {}, NAMES[r.m].split(' ').pop()), h('span', { class: 't' }, i), h('span', { class: 'mono' }, pct(r.p, r.p < 0.995 && r.p > 0.005 ? 1 : 0))); })),
+    h('p', { class: 'note' }, 'These are the model\'s own odds, with equal odds for each author before it reads. A word-count model is very sure of itself on long texts; the order counts for more than the size.'));
+}
+
+// ---------- results ----------
+function results() {
+  if (seal) fill('expect', seal.expectations);
+  if (!receipt) { fill('resultsbody', h('p', {}, 'Organ 1 is sealed (', h('code', {}, 'claims/organ-1.json'), ') and being grown. The seven claims it will be measured against:'),
+    h('ol', {}, (seal ? seal.claims : []).map((c) => h('li', {}, h('b', {}, c.id + ' '), c.claim)))); return; }
+  fill('resultsbody', h('p', {}, 'Sealed at commit ', h('code', {}, receipt.sealed.commit.slice(0, 7)), '. The local model: ', h('code', {}, receipt.asked.maxims.model), ', digest ', h('code', {}, receipt.asked.maxims.digest.slice(0, 12)), '.'),
+    h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Claim'), h('th', {}, 'Result'), h('th', {}, 'Measured'))),
+      h('tbody', {}, receipt.verdicts.map((v) => { const [title, ...rest] = v.claim.split(': '), upper = rest.length && title === title.toUpperCase();
+        return h('tr', {}, h('td', {}, h('b', {}, v.id + ' '), upper ? h('b', {}, title.charAt(0) + title.slice(1).toLowerCase() + ': ') : null, upper ? rest.join(': ') : v.claim), h('td', { class: v.held ? 'held' : 'failed' }, v.held ? 'HELD' : 'FAILED'), h('td', { class: 'note' }, v.measured)); })))));
+  const pm = receipt.detail.perMind;
+  fill('permind', h('h3', {}, 'Mind by mind'), h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Mind'), h('th', { class: 'num' }, 'Judge, card answers'), h('th', { class: 'num' }, 'Trace model, card answers'), h('th', { class: 'num' }, 'Judge, sham answers'), h('th', { class: 'num' }, 'Trace model, unseen book passages'))),
+    h('tbody', {}, pm.map((m) => { const r = receipt.detail.recall.find((x) => x.mind === m.mind); return h('tr', {}, h('td', {}, mindTag(m.mind, NAMES)), h('td', { class: 'num' }, m.judge + ' / ' + m.n), h('td', { class: 'num' }, m.trace + ' / ' + m.n), h('td', { class: 'num' }, m.sham + ' / 10'), h('td', { class: 'num' }, r.right + ' / ' + r.n)); })))),
+    h('p', { class: 'note' }, 'Chance for any one mind is 1 in 6. A sham answer counts as "recognised" when the judge picks the mind the sham is labelled with.'));
+}
+
+// ---------- traced from the real run ----------
+function traced() {
+  if (!cards || !drawn) return;
+  const m = cards.minds[0], x = m.card.maxims[0], text = drawn.minds[0].passages.find((p) => p.index === x.from).text, g = gate(x.maxim, text, seal.blocked);
+  const inPassage = content(text), shared = [...content(x.maxim)].filter((w) => inPassage.has(w));
+  const a = byKey.get('card:' + m.mind + ':1'), p = a && reading.get('card:' + m.mind + ':1');
+  fill('traced', h('ol', { class: 'steps' },
+    h('li', {}, h('b', {}, 'The passage. '), NAMES[m.mind] + ', passage ' + x.from + ' of the book (FIT: ' + x.from + ' mod 10 is ' + (x.from % 10) + '). It begins:', h('div', { class: 'quote' }, firstWords(text, 45) + ' …')),
+    h('li', {}, h('b', {}, 'The maxim the local model stated. '), h('div', { class: 'quote' }, x.maxim)),
+    h('li', {}, h('b', {}, 'The gate, re-run in your browser. '), (g.ok ? 'Kept: ' : 'Dropped: ') + words(x.maxim).length + ' words; words it shares with its passage include ' + shared.slice(0, 6).join(', ') + '; no blocked word.'),
+    h('li', {}, h('b', {}, 'The card. '), 'First of twelve maxims on card ', h('code', {}, m.id.slice(0, 16)), '.'),
+    a ? h('li', {}, h('b', {}, 'An answer written from the card alone. '), 'Question 1: ' + Q[0], h('div', { class: 'quote' }, words(a.reply).slice(0, 60).join(' ') + ' …')) : h('li', {}, 'The answers are being written.'),
+    p ? h('li', {}, h('b', {}, 'The cold judge\'s numbers. '), bars(p), recognises(p, m.mind) ? h('span', { class: 'held' }, 'Recognised as ' + NAMES[m.mind] + '.') : h('span', { class: 'failed' }, 'Not recognised as ' + NAMES[m.mind] + '.')) : null));
+}
+
+// ---------- blueprint ----------
+function blueprint() {
+  const what = { text: 'The traces: the author\'s own span, passages, FIT and TEST, words, the blocked-word check, the seeded shuffle', trace: 'The trace model: naive Bayes over words; no language model inside', card: 'The gate, card growth, sham cards and the card id', stats: 'Wilson intervals and the bootstrap lower bound', judge: 'Reading the judge\'s replies; the recognition rule', cost: 'The cost case on this page' };
+  const rows = witness ? witness.kernels : Object.keys(what).map((k) => ({ kernel: k }));
+  fill($('kernels').querySelector('tbody'), rows.map((r) => h('tr', {}, h('td', {}, h('code', {}, 'src/' + r.kernel + '.mjs')), h('td', {}, what[r.kernel] || ''), h('td', { class: 'num' }, r.total ? r.killed + ' / ' + r.total : '—'))));
+}
+
+// ---------- the case ----------
+const RANGES = { maximMinutes: [0, 5, 0.5, 'Minutes to write a maxim'], askSeconds: [0, 120, 5, 'Seconds to ask the seat for an answer'], decideSeconds: [0, 60, 5, 'Seconds to decide whose an answer is'], reviewers: [1, 5, 1, 'Reviewers reading every answer'], setupMinutes: [0, 120, 5, 'Minutes of a person to start and check the rail'], charsPerToken: [2, 5, 0.5, 'Characters per judge token'], seats: [0, 5, 1, 'AI seats held for the check'] };
+const over = { ...ASSUME }; let perMonth = 1;
+function runRecord() {
+  if (!items || !drawn || !maxims || prompts.length !== 4 || !prompts.every((x) => typeof x === 'string')) return null;
+  return { passageWords: drawn.minds.flatMap((m) => m.passages.map((p) => words(p.text).length)), perspectiveWords: items.map((x) => words(x.reply).length),
+    localSeconds: maxims.items.reduce((a, x) => a + x.seconds, 0) + items.reduce((a, x) => a + x.seconds, 0),
+    judgeInChars: prompts.reduce((a, x) => a + x.length, 0), judgeOutChars: batches.reduce((a, b) => a + b.reply.length, 0) };
+}
+function caseView() {
+  const run = runRecord();
+  fill($('sources').querySelector('tbody'), (lock ? lock.entries : []).map((e) => { const url = (String(e.source).match(/https?:\/\/\S+/) || [])[0];
+    return h('tr', {}, h('td', {}, e.what || e.product || e.model || e.chip || e.id), h('td', { class: 'mono' }, e.value ?? e.price ?? e.wpm ?? e.pencePerKwh ?? e.gbpPerUsd ?? (e.inPerM != null ? e.inPerM + ' / ' + e.outPerM + ' per M' : e.wattsHigh + ' W max')), h('td', {}, url ? h('a', { href: url }, (e.publisher || e.provider || e.vendor || new URL(url).hostname)) : e.source), h('td', {}, e.checked)); }));
+  if (!run) { fill('costlead', 'Computed when the run is complete'); fill('costvs', h('p', { class: 'note' }, 'The case counts the words read, the seconds the local model ran and the characters the judge read and wrote, from this run\'s own records. It appears once the judge\'s replies are committed.')); return; }
+  const c = compare(run, lock, over, perMonth), P = c.people, R = c.rail;
+  fill('costlead', 'People: ' + hrs(P.totalHours) + ', ' + gbp(P.total) + ' · The rail: ' + gbp(R.total));
+  fill('costvs',
+    h('div', { class: 'panel' }, h('h3', {}, 'People with an AI seat'), h('ul', {},
+      h('li', {}, 'Read the ' + run.passageWords.length + ' source passages: ' + hrs(P.hours.read)), h('li', {}, 'Write a maxim from each: ' + hrs(P.hours.write)),
+      h('li', {}, 'Ask the seat for the ' + run.perspectiveWords.length + ' answers: ' + hrs(P.hours.ask)), h('li', {}, 'Read every answer blind and decide whose it is (' + c.assume.reviewers + ' reviewer' + (c.assume.reviewers === 1 ? '' : 's') + '): ' + hrs(P.hours.review)),
+      h('li', {}, 'Staff time at the National Living Wage (' + gbp(c.rates.wage) + ' an hour): ' + gbp(P.staff)), h('li', {}, c.assume.seats + ' AI seat' + (c.assume.seats === 1 ? '' : 's') + ' for the month: ' + gbp(P.seat))),
+      h('p', {}, h('b', {}, 'Total: ' + gbp(P.total)))),
+    h('div', { class: 'panel' }, h('h3', {}, 'This rail'), h('ul', {},
+      h('li', {}, 'A person starts and checks it: ' + hrs(R.totalHours) + ', ' + gbp(R.staff)),
+      h('li', {}, 'The laptop ran the local model for ' + hrs(run.localSeconds / 3600) + ': ' + R.kWh.toFixed(3) + ' kWh at the chip\'s maximum ' + c.rates.watts + ' W, ' + gbp(R.power)),
+      h('li', {}, 'The cold judge read ' + R.tokens.in.toLocaleString('en-GB') + ' and wrote ' + R.tokens.out.toLocaleString('en-GB') + ' tokens (counted high, one per ' + c.assume.charsPerToken + ' characters): ' + gbp(R.judge)),
+      h('li', {}, 'The trace model: seconds of the laptop, no cost worth counting')),
+      h('p', {}, h('b', {}, 'Total: ' + gbp(R.total)))));
+  fill('year', h('label', { class: 'controls' }, 'Checks a month ', (() => { const i = h('input', { type: 'number', min: '1', max: '500', value: String(perMonth), 'aria-label': 'Checks a month' }); i.addEventListener('input', () => { const v = Number(i.value); if (Number.isFinite(v) && v >= 1 && v <= 500) { perMonth = v; caseView(); } }); return i; })()),
+    h('p', {}, 'At ' + perMonth + ' check' + (perMonth === 1 ? '' : 's') + ' a month: people ' + gbp(c.year.people) + ' a year; the rail ' + gbp(c.year.rail) + '. ', h('b', {}, gbp(c.year.save) + ' saved and ' + Math.round(c.year.hoursBack) + ' hours of staff time back'), ', every one of them re-checkable.'),
+    (() => { const med = lock.entries.find((e) => e.id === 'ons-ashe-2025-median-hourly'), alt = med && compare(run, { entries: lock.entries.map((e) => (e.id === 'uk-national-living-wage' ? { ...e, value: med.value } : e)) }, over, perMonth);
+      return alt ? h('p', { class: 'note' }, 'At the UK median hourly wage (' + gbp(med.value) + ', ONS) instead of the legal floor: people ' + gbp(alt.people.total) + ' a check, the rail ' + gbp(alt.rail.total) + '; ' + gbp(alt.year.save) + ' saved a year at this rate of checks.') : null; })());
+  $('runtime').textContent = 'For this check the local model ran for ' + hrs(maxims.items.reduce((a, x) => a + x.seconds, 0) / 3600) + ' on the 144 maxims and ' + hrs(items.reduce((a, x) => a + x.seconds, 0) / 3600) + ' on the 200 answers.';
+}
+function sliders() {
+  fill('sliders', Object.entries(RANGES).map(([k, [lo, hi, st, label]]) => {
+    const v = h('span', { class: 'mono' }, String(over[k])), i = h('input', { type: 'range', min: String(lo), max: String(hi), step: String(st), value: String(over[k]), 'aria-label': label });
+    i.addEventListener('input', () => { over[k] = Number(i.value); v.textContent = i.value; caseView(); });
+    return h('label', {}, h('span', {}, label), v, i);
+  }));
+}
+
+// ---------- risks, board, paper ----------
+function words2() {
+  const d = receipt && receipt.detail;
+  const risks = [
+    ['The judge knows these thinkers too well; it may guess from famous ideas.', 'That is why the shams exist. A sham card carries maxims from all six under one label; the receipt compares real cards against shams' + (receipt ? ' (B5 ' + (held('B5') ? 'held' : 'failed') + ').' : '.')],
+    ['A model is not the person.', 'Agreed, and the page says so first. A card is twelve sentences a small model drew from a translation. It is tested for whether a pattern carried, not for whether it says what the author would say.'],
+    ['The judge is a cloud model.', 'It sees only the generated answers, in shuffled batches of 50, cold. Swap in a local judge and the whole run stays on the machine; the receipt names which judge was used.'],
+    ['The local model writes modern English; the books are old translations.', receipt ? (held('B6') ? 'The trace model, fitted only on the old books, still recognised the card answers: the voice carried into the words.' : 'Measured and said plainly: the trace model did not recognise the card answers at the sealed bar. What carried, carried as ideas, not as the old books\' words.') : 'B6 measures exactly this, and the expectation written before the run left it open.'],
+    ['A result like this can be tuned until it looks good.', 'Not here. The prompts, seeds, questions, thresholds and claims were committed before any model was asked anything, and the measurement refuses to run if the seal changed.'],
+  ];
+  fill('risks', risks.map(([q, a]) => h('details', { class: 'panel' }, h('summary', {}, q), h('p', {}, a))));
+  fill('board', receipt
+    ? 'Organ 1 asked whether a twelve-line card grown from an author\'s own words carries a recognisable pattern of thought. ' + receipt.held + ' of ' + receipt.verdicts.length + ' sealed claims held. ' + (d.cardJudge ? 'A cold judge recognised ' + d.cardJudge.k + ' of ' + d.cardJudge.n + ' card answers (' + pct(d.cardJudge.rate) + ', chance 17%)' + (d.shamJudge ? ' against ' + d.shamJudge.k + ' of ' + d.shamJudge.n + ' sham answers' : '') + '. ' : '') + 'The whole check ran on one ordinary laptop, its only cloud step a judge that never saw a card, and it rebuilds byte for byte on GitHub\'s runner. The method is the product: any persona, from any source you own, grown and proven the same way before anyone relies on it.'
+    : 'The board case is written from the receipt once it is committed.');
+  if (receipt) fill('paperresults', h('p', {}, h('b', {}, 'Results. '), headline() + ' ' + receipt.verdicts.map((v) => v.id + ' ' + (v.held ? 'held' : 'failed')).join(', ') + '.'));
+}
+
+// ---------- start ----------
+overview(); cardView(); results(); traced(); blueprint(); sliders(); caseView(); words2();
+if (items) blind();
+$('load').addEventListener('click', grow);
+$('attr').addEventListener('click', () => model && attributeMine());
+$('unseen').addEventListener('click', () => model && unseen.length && pickUnseen());
+if (receipt) $('sealnote').append(' Sealed at commit ', h('code', {}, receipt.sealed.commit.slice(0, 7)), '; measured once.');
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});

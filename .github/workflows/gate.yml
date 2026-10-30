@@ -13,10 +13,14 @@ jobs:
       - name: the mutation gate - every mutant of every kernel must be killed by its tests
         run: |
           git clone --depth 1 --branch v0.6 https://github.com/sjgant80-hub/witness.git /tmp/witness6
-          for k in text trace card stats judge; do
+          for k in text trace card stats judge cost; do
             node /tmp/witness6/witness.mjs mutate src/$k.mjs --timeout 120000 --cap 600 --test node --test test/$k.test.mjs | tee /tmp/w.txt
             grep -q '"clean": true' /tmp/w.txt || { echo "::error::mutants survived in src/$k.mjs"; exit 1; }
           done
+      - name: the cards and the page's passages rebuild byte for byte from the committed texts and replies
+        run: |
+          node tools/cards.mjs --check
+          node tools/drawn.mjs --check
       - name: organ 1 - once measured, the receipt is re-derived from the committed replies byte for byte
         run: |
           if [ -f receipts/organ-1.json ]; then node tools/measure-1.mjs --check; else echo "organ 1 sealed, being grown and measured"; fi

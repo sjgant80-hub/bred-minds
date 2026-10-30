@@ -1,0 +1,3 @@
+{ "name": "Bred Minds", "short_name": "Bred Minds", "start_url": "./", "display": "standalone", "background_color": "#f7f6f2", "theme_color": "#2f5d8a",
+  "description": "Pattern-models of six great minds, grown from their own public-domain books and tested blind.",
+  "icons": [{ "src": "page/icon.svg", "sizes": "any", "type": "image/svg+xml" }] }
