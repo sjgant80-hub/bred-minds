@@ -40,10 +40,11 @@ export function people(run, r, a) {
 }
 
 /** the rail: a person starts and checks it; the laptop's extra power for every second the local model ran (at the chip's
- *  maximum); the cold judge's tokens at its API rates */
+ *  maximum); the cold judge's tokens at its API rates. The judge's input is the larger of its prompts' characters in
+ *  tokens and the harness's own count of every token its sessions used (judgeTokens), so its instructions are paid for too */
 export function rail(run, r, a) {
   const setup = a.setupMinutes / 60, kWh = num(run && run.localSeconds) * r.watts / 3.6e6;
-  const tokens = { in: Math.ceil(per(num(run && run.judgeInChars), a.charsPerToken)), out: Math.ceil(per(num(run && run.judgeOutChars), a.charsPerToken)) };
+  const tokens = { in: Math.max(Math.ceil(per(num(run && run.judgeInChars), a.charsPerToken)), Math.ceil(num(run && run.judgeTokens))), out: Math.ceil(per(num(run && run.judgeOutChars), a.charsPerToken)) };
   const judge = (tokens.in * r.inPerM + tokens.out * r.outPerM) / 1e6 * r.gbpPerUsd;
   return { totalHours: setup, staff: setup * r.wage, kWh, power: kWh * r.pencePerKwh / 100, tokens, judge, total: setup * r.wage + kWh * r.pencePerKwh / 100 + judge };
 }

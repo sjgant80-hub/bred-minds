@@ -1,0 +1,178 @@
+{
+ "kind": "bred-minds.after",
+ "v": 1,
+ "organ": 1,
+ "note": "Found after the measurement, not sealed: where the trace model (fitted on FIT passages only, as in the receipt) sent every answer.",
+ "receipt": "6f159a7e0e761403",
+ "groups": [
+  {
+   "kind": "card",
+   "mind": "marcus",
+   "n": 20,
+   "sent": {
+    "marcus": 2,
+    "montaigne": 0,
+    "emerson": 12,
+    "james": 6,
+    "nietzsche": 0,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "card",
+   "mind": "montaigne",
+   "n": 20,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 2,
+    "emerson": 8,
+    "james": 6,
+    "nietzsche": 4,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "card",
+   "mind": "emerson",
+   "n": 20,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 20,
+    "james": 0,
+    "nietzsche": 0,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "card",
+   "mind": "james",
+   "n": 20,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 0,
+    "james": 20,
+    "nietzsche": 0,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "card",
+   "mind": "nietzsche",
+   "n": 20,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 2,
+    "james": 6,
+    "nietzsche": 12,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "card",
+   "mind": "thoreau",
+   "n": 20,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 1,
+    "emerson": 13,
+    "james": 5,
+    "nietzsche": 0,
+    "thoreau": 1
+   }
+  },
+  {
+   "kind": "sham",
+   "mind": "marcus",
+   "n": 10,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 8,
+    "james": 2,
+    "nietzsche": 0,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "sham",
+   "mind": "montaigne",
+   "n": 10,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 5,
+    "james": 4,
+    "nietzsche": 1,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "sham",
+   "mind": "emerson",
+   "n": 10,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 7,
+    "james": 3,
+    "nietzsche": 0,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "sham",
+   "mind": "james",
+   "n": 10,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 8,
+    "james": 0,
+    "nietzsche": 1,
+    "thoreau": 1
+   }
+  },
+  {
+   "kind": "sham",
+   "mind": "nietzsche",
+   "n": 10,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 8,
+    "james": 2,
+    "nietzsche": 0,
+    "thoreau": 0
+   }
+  },
+  {
+   "kind": "sham",
+   "mind": "thoreau",
+   "n": 10,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 0,
+    "emerson": 9,
+    "james": 0,
+    "nietzsche": 0,
+    "thoreau": 1
+   }
+  },
+  {
+   "kind": "base",
+   "mind": null,
+   "n": 20,
+   "sent": {
+    "marcus": 0,
+    "montaigne": 1,
+    "emerson": 3,
+    "james": 12,
+    "nietzsche": 4,
+    "thoreau": 0
+   }
+  }
+ ]
+}

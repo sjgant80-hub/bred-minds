@@ -45,6 +45,8 @@ const [seal, sources, cards, drawn, maxims, persp, order, receipt, lock, witness
   getJSON('claims/organ-1.json'), getJSON('data/sources.json'), getJSON('data/cards.json'), getJSON('data/drawn.json'), getJSON('data/local/maxims.json'),
   getJSON('data/local/perspectives.json'), getJSON('data/judge/order.json'), getJSON('receipts/organ-1.json'), getJSON('data/prices.lock.json'), getJSON('data/witness.json')]);
 const batches = order ? await Promise.all([1, 2, 3, 4].map((n) => getJSON('data/judge/batch-' + n + '.json'))) : [];
+const after = receipt ? await getJSON('data/after/organ-1-lean.json') : null;
+const usage = batches.every(Boolean) && batches.length ? await getJSON('data/judge/usage.json') : null;
 const prompts = batches.every(Boolean) ? await Promise.all([1, 2, 3, 4].map((n) => getText('data/judge/batch-' + n + '.prompt.txt'))) : [];
 const MINDS = sources ? sources.minds.map((m) => m.mind) : [];
 const NAMES = Object.fromEntries((sources ? sources.minds : []).map((m) => [m.mind, m.name]));
@@ -66,7 +68,7 @@ function overview() {
   } else {
     const d = receipt.detail, macro = d.recall.reduce((a, r) => a + r.right / r.n, 0) / d.recall.length;
     fill('kpis',
-      h('div', { class: 'panel' }, h('small', {}, 'Sealed claims held'), h('div', { class: 'big' }, receipt.held + ' of ' + receipt.verdicts.length), h('small', {}, 'the failures are kept')),
+      h('div', { class: 'panel' }, h('small', {}, 'Sealed claims held'), h('div', { class: 'big' }, receipt.held + ' of ' + receipt.verdicts.length), h('small', {}, receipt.held === receipt.verdicts.length ? 'none failed; a failure would be kept and shown' : 'the failures are kept and shown')),
       h('div', { class: 'panel' }, h('small', {}, 'Card answers the judge recognised'), h('div', { class: 'big' }, d.cardJudge ? pct(d.cardJudge.rate) : '—'), h('small', {}, d.cardJudge ? d.cardJudge.k + ' of ' + d.cardJudge.n + '; chance is 1 in 6 (17%)' : '')),
       h('div', { class: 'panel' }, h('small', {}, 'Sham answers "recognised" as their label'), h('div', { class: 'big' }, d.shamJudge ? pct(d.shamJudge.rate) : '—'), h('small', {}, d.shamJudge ? d.shamJudge.k + ' of ' + d.shamJudge.n + ', the control' : '')),
       h('div', { class: 'panel' }, h('small', {}, 'Trace model on unseen book passages'), h('div', { class: 'big' }, pct(macro)), h('small', {}, 'right author, mean of the six; no language model inside')));
@@ -87,8 +89,22 @@ function headline() {
   if (held('B4') && held('B5')) s.push('A cold judge recognised whose pattern of thought a card\'s answers carried far more often than chance, and far more often than it "recognised" the sham cards.');
   else if (held('B4')) s.push('A cold judge recognised the cards\' answers more often than chance, but not clearly more often than the shams, so the recognition is not shown to come from the cards.');
   else s.push('The cold judge did not recognise the cards\' answers at the sealed bar: the pattern did not carry far enough to be named reliably.');
-  s.push(held('B6') ? 'The trace model, with no language model inside it, recognised them too: the pattern reached the words.' : 'The trace model, with no language model inside it, did not: what carried was the ideas, not the old books\' words.');
+  const L = leanRead();
+  if (held('B6') && L) s.push('The trace model, with no language model inside it, held its sealed bar too (' + d.cardTrace.k + ' of ' + d.cardTrace.n + '), but unevenly, and with a lean found after the receipt: it sent ' + L.leanK + ' of the ' + L.ctrlN + ' control answers to ' + NAMES[L.pair[0]] + ' or ' + NAMES[L.pair[1]] + ', so the card answers it gave those two (' + L.card[L.pair[0]] + ' and ' + L.card[L.pair[1]] + ' of 20) are only partly the card. Outside that lean its clearest signal is ' + NAMES[L.best] + ' (' + L.card[L.best] + ' of 20 card answers, against ' + L.ctrl[L.best] + ' of the ' + L.ctrlN + ' controls)' + (L.weak.length ? '; ' + L.weak.map((m) => NAMES[m]).join(', ').replace(/, ([^,]*)$/, ' and $1') + ' it hardly ever named (' + L.weak.map((m) => L.card[m]).join(', ').replace(/, ([^,]*)$/, ' and $1') + ' of 20).' : '.'));
+  else s.push(held('B6') ? 'The trace model, with no language model inside it, recognised them too: the pattern reached the words.' : 'The trace model, with no language model inside it, did not: what carried was the ideas, not the old books\' words.');
   return s.join(' ');
+}
+
+/** the lean, read from where the trace model sent every answer: each mind's own card answers against the 80 controls
+ *  (the base answers and the shams), the two minds the controls went to most, and the clearest signal outside them */
+function leanRead(a = after) {
+  if (!a || !a.groups) return null;
+  const card = {}, ctrl = Object.fromEntries(MINDS.map((m) => [m, 0])); let ctrlN = 0;
+  for (const g of a.groups) { if (g.kind === 'card') card[g.mind] = g.sent[g.mind]; else { ctrlN += g.n; for (const m of MINDS) ctrl[m] += g.sent[m]; } }
+  if (!ctrlN || MINDS.some((m) => card[m] == null)) return null;
+  const pair = [...MINDS].sort((x, y) => ctrl[y] - ctrl[x]).slice(0, 2), gap = (m) => card[m] / 20 - ctrl[m] / ctrlN;
+  const best = MINDS.filter((m) => !pair.includes(m)).sort((x, y) => gap(y) - gap(x))[0];
+  return { card, ctrl, ctrlN, pair, leanK: ctrl[pair[0]] + ctrl[pair[1]], best, weak: MINDS.filter((m) => card[m] < 5) };
 }
 
 // ---------- the cards ----------
@@ -164,6 +180,11 @@ async function grow() {
     h('tbody', {}, rows.map((r, i) => h('tr', {}, h('td', {}, r.s.name), h('td', { class: r.ok ? 'held' : 'failed' }, r.ok ? 'matches the record' : 'DIFFERS'), h('td', { class: 'num' }, r.fit), h('td', { class: 'num' }, r.test), h('td', { class: 'num' }, recall[i].right + ' / ' + recall[i].n)))))),
     h('p', {}, 'Mean accuracy on passages the model never saw: ', h('b', {}, pct(macro, 1)), '. ', same === null ? 'The receipt is not committed yet.' : same ? h('span', { class: 'held' }, 'Identical to the receipt, mind by mind.') : h('span', { class: 'failed' }, 'Different from the receipt.')));
   unseen = MINDS.flatMap((m) => stock[m].filter((p) => p.test).map((p) => ({ mind: m, index: p.index, text: p.text })));
+  if (after && items) {
+    const mine = after.groups.map((g) => { const sent = Object.fromEntries(MINDS.map((m) => [m, 0])); for (const x of items.filter((i) => i.kind === g.kind && i.mind === g.mind)) { const to = attribute(model, x.reply); if (to) sent[to]++; } return { ...g, sent }; });
+    const same = JSON.stringify(mine) === JSON.stringify(after.groups);
+    leanView({ ...after, groups: mine }, h('p', {}, 'Re-derived in this tab from the model you just grew: ', same ? h('span', { class: 'held' }, 'identical to the committed file, every cell.') : h('span', { class: 'failed' }, 'different from the committed file.')));
+  }
   $('tryit').hidden = false;
 }
 let unseen = [], picked = null;
@@ -196,6 +217,21 @@ function results() {
   fill('permind', h('h3', {}, 'Mind by mind'), h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Mind'), h('th', { class: 'num' }, 'Judge, card answers'), h('th', { class: 'num' }, 'Trace model, card answers'), h('th', { class: 'num' }, 'Judge, sham answers'), h('th', { class: 'num' }, 'Trace model, unseen book passages'))),
     h('tbody', {}, pm.map((m) => { const r = receipt.detail.recall.find((x) => x.mind === m.mind); return h('tr', {}, h('td', {}, mindTag(m.mind, NAMES)), h('td', { class: 'num' }, m.judge + ' / ' + m.n), h('td', { class: 'num' }, m.trace + ' / ' + m.n), h('td', { class: 'num' }, m.sham + ' / 10'), h('td', { class: 'num' }, r.right + ' / ' + r.n)); })))),
     h('p', { class: 'note' }, 'Chance for any one mind is 1 in 6. A sham answer counts as "recognised" when the judge picks the mind the sham is labelled with.'));
+  leanView();
+}
+
+/** where the trace model sent every answer: found after the receipt, not sealed, shown because B6's mind-by-mind counts are uneven */
+function leanView(a = after, check = null) {
+  const L = leanRead(a);
+  if (!L) return;
+  const label = (g) => g.kind === 'card' ? h('span', {}, 'Card of ', mindTag(g.mind, NAMES)) : g.kind === 'sham' ? h('span', {}, 'Sham labelled ', NAMES[g.mind]) : h('span', {}, 'No card (base)');
+  fill('lean', h('h3', {}, 'Where the trace model sent the answers'),
+    h('p', {}, h('span', { class: 'pill' }, 'found after the receipt, not sealed'), ' B6 held, but its mind-by-mind counts are uneven, so every answer\'s call is shown. Each row is a group of answers; each column is the mind the trace model named.'),
+    h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Answers'), h('th', { class: 'num' }, 'n'), MINDS.map((m) => h('th', { class: 'num' }, NAMES[m].split(' ').pop())))),
+      h('tbody', {}, a.groups.map((g) => h('tr', {}, h('td', {}, label(g)), h('td', { class: 'num' }, g.n), MINDS.map((m) => h('td', { class: 'num' + (g.kind === 'card' && g.mind === m ? ' held' : '') }, g.sent[m] ? String(g.sent[m]) : '·'))))))),
+    h('p', {}, h('b', {}, 'Read plainly. '), 'The 80 controls (20 answers written from no card, 60 from shams) are the answers no single mind wrote. The trace model sent ' + L.leanK + ' of them to ' + NAMES[L.pair[0]] + ' or ' + NAMES[L.pair[1]] + ': it leans toward those two for any modern-English advice. So a card answer it gives to one of them is only partly the card speaking. Outside the lean, the answers from ' + NAMES[L.best].split(' ').pop() + '\'s card went to him ' + L.card[L.best] + ' times in 20, where only ' + L.ctrl[L.best] + ' of the 80 controls did: that is the cleanest sign the words carried. ' + (L.weak.length ? L.weak.map((m) => NAMES[m]).join(', ').replace(/, ([^,]*)$/, ' and $1') + ' it almost never named. A likely part of the reason: the maxims were stated in modern English, and the Marcus and Montaigne it was fitted on are 17th-century translations. That does not explain Thoreau, whose answers went mostly to Emerson, his neighbour in Concord and in vocabulary.' : '')),
+    h('p', { class: 'note' }, 'The judge does not share the lean: it recognised the card answers of all six minds 18 to 20 times in 20, and the shams 5 times in 60. The lesson is written into the next seal: a word-count check is barred against the controls, not against chance.'),
+    check);
 }
 
 // ---------- traced from the real run ----------
@@ -227,7 +263,7 @@ function runRecord() {
   if (!items || !drawn || !maxims || prompts.length !== 4 || !prompts.every((x) => typeof x === 'string')) return null;
   return { passageWords: drawn.minds.flatMap((m) => m.passages.map((p) => words(p.text).length)), perspectiveWords: items.map((x) => words(x.reply).length),
     localSeconds: maxims.items.reduce((a, x) => a + x.seconds, 0) + items.reduce((a, x) => a + x.seconds, 0),
-    judgeInChars: prompts.reduce((a, x) => a + x.length, 0), judgeOutChars: batches.reduce((a, b) => a + b.reply.length, 0) };
+    judgeInChars: prompts.reduce((a, x) => a + x.length, 0), judgeOutChars: batches.reduce((a, b) => a + b.reply.length, 0), judgeTokens: usage ? usage.tokens : 0 };
 }
 function caseView() {
   const run = runRecord();
@@ -245,7 +281,7 @@ function caseView() {
     h('div', { class: 'panel' }, h('h3', {}, 'This rail'), h('ul', {},
       h('li', {}, 'A person starts and checks it: ' + hrs(R.totalHours) + ', ' + gbp(R.staff)),
       h('li', {}, 'The laptop ran the local model for ' + hrs(run.localSeconds / 3600) + ': ' + R.kWh.toFixed(3) + ' kWh at the chip\'s maximum ' + c.rates.watts + ' W, ' + gbp(R.power)),
-      h('li', {}, 'The cold judge read ' + R.tokens.in.toLocaleString('en-GB') + ' and wrote ' + R.tokens.out.toLocaleString('en-GB') + ' tokens (counted high, one per ' + c.assume.charsPerToken + ' characters): ' + gbp(R.judge)),
+      h('li', {}, 'The cold judge: ' + R.tokens.in.toLocaleString('en-GB') + ' tokens in and ' + R.tokens.out.toLocaleString('en-GB') + ' out, ' + gbp(R.judge) + '. Counted high: the input is ' + (run.judgeTokens > Math.ceil(run.judgeInChars / c.assume.charsPerToken) ? 'the harness\'s own count of the four whole judge sessions (their instructions, the batch, the reply), all priced as input' : 'its prompts at one token per ' + c.assume.charsPerToken + ' characters') + '; the replies at one token per ' + c.assume.charsPerToken + ' characters.'),
       h('li', {}, 'The trace model: seconds of the laptop, no cost worth counting')),
       h('p', {}, h('b', {}, 'Total: ' + gbp(R.total)))));
   fill('year', h('label', { class: 'controls' }, 'Checks a month ', (() => { const i = h('input', { type: 'number', min: '1', max: '500', value: String(perMonth), 'aria-label': 'Checks a month' }); i.addEventListener('input', () => { const v = Number(i.value); if (Number.isFinite(v) && v >= 1 && v <= 500) { perMonth = v; caseView(); } }); return i; })()),
@@ -269,7 +305,7 @@ function words2() {
     ['The judge knows these thinkers too well; it may guess from famous ideas.', 'That is why the shams exist. A sham card carries maxims from all six under one label; the receipt compares real cards against shams' + (receipt ? ' (B5 ' + (held('B5') ? 'held' : 'failed') + ').' : '.')],
     ['A model is not the person.', 'Agreed, and the page says so first. A card is twelve sentences a small model drew from a translation. It is tested for whether a pattern carried, not for whether it says what the author would say.'],
     ['The judge is a cloud model.', 'It sees only the generated answers, in shuffled batches of 50, cold. Swap in a local judge and the whole run stays on the machine; the receipt names which judge was used.'],
-    ['The local model writes modern English; the books are old translations.', receipt ? (held('B6') ? 'The trace model, fitted only on the old books, still recognised the card answers: the voice carried into the words.' : 'Measured and said plainly: the trace model did not recognise the card answers at the sealed bar. What carried, carried as ideas, not as the old books\' words.') : 'B6 measures exactly this, and the expectation written before the run left it open.'],
+    ['The local model writes modern English; the books are old translations.', receipt ? (held('B6') ? (leanRead() ? 'It mattered. The trace model, fitted only on the old books, held its sealed bar on the card answers, but it leans toward Emerson and James for any modern-English advice, and it almost never named the minds read from 17th-century translations. The page shows every call, and the next organ bars the word-count check against the controls instead of chance.' : 'The trace model, fitted only on the old books, still recognised the card answers: the voice carried into the words.') : 'Measured and said plainly: the trace model did not recognise the card answers at the sealed bar. What carried, carried as ideas, not as the old books\' words.') : 'B6 measures exactly this, and the expectation written before the run left it open.'],
     ['A result like this can be tuned until it looks good.', 'Not here. The prompts, seeds, questions, thresholds and claims were committed before any model was asked anything, and the measurement refuses to run if the seal changed.'],
   ];
   fill('risks', risks.map(([q, a]) => h('details', { class: 'panel' }, h('summary', {}, q), h('p', {}, a))));

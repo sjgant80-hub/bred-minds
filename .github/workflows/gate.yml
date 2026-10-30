@@ -24,3 +24,5 @@ jobs:
       - name: organ 1 - once measured, the receipt is re-derived from the committed replies byte for byte
         run: |
           if [ -f receipts/organ-1.json ]; then node tools/measure-1.mjs --check; else echo "organ 1 sealed, being grown and measured"; fi
+      - name: organ 1, read after the receipt (not sealed) - where the trace model sent every answer rebuilds byte for byte
+        run: node tools/after-1.mjs --check

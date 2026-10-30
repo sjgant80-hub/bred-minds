@@ -61,6 +61,16 @@ test('the rail: the setup at the wage, the laptop power for the seconds the mode
   assert.equal(rail({ localSeconds: -9, judgeInChars: 'x' }, r, assume()).total, 6);
 });
 
+test('the rail: the judge\'s input is the larger of its prompts in tokens and the harness\'s count of its whole sessions', () => {
+  const r = rates(LOCK), a = assume();
+  assert.deepEqual(rail({ ...RUN, judgeTokens: 40000.2 }, r, a).tokens, { in: 40001, out: 1001 });
+  assert.deepEqual(rail({ ...RUN, judgeTokens: 10002 }, r, a).tokens, { in: 10002, out: 1001 });
+  assert.deepEqual(rail({ ...RUN, judgeTokens: 10000 }, r, a).tokens, { in: 10001, out: 1001 });
+  near(rail({ ...RUN, judgeTokens: 40000 }, r, a).judge, (40000 * 4 + 1001 * 20) / 1e6 * 0.8);
+  assert.deepEqual(rail({ ...RUN, judgeTokens: 500 }, r, assume({ charsPerToken: 0 })).tokens, { in: 500, out: 0 });
+  for (const bad of [-5, NaN, Infinity, '90000', null]) assert.deepEqual(rail({ ...RUN, judgeTokens: bad }, r, a).tokens, { in: 10001, out: 1001 }, String(bad));
+});
+
 test('the comparison and the year', () => {
   const c = compare(RUN, LOCK, { reviewers: 1 }), p = 0.160833333333 * 12 + 15;
   near(c.people.total, (0.04 + 2 / 60 + 0.025 + 0.0625) * 12 + 15); near(c.rail.total, 6.0680192);

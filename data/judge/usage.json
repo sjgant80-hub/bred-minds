@@ -1,0 +1,29 @@
+{
+ "kind": "bred-minds.judge-usage",
+ "v": 1,
+ "note": "The token count the Claude Code harness reported for each cold judge session when it finished: its whole session, i.e. the standing instructions every subagent is given, the one batch it read and the reply it wrote. The cost case prices all of it as input, so the judge is not under-costed. Those standing instructions are the operator's own; they hold no card, no answer key and no order of the answers. Each session used two tools, the harness reported: one read of its batch and one write of its reply.",
+ "model": "claude-opus-5-5",
+ "batches": [
+  {
+   "batch": 1,
+   "tokens": 90723,
+   "toolUses": 2
+  },
+  {
+   "batch": 2,
+   "tokens": 89227,
+   "toolUses": 2
+  },
+  {
+   "batch": 3,
+   "tokens": 88431,
+   "toolUses": 2
+  },
+  {
+   "batch": 4,
+   "tokens": 90679,
+   "toolUses": 2
+  }
+ ],
+ "tokens": 359060
+}

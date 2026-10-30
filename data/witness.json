@@ -36,12 +36,12 @@
   },
   {
    "kernel": "cost",
-   "killed": 17,
-   "total": 17,
+   "killed": 18,
+   "total": 18,
    "clean": true
   }
  ],
- "killed": 92,
- "total": 92,
+ "killed": 93,
+ "total": 93,
  "note": "GitHub's runner re-runs the same gate on every push and fails the build if any mutant survives"
 }
