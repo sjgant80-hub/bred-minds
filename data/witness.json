@@ -39,9 +39,15 @@
    "killed": 18,
    "total": 18,
    "clean": true
+  },
+  {
+   "kernel": "breed",
+   "killed": 59,
+   "total": 59,
+   "clean": true
   }
  ],
- "killed": 93,
- "total": 93,
+ "killed": 152,
+ "total": 152,
  "note": "GitHub's runner re-runs the same gate on every push and fails the build if any mutant survives"
 }
