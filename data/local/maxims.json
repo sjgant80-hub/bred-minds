@@ -1,0 +1,1026 @@
+{
+ "kind": "bred-minds.local-maxims",
+ "v": 1,
+ "asked": {
+  "model": "qwen2.5:7b",
+  "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "ollama": "0.40.5",
+  "quantization": "Q4_K_M"
+ },
+ "options": {
+  "temperature": 0,
+  "seed": 7,
+  "num_ctx": 4096,
+  "num_predict": 120
+ },
+ "items": [
+  {
+   "mind": "marcus",
+   "index": 52,
+   "prompt": "b16f6df7e2f191e7",
+   "reply": "To live cheerfully, one should confine themselves to necessary actions and cut off unnecessary thoughts and actions.",
+   "seconds": 27
+  },
+  {
+   "mind": "marcus",
+   "index": 83,
+   "prompt": "364cc939ac4c51a9",
+   "reply": "Let not your mind be influenced by pleasure or pain, but keep your understanding separate from them, only allowing natural sensations without adding opinions of good or bad.",
+   "seconds": 15
+  },
+  {
+   "mind": "marcus",
+   "index": 142,
+   "prompt": "05f1541b2d7050a2",
+   "reply": "The main claim is that one should have a disposition to act justly towards others and holily towards the gods, without being vexed by the wickedness of others or condescending to their evil intentions, and without letting one's mind be swayed by sensory experiences or bodily affections.",
+   "seconds": 34
+  },
+  {
+   "mind": "marcus",
+   "index": 235,
+   "prompt": "4306fbf11da833e2",
+   "reply": "The main claim is that we should let our own judgment rest and remain calm regarding external things, as they do not come to us, and we should go to them instead, which will make all pursuing and flying cease.",
+   "seconds": 24
+  },
+  {
+   "mind": "marcus",
+   "index": 146,
+   "prompt": "20e9a9887135f60f",
+   "reply": "The main claim is that one should live according to the natural requirements of human nature, focusing on the practice of right and true moral tenets concerning what is good or evil.",
+   "seconds": 42
+  },
+  {
+   "mind": "marcus",
+   "index": 182,
+   "prompt": "f9eff0117ef9b89e",
+   "reply": "If your current perception is correct, your action is charitable, and you are pleased with what comes from God, then that suffices.",
+   "seconds": 41
+  },
+  {
+   "mind": "marcus",
+   "index": 2,
+   "prompt": "cc8b43e34fb97f3d",
+   "reply": "The main claim this passage makes is that one should seek genuine improvement and avoid superficial pursuits or pretentious displays, instead valuing genuine learning, reconciliation, and deep reflection.",
+   "seconds": 27
+  },
+  {
+   "mind": "marcus",
+   "index": 136,
+   "prompt": "e94c0af3faefd291",
+   "reply": "It is in your power to embrace whatever happens to you according to God's will, justly interact with others, and examine your thoughts carefully.",
+   "seconds": 21
+  },
+  {
+   "mind": "marcus",
+   "index": 57,
+   "prompt": "719e487099e2e1d5",
+   "reply": "The main claim is that we should focus on ensuring our minds and wills are just, our actions are charitable, our speech is truthful, and our understanding is not subject to error.",
+   "seconds": 28
+  },
+  {
+   "mind": "marcus",
+   "index": 132,
+   "prompt": "d6d3e39c570e3cad",
+   "reply": "True magnanimity involves contemplating all times and things in general, making mortal life and death seem insignificant, and it is noble to do well while being ill-spoken of, rather than letting one's appearance control their mind.",
+   "seconds": 23
+  },
+  {
+   "mind": "marcus",
+   "index": 170,
+   "prompt": "bc461acc8284543f",
+   "reply": "The main claim is that one should make their chief fort and place of defense a mind free from passions, as it is a stronger and better fortified place than any other.",
+   "seconds": 21
+  },
+  {
+   "mind": "marcus",
+   "index": 47,
+   "prompt": "866297fd9ebdb2a1",
+   "reply": "If you have reason, you should use it, or you will be reduced to the same status as those who do not have reason.",
+   "seconds": 19
+  },
+  {
+   "mind": "marcus",
+   "index": 34,
+   "prompt": "d79b625d7ab1b0a8",
+   "reply": "The main claim is that one should live a life free from impurities and biases, honor one's rational faculties, and focus on the present moment, understanding that life is短暂且有限，应珍惜当下，遵循自然与理性。",
+   "seconds": 32
+  },
+  {
+   "mind": "marcus",
+   "index": 64,
+   "prompt": "72c2c17e06030fd5",
+   "reply": "The main claim is that whatever happens to you is not inherently a misfortune, but how you bear it with generosity is true happiness.",
+   "seconds": 30
+  },
+  {
+   "mind": "marcus",
+   "index": 94,
+   "prompt": "5e596216fb6d2669",
+   "reply": "He who honors a reasonable soul in general, as it is reasonable and naturally sociable, does little regard anything else: and above all things is careful to preserve his own, in the continual habit and exercise both of reason and sociableness.",
+   "seconds": 27
+  },
+  {
+   "mind": "marcus",
+   "index": 255,
+   "prompt": "1cf0a5a2bf0fc428",
+   "reply": "To live, think, and act, one should maintain their purpose free from compulsion, understand the true nature of things, and act with the common good in mind, recognizing the transient nature of all things.",
+   "seconds": 26
+  },
+  {
+   "mind": "marcus",
+   "index": 13,
+   "prompt": "cea04af927cbba18",
+   "reply": "We are all born to be fellow-workers, and thus, we should not be hurt or angry towards anyone, as we are all connected by the same reason and divine particle.",
+   "seconds": 26
+  },
+  {
+   "mind": "marcus",
+   "index": 135,
+   "prompt": "74c97ca06b218115",
+   "reply": "Whether one lives for forty years or ten thousand, the experiences are essentially the same, so one might as well approach life with a philosophical perspective.",
+   "seconds": 24
+  },
+  {
+   "mind": "marcus",
+   "index": 62,
+   "prompt": "e389eef1c80dc7d0",
+   "reply": "We should not speak or do anything as men in their sleep, by opinion and bare imagination, but rather act with reason and awareness.",
+   "seconds": 21
+  },
+  {
+   "mind": "marcus",
+   "index": 54,
+   "prompt": "82aa2f580042f34c",
+   "reply": "It is impossible for there to be beauty in the world while everything is in disorder, suggesting that order and harmony should be sought in both individual disposition and the world at large.",
+   "seconds": 22
+  },
+  {
+   "mind": "marcus",
+   "index": 194,
+   "prompt": "2609cc4a08c5cd6b",
+   "reply": "Change and alteration, which the universe delights in, is the nature of things, so one should accept and embrace it in their thinking and actions.",
+   "seconds": 22
+  },
+  {
+   "mind": "marcus",
+   "index": 155,
+   "prompt": "654fff231e1ee81a",
+   "reply": "Everything that exists has a purpose, and we should not wonder or question why we exist; instead, we should understand our purpose in life.",
+   "seconds": 19
+  },
+  {
+   "mind": "marcus",
+   "index": 231,
+   "prompt": "48afe0bd9cb0a399",
+   "reply": "The main claim is that one should live with a readiness to separate from the body at any time, proceeding from a well-considered judgment rather than passionate resolve, and constantly reflect on having done something charitably as a measure of benefit.",
+   "seconds": 24
+  },
+  {
+   "mind": "marcus",
+   "index": 26,
+   "prompt": "5fefd676f56b5cb8",
+   "reply": "To find pleasure and delight in the world, one must consider all things with a profound mind, even the natural imperfections and accessories, as they can be comely and delightful.",
+   "seconds": 34
+  },
+  {
+   "mind": "montaigne",
+   "index": 276,
+   "prompt": "c4d5c5a7bb8cb532",
+   "reply": "A young man should be adaptable to all customs and situations, even to debauchery and excess, but should always strive to do what is good.",
+   "seconds": 36
+  },
+  {
+   "mind": "montaigne",
+   "index": 1593,
+   "prompt": "db1b96171c998a34",
+   "reply": "It is considered more virtuous to destroy what one has created than to bring something into the world.",
+   "seconds": 20
+  },
+  {
+   "mind": "montaigne",
+   "index": 1123,
+   "prompt": "7b0209cf196fa69a",
+   "reply": "We should value our own self-awareness and the reality of our lives more than seeking fame or how others perceive us.",
+   "seconds": 32
+  },
+  {
+   "mind": "montaigne",
+   "index": 1333,
+   "prompt": "abb473245f879578",
+   "reply": "He believed that swimming was of great use in war and often practiced it.",
+   "seconds": 17
+  },
+  {
+   "mind": "montaigne",
+   "index": 792,
+   "prompt": "5f0fb7303b13bf31",
+   "reply": "The passage suggests that one should embrace knowledge and critical thinking, especially during times of religious uncertainty, to prevent the slide into atheism and maintain a stable belief system.",
+   "seconds": 30
+  },
+  {
+   "mind": "montaigne",
+   "index": 1443,
+   "prompt": "a8bab7c3628a5b7f",
+   "reply": "Let us abandon the pretense of reason used as an excuse for wicked, bloody, and treacherous actions and instead rely on time and example to guide us.",
+   "seconds": 19
+  },
+  {
+   "mind": "montaigne",
+   "index": 1217,
+   "prompt": "6b5f86c2451086b2",
+   "reply": "A philosopher and a brave man should focus on honourable, great, and virtuous things and avoid bodily necessities as much as possible.",
+   "seconds": 18
+  },
+  {
+   "mind": "montaigne",
+   "index": 2003,
+   "prompt": "d2512d324dd6fdb4",
+   "reply": "The main claim is that one should maintain hope and find consolation in past experiences to navigate through life's challenges.",
+   "seconds": 34
+  },
+  {
+   "mind": "montaigne",
+   "index": 463,
+   "prompt": "afcd52bf881e20c2",
+   "reply": "The main claim is that one should practice a thrifty and alluring honesty by paying debts on time, finding pleasure in relieving oneself of financial burdens, and avoiding the scandal of bargaining.",
+   "seconds": 36
+  },
+  {
+   "mind": "montaigne",
+   "index": 163,
+   "prompt": "f49f198e99069441",
+   "reply": "From a young age, the author has developed a natural aversion to deceit in all matters, whether playing for small stakes or in earnest.",
+   "seconds": 21
+  },
+  {
+   "mind": "montaigne",
+   "index": 795,
+   "prompt": "fad5134892059faa",
+   "reply": "We should use our reason to serve our faith, but always with the understanding that true divine knowledge comes from faith alone and not from our own efforts.",
+   "seconds": 35
+  },
+  {
+   "mind": "montaigne",
+   "index": 1656,
+   "prompt": "a951992f84f49b6e",
+   "reply": "The passage claims that it would have been better to have introduced Greek and Roman virtues and culture to newly discovered peoples, rather than exploiting them through treachery, luxury, avarice, and violence.",
+   "seconds": 32
+  },
+  {
+   "mind": "montaigne",
+   "index": 811,
+   "prompt": "5bbd569e80537f21",
+   "reply": "The passage claims that one should submit to the wisdom of God, recognizing the futility of human wisdom and the vanity of man, as expressed by the Holy Spirit.",
+   "seconds": 18
+  },
+  {
+   "mind": "montaigne",
+   "index": 1823,
+   "prompt": "be116f94940f49a4",
+   "reply": "The more one denies himself, the more the gods give him, suggesting contentment and modesty in desires lead to greater blessings.",
+   "seconds": 20
+  },
+  {
+   "mind": "montaigne",
+   "index": 987,
+   "prompt": "4cfab254c32a32d2",
+   "reply": "The soul is vulnerable to various states and external influences, suggesting the need for constant care and resilience.",
+   "seconds": 22
+  },
+  {
+   "mind": "montaigne",
+   "index": 225,
+   "prompt": "b2ea6993a7c9a45d",
+   "reply": "The main claim is that it is more effective to teach children through practical experience and example rather than just through words and precepts.",
+   "seconds": 30
+  },
+  {
+   "mind": "montaigne",
+   "index": 124,
+   "prompt": "001a6e1edcd92b03",
+   "reply": "Our religion and reason both suggest we should embrace the contempt of life, seeing death as a relief from the fear of multiple deaths rather than a thing to be feared.",
+   "seconds": 38
+  },
+  {
+   "mind": "montaigne",
+   "index": 865,
+   "prompt": "4d88e1ca185debd1",
+   "reply": "The passage suggests that we should not disdainfully interpret effects we cannot imitate or comprehend.",
+   "seconds": 15
+  },
+  {
+   "mind": "montaigne",
+   "index": 57,
+   "prompt": "32e8a7c4c3acaefb",
+   "reply": "The passage suggests that slow speakers should be more suitable for preaching, while those with a present wit should be better suited for legal advocacy.",
+   "seconds": 27
+  },
+  {
+   "mind": "montaigne",
+   "index": 397,
+   "prompt": "d17de783e027c038",
+   "reply": "Poetry has influenced the author's life, varying in style from gay and sprightly to lofty and penetrating, ultimately leading to a mature and constant vigour.",
+   "seconds": 20
+  },
+  {
+   "mind": "montaigne",
+   "index": 1584,
+   "prompt": "e5a0ba72e52a33d8",
+   "reply": "To maintain the dignity of your style, you will often find your language quailing under powerful conceptions, and in such cases, Latin can step in to provide relief.",
+   "seconds": 24
+  },
+  {
+   "mind": "montaigne",
+   "index": 554,
+   "prompt": "08476159bf29b496",
+   "reply": "We try to match the magnificence, debauchery, and extravagance of the grandees but lack the ability to equal them.",
+   "seconds": 24
+  },
+  {
+   "mind": "montaigne",
+   "index": 116,
+   "prompt": "41a3ce7ccea5523e",
+   "reply": "We should always be prepared and ready to go, especially in regards to our own thoughts and concerns.",
+   "seconds": 23
+  },
+  {
+   "mind": "montaigne",
+   "index": 1344,
+   "prompt": "447ef007b502bcf9",
+   "reply": "The main claim this passage makes is that Seneca believes in living with constancy and dying with honor, with the latter being seen as a greater glory and beauty.",
+   "seconds": 35
+  },
+  {
+   "mind": "emerson",
+   "index": 221,
+   "prompt": "f38cdf0d38e8e7fc",
+   "reply": "Life is a festival only to the wise, who understand and adhere to natural, intellectual, and moral laws.",
+   "seconds": 23
+  },
+  {
+   "mind": "emerson",
+   "index": 174,
+   "prompt": "5e16fb6ea3cf2dec",
+   "reply": "The true marriage is the purification of the intellect and the heart from year to year, not the initial passion and physical attraction.",
+   "seconds": 31
+  },
+  {
+   "mind": "emerson",
+   "index": 241,
+   "prompt": "635bf90f0d0f4bc8",
+   "reply": "The main claim this passage makes is that the soul's scale is one, emphasizing the permanence and universality of certain thoughts and experiences over the limitations of time and space.",
+   "seconds": 43
+  },
+  {
+   "mind": "emerson",
+   "index": 321,
+   "prompt": "918cb78df1604364",
+   "reply": "Pictures must not be too picturesque; what astonishes men is common-sense and plain dealing.",
+   "seconds": 32
+  },
+  {
+   "mind": "emerson",
+   "index": 296,
+   "prompt": "2217d9818d7ad86a",
+   "reply": "To think deeply and understand abstract truths requires intentional effort and often comes unexpectedly, much like the rhythm of breathing or the pulse of the heart.",
+   "seconds": 33
+  },
+  {
+   "mind": "emerson",
+   "index": 224,
+   "prompt": "195509a4a6bdc0ee",
+   "reply": "Self-trust is the essence of heroism, and it involves speaking the truth, being just and generous, persisting with undaunted boldness, and finding the littleness of common life amusing.",
+   "seconds": 36
+  },
+  {
+   "mind": "emerson",
+   "index": 215,
+   "prompt": "2c17a1c5624f53bb",
+   "reply": "To live serenely in life, one must face their fears head-on, as courage and resolution can often make fears groundless.",
+   "seconds": 20
+  },
+  {
+   "mind": "emerson",
+   "index": 255,
+   "prompt": "1eb56525fff57507",
+   "reply": "If a man does not speak from within the veil, where the word is one with that it tells of, let him lowly confess it.",
+   "seconds": 24
+  },
+  {
+   "mind": "emerson",
+   "index": 147,
+   "prompt": "63c2c627c92eafe7",
+   "reply": "Virtue is the adherence in action to the nature of things, and the nature of things makes it prevalent.",
+   "seconds": 23
+  },
+  {
+   "mind": "emerson",
+   "index": 50,
+   "prompt": "8336f35f82b1c7c8",
+   "reply": "Speak your honest thought now and tomorrow, even if it contradicts what you said today, because to be great is to be misunderstood.",
+   "seconds": 31
+  },
+  {
+   "mind": "emerson",
+   "index": 162,
+   "prompt": "1df90818fe70a3d8",
+   "reply": "All other pleasures are not worth the pains of love, suggesting that love should be the central focus of one's life.",
+   "seconds": 20
+  },
+  {
+   "mind": "emerson",
+   "index": 295,
+   "prompt": "bcb5abd94b327639",
+   "reply": "Every person, regardless of their background, has valuable experiences and insights that can be learned from.",
+   "seconds": 17
+  },
+  {
+   "mind": "emerson",
+   "index": 263,
+   "prompt": "b09f057f56cc4d1a",
+   "reply": "The main claim is that the soul should believe in itself and live according to its own eternal facts, rather than relying on authority or past experiences.",
+   "seconds": 37
+  },
+  {
+   "mind": "emerson",
+   "index": 262,
+   "prompt": "a29faa96f5d280ce",
+   "reply": "To find God, one must withdraw from the opinions and prayers of others and listen to oneself in solitude.",
+   "seconds": 22
+  },
+  {
+   "mind": "emerson",
+   "index": 222,
+   "prompt": "251f433c9f83bb51",
+   "reply": "To live heroically, one must embrace the state of war, trust in one's own strength, and act with courage and integrity, even in the face of danger and adversity.",
+   "seconds": 37
+  },
+  {
+   "mind": "emerson",
+   "index": 260,
+   "prompt": "dfd8bf534055140f",
+   "reply": "He believes that he cannot escape from his good, and every sound that is spoken over the round world, which he ought to hear, will vibrate on his ear.",
+   "seconds": 40
+  },
+  {
+   "mind": "emerson",
+   "index": 96,
+   "prompt": "ce3c6f0bb57ebb7f",
+   "reply": "This passage suggests that one should act justly, as consequences will follow any wrongdoing.",
+   "seconds": 17
+  },
+  {
+   "mind": "emerson",
+   "index": 183,
+   "prompt": "5d05a6eab7063d15",
+   "reply": "We should not aim for swift and petty benefits in our friendships but seek them with a sacred passion, avoiding the subtle antagonisms that turn poetry into stale prose.",
+   "seconds": 34
+  },
+  {
+   "mind": "emerson",
+   "index": 33,
+   "prompt": "1c59060985afd240",
+   "reply": "Fidelity is always beautiful and always liable to calamity in this world.",
+   "seconds": 20
+  },
+  {
+   "mind": "emerson",
+   "index": 135,
+   "prompt": "d5c39bc36c930750",
+   "reply": "Every man sees himself in colossal form in the events of the world, whether in dreams or in interactions with others.",
+   "seconds": 31
+  },
+  {
+   "mind": "emerson",
+   "index": 204,
+   "prompt": "51dd79c749ae618c",
+   "reply": "Prudence accepts and adheres to the natural and societal laws that condition human existence in order to enjoy their benefits and navigate life's constraints.",
+   "seconds": 30
+  },
+  {
+   "mind": "emerson",
+   "index": 283,
+   "prompt": "a894ae55ea3c0ffb",
+   "reply": "The highest power of divine moments is that they abolish our contritions and confer a sense of omnipresence and omnipotence, making our energy commensurate with the work to be done.",
+   "seconds": 21
+  },
+  {
+   "mind": "emerson",
+   "index": 121,
+   "prompt": "36a95f080111e37b",
+   "reply": "The main claim is that our success lies more in aligning with the natural flow of circumstances rather than in our own will or deep-laid plans.",
+   "seconds": 26
+  },
+  {
+   "mind": "emerson",
+   "index": 144,
+   "prompt": "3e3d666abd28a853",
+   "reply": "When we speak the truth from a place of sincerity, our expressions become clear and honest, whereas deceit makes our faces appear muddy and dishonest.",
+   "seconds": 25
+  },
+  {
+   "mind": "james",
+   "index": 71,
+   "prompt": "ee426cbe52f9ada8",
+   "reply": "Berkeley's criticism of matter tells us that it is known only through our sensations, so we should understand matter in terms of those sensations rather than as an independent substance.",
+   "seconds": 29
+  },
+  {
+   "mind": "james",
+   "index": 242,
+   "prompt": "8d515eff0f5a1f7e",
+   "reply": "The main claim is that anything coming into existence is ultimately due to someone wishing it to be there, rather than material causes or logical necessities.",
+   "seconds": 24
+  },
+  {
+   "mind": "james",
+   "index": 32,
+   "prompt": "e1b7b147b414f000",
+   "reply": "The main claim is that clarity in thinking or acting depends on making distinctions when faced with contradictions.",
+   "seconds": 36
+  },
+  {
+   "mind": "james",
+   "index": 225,
+   "prompt": "3d279ec57aa997c5",
+   "reply": "If the absolutistic hypothesis works religiously, it should be held to through all possible reformulations for pragmatism.",
+   "seconds": 17
+  },
+  {
+   "mind": "james",
+   "index": 81,
+   "prompt": "8cc4c68c3b32f6ad",
+   "reply": "The wise man should turn his back on philosophical disputes from which nothing definite can be seen to follow in the future.",
+   "seconds": 22
+  },
+  {
+   "mind": "james",
+   "index": 51,
+   "prompt": "292ce64df5dddb95",
+   "reply": "Truth is not static but dynamic, always performing the function of connecting old and new knowledge, and thus should be viewed as malleable and open to reinterpretation.",
+   "seconds": 27
+  },
+  {
+   "mind": "james",
+   "index": 122,
+   "prompt": "936ec7efac00e4a0",
+   "reply": "To live, think, and act, one must see oneself as one with the infinite Being of the universe, eliminating all separateness and recognizing the oneness of existence.",
+   "seconds": 31
+  },
+  {
+   "mind": "james",
+   "index": 5,
+   "prompt": "6172cceb62a8a013",
+   "reply": "It is a difference rather of emphasis between facts and principles, yet both are necessary for living an hour, making the contrast between the 'empiricist' and 'rationalist' temper simple and massive.",
+   "seconds": 26
+  },
+  {
+   "mind": "james",
+   "index": 190,
+   "prompt": "c8a8ed723606dfbc",
+   "reply": "Our duty to agree with reality is seen to be grounded in a perfect jungle of concrete expediencies.",
+   "seconds": 19
+  },
+  {
+   "mind": "james",
+   "index": 36,
+   "prompt": "9edd8bedd50a20e6",
+   "reply": "The meaning of ideas lies in their practical consequences, and views that do not differ in practice can be considered to mean the same thing.",
+   "seconds": 41
+  },
+  {
+   "mind": "james",
+   "index": 11,
+   "prompt": "db1dee85dd6d4558",
+   "reply": "If you seek consolation in religious philosophy, you will find that it is divided into two main types, with one being more aggressive and the other in retreat, and it has already started to influence traditional theism.",
+   "seconds": 22
+  },
+  {
+   "mind": "james",
+   "index": 22,
+   "prompt": "1700acc0448b5147",
+   "reply": "The passage criticizes the current religious philosophy's optimism and suggests that dissatisfaction with the status quo, as exemplified by the plight of individuals like John Corcoran, should inform a different approach to living, thinking, or acting.",
+   "seconds": 32
+  },
+  {
+   "mind": "james",
+   "index": 60,
+   "prompt": "819e12c35dd4d4f5",
+   "reply": "Believers in the Absolute can take a moral holiday, trusting that finite evil is overruled in the eternal, thus allowing them to dismiss fear and responsibility.",
+   "seconds": 19
+  },
+  {
+   "mind": "james",
+   "index": 135,
+   "prompt": "ea4b263bc09aed60",
+   "reply": "Our fundamental ways of thinking are discoveries of our remote ancestors and form the stage of common sense, which should be considered first in our thinking and acting.",
+   "seconds": 25
+  },
+  {
+   "mind": "james",
+   "index": 95,
+   "prompt": "57412c41f398939b",
+   "reply": "If our acts were predetermined, we could not be praised or blamed for anything, undermining our sense of responsibility and imputability.",
+   "seconds": 25
+  },
+  {
+   "mind": "james",
+   "index": 14,
+   "prompt": "ab35626fbc43a086",
+   "reply": "You need a system that combines scientific loyalty to facts with human values and spontaneity, but find that existing systems are either inhuman or unrealistic.",
+   "seconds": 21
+  },
+  {
+   "mind": "james",
+   "index": 106,
+   "prompt": "de65e53527353e91",
+   "reply": "To live, think, or act pragmatically, we should focus on the practical value of the oneness rather than its abstract existence.",
+   "seconds": 32
+  },
+  {
+   "mind": "james",
+   "index": 170,
+   "prompt": "3ca9298c57f2a11a",
+   "reply": "Any idea that helps us to deal, whether practically or intellectually, with either the reality or its belongings, that doesn't entangle our progress in frustrations, that fits and adapts our life to the reality's whole setting, will agree sufficiently to meet the requirement.",
+   "seconds": 32
+  },
+  {
+   "mind": "james",
+   "index": 204,
+   "prompt": "f353e096c67343f9",
+   "reply": "Independent reality is something we can only glimpse but never truly grasp, and what we perceive is always a result of previous human thinking and interpretation.",
+   "seconds": 21
+  },
+  {
+   "mind": "james",
+   "index": 153,
+   "prompt": "ed8781b47d3e86d6",
+   "reply": "Retain the suspicion about common sense in your thinking and actions.",
+   "seconds": 18
+  },
+  {
+   "mind": "james",
+   "index": 220,
+   "prompt": "53b7fac6212ddb39",
+   "reply": "The main claim is that we should treat abstract concepts as useful summaries of past experiences that help us navigate future experiences.",
+   "seconds": 21
+  },
+  {
+   "mind": "james",
+   "index": 163,
+   "prompt": "a76b5fcc895d305d",
+   "reply": "The truth of a state of mind means it leads to moments in experience that are worth having.",
+   "seconds": 16
+  },
+  {
+   "mind": "james",
+   "index": 134,
+   "prompt": "797ae776871a0dd9",
+   "reply": "Very ancient modes of thought may have survived through all the later changes in men's opinions and may remain as indelible tokens of events in our race-history.",
+   "seconds": 28
+  },
+  {
+   "mind": "james",
+   "index": 156,
+   "prompt": "4ed6ed61389ef158",
+   "reply": "The main claim is that pragmatism, as a view of truth, is expected to progress through stages of initial rejection to eventual acceptance and importance.",
+   "seconds": 24
+  },
+  {
+   "mind": "nietzsche",
+   "index": 246,
+   "prompt": "ef0a9ce3ab3c93fe",
+   "reply": "The main claim this passage makes is that humans are more human and could potentially learn from the gods, suggesting a more humble and introspective approach to life, thought, and action.",
+   "seconds": 25
+  },
+  {
+   "mind": "nietzsche",
+   "index": 237,
+   "prompt": "bdf4efce95f28c1a",
+   "reply": "The greatest events and thoughts take many generations to be fully understood, and those who experience them may not recognize their true significance in the moment.",
+   "seconds": 21
+  },
+  {
+   "mind": "nietzsche",
+   "index": 185,
+   "prompt": "fbd96e81cd52f117",
+   "reply": "The passage suggests that we should appreciate the music of Mozart, as it represents a \"good old\" time that still speaks to us, while the intelligence and taste for Beethoven are likely to fade sooner.",
+   "seconds": 43
+  },
+  {
+   "mind": "nietzsche",
+   "index": 57,
+   "prompt": "6e7f2a14e1204f54",
+   "reply": "Such kind of men are we, we free spirits! And perhaps ye are also something of the same kind, ye coming ones? ye NEW philosophers?",
+   "seconds": 32
+  },
+  {
+   "mind": "nietzsche",
+   "index": 110,
+   "prompt": "7eb4a82d57efd27e",
+   "reply": "This passage suggests that misunderstanding the \"beast of prey\" and the \"man of prey,\" such as Caesar Borgia, stems from a hatred of the \"tropical man\" and an attempt to discredit him as either diseased or self-tormented, in favor of \"temperate men\" and \"the moral.\"",
+   "seconds": 30
+  },
+  {
+   "mind": "nietzsche",
+   "index": 11,
+   "prompt": "12cfa29283b2d184",
+   "reply": "Stronger thinkers, who are still eager for life, may side against appearance and speak skeptically of \"perspective,\" suggesting they are trying to reclaim old ideas to live more vigorously and joyously than by \"modern ideas.\"",
+   "seconds": 43
+  },
+  {
+   "mind": "nietzsche",
+   "index": 215,
+   "prompt": "3b1c8b73b7d0187c",
+   "reply": "The main claim is that in times of struggle and constant adversity, a stable and uniform type is established, whereas in times of abundance, varied and potentially monstrous variations tend to arise.",
+   "seconds": 42
+  },
+  {
+   "mind": "nietzsche",
+   "index": 131,
+   "prompt": "39c1d79e32075e6e",
+   "reply": "The main claim is that skepticism serves as a better soporific and sedative against the \"spirit\" of denial, and that one should maintain a skeptical attitude to counteract pessimism and denial.",
+   "seconds": 43
+  },
+  {
+   "mind": "nietzsche",
+   "index": 51,
+   "prompt": "564f54162106884f",
+   "reply": "The passage suggests that wicked and unfortunate individuals may be more favorably situated to discover certain portions of truth, and that severity and craft might be more favorable conditions for developing strong, independent spirits and philosophers than gentle, refined qualities.",
+   "seconds": 40
+  },
+  {
+   "mind": "nietzsche",
+   "index": 16,
+   "prompt": "31b21e2cfb9cef08",
+   "reply": "One must declare war, relentless war to the knife, against atomistic requirements that still lead a dangerous after-life in science and give the finishing stroke to soul-atomism taught by Christianity.",
+   "seconds": 38
+  },
+  {
+   "mind": "nietzsche",
+   "index": 240,
+   "prompt": "a9d473575714f67e",
+   "reply": "A philosopher's true thoughts and ultimate opinions are likely hidden or constructed, and we should be skeptical of their written works as they may conceal deeper, more complex ideas.",
+   "seconds": 22
+  },
+  {
+   "mind": "nietzsche",
+   "index": 161,
+   "prompt": "3993008a542d10d3",
+   "reply": "The main claim is that striving after comfort, fashion, and a seat in Parliament is equated with virtue, and has been the essence of virtue in the world.",
+   "seconds": 27
+  },
+  {
+   "mind": "nietzsche",
+   "index": 195,
+   "prompt": "d20664fb91f672be",
+   "reply": "The main claim this passage makes about how to live, think or act is that the English lack real power of intellect and depth of intellectual perception, and rely on Christianity for moralizing and humanizing.",
+   "seconds": 43
+  },
+  {
+   "mind": "nietzsche",
+   "index": 132,
+   "prompt": "6730119244aa2a30",
+   "reply": "Skepticism, arising from the blending of races and classes, leads to a paralysis of will, making it difficult to act independently or with courage.",
+   "seconds": 28
+  },
+  {
+   "mind": "nietzsche",
+   "index": 142,
+   "prompt": "d7076bedd75bf71f",
+   "reply": "Greatness is possible only by being noble, solitary, and beyond good and evil.",
+   "seconds": 20
+  },
+  {
+   "mind": "nietzsche",
+   "index": 230,
+   "prompt": "35ed532dc59b6484",
+   "reply": "Happy chances are necessary, and many incalculable elements, for a higher man to take action at the right moment, but often such opportunities come too late, leaving one unprepared and ineffective.",
+   "seconds": 31
+  },
+  {
+   "mind": "nietzsche",
+   "index": 101,
+   "prompt": "90c50c7cb399b86d",
+   "reply": "Legislators must appoint intercalary days to fetter powerful influences and habits, allowing impulses to humble, submit, purify, and sharpen themselves.",
+   "seconds": 28
+  },
+  {
+   "mind": "nietzsche",
+   "index": 234,
+   "prompt": "eb29df46468c830a",
+   "reply": "For a person with refined desires, the risk of becoming suddenly mad or suffering from after-dinner nausea is particularly high when forced to eat in an unsuitable social environment.",
+   "seconds": 25
+  },
+  {
+   "mind": "nietzsche",
+   "index": 93,
+   "prompt": "6ccdfe22a208b2d2",
+   "reply": "Love can highlight a person's noble qualities but may not reflect their normal character, suggesting that one should be cautious about judging a person's true nature based on their moments of love.",
+   "seconds": 21
+  },
+  {
+   "mind": "nietzsche",
+   "index": 147,
+   "prompt": "5b0e0e8775ef632e",
+   "reply": "The main claim is to be like the \"forgetful\" and not dwell on one's own mistakes, as they can \"get the better\" of even their blunders.",
+   "seconds": 34
+  },
+  {
+   "mind": "nietzsche",
+   "index": 170,
+   "prompt": "f37ad484ad0fbbda",
+   "reply": "The passage claims that women should not be cooks due to their perceived lack of understanding of food and its importance, as evidenced by the poor quality of food preparation throughout history.",
+   "seconds": 25
+  },
+  {
+   "mind": "nietzsche",
+   "index": 1,
+   "prompt": "cde549324e83961a",
+   "reply": "We, who are neither Jesuits, nor democrats, nor even sufficiently Germans, we GOOD EUROPEANS, and free, VERY free spirits—we still have all the distress of spirit and all the tension of its bow, and perhaps also the arrow, the duty, and, who knows? THE GOAL TO AIM AT.",
+   "seconds": 42
+  },
+  {
+   "mind": "nietzsche",
+   "index": 166,
+   "prompt": "514bc50c46f33730",
+   "reply": "The main claim is to return to a more natural and scientific understanding of humanity, unclouded by metaphysical interpretations.",
+   "seconds": 22
+  },
+  {
+   "mind": "nietzsche",
+   "index": 47,
+   "prompt": "a0d5e6db62fde357",
+   "reply": "The passage suggests that we should not prioritize truth over semblance, as doing so would eliminate both, and instead considers the world we live in as a fiction with varying degrees of seemingness.",
+   "seconds": 27
+  },
+  {
+   "mind": "thoreau",
+   "index": 62,
+   "prompt": "b5ff807e20353cca",
+   "reply": "The main claim is that it matters more how one lives and conducts oneself than the style of one's dwelling or external appearances.",
+   "seconds": 33
+  },
+  {
+   "mind": "thoreau",
+   "index": 142,
+   "prompt": "c2623ae400060e8c",
+   "reply": "It is time for villages to become universities where lifelong liberal studies are pursued, and for towns to spend money on education rather than on less valuable trappings.",
+   "seconds": 38
+  },
+  {
+   "mind": "thoreau",
+   "index": 444,
+   "prompt": "f08670e52400eb1a",
+   "reply": "The passage claims that true men should act independently and with integrity, rather than following conventions or demagogues.",
+   "seconds": 35
+  },
+  {
+   "mind": "thoreau",
+   "index": 351,
+   "prompt": "b3fbc28550ae5bad",
+   "reply": "The passage describes a cat's whimsical and playful approach to eating corn, suggesting a life filled with uncertainty and momentary pleasures.",
+   "seconds": 33
+  },
+  {
+   "mind": "thoreau",
+   "index": 284,
+   "prompt": "a7d19cf71c64d164",
+   "reply": "The passage suggests that one should live a simple, nature-centered life, free from unnecessary worries and responsibilities.",
+   "seconds": 28
+  },
+  {
+   "mind": "thoreau",
+   "index": 143,
+   "prompt": "0ed7f28ee463ee2e",
+   "reply": "We should not be provincial in our thinking or actions; instead, we should seek out the best resources and knowledge available, regardless of their origin.",
+   "seconds": 29
+  },
+  {
+   "mind": "thoreau",
+   "index": 392,
+   "prompt": "aa691ffe9f21c113",
+   "reply": "The passage does not explicitly make a claim about how to live, think, or act in a single sentence. However, one could interpret that the experience of observing natural phenomena, such as the thawing sand and clay, can bring delight and provide a unique perspective on the world.",
+   "seconds": 46
+  },
+  {
+   "mind": "thoreau",
+   "index": 432,
+   "prompt": "7a34aaa7079ee8ee",
+   "reply": "We should not confine ourselves to idle virtues but engage actively with the world and its possibilities.",
+   "seconds": 32
+  },
+  {
+   "mind": "thoreau",
+   "index": 270,
+   "prompt": "54b0ce2226d53d3b",
+   "reply": "The main claim is to cultivate one's abilities to hunt and fish, metaphorically suggesting the development of skills to influence and guide others, as a valuable part of education.",
+   "seconds": 31
+  },
+  {
+   "mind": "thoreau",
+   "index": 123,
+   "prompt": "545bbbfbbe2d6c5b",
+   "reply": "The preacher should shout with thundering voice to pause and reflect, rather than deliver another sermon on a day meant for rest.",
+   "seconds": 21
+  },
+  {
+   "mind": "thoreau",
+   "index": 421,
+   "prompt": "bb553362c37dde45",
+   "reply": "We should appreciate the deeper meanings and wisdom in the world around us rather than settling for the most obvious or simplistic perceptions.",
+   "seconds": 18
+  },
+  {
+   "mind": "thoreau",
+   "index": 211,
+   "prompt": "eb9644be9fc05805",
+   "reply": "This passage suggests that engaging in hard work, even for practical reasons, can serve a deeper purpose in enriching one's life and understanding, much like hoeing a field can improve its fertility.",
+   "seconds": 32
+  },
+  {
+   "mind": "thoreau",
+   "index": 224,
+   "prompt": "8fc16ed2c7779049",
+   "reply": "Our interactions were best when they remained in unbroken harmony, without the need for frequent speech.",
+   "seconds": 26
+  },
+  {
+   "mind": "thoreau",
+   "index": 145,
+   "prompt": "a0323bef863547e7",
+   "reply": "A man must find his occasions in himself, and live like the natural day, which is very calm and will hardly reprove his indolence.",
+   "seconds": 39
+  },
+  {
+   "mind": "thoreau",
+   "index": 416,
+   "prompt": "73ee358c53ed9efd",
+   "reply": "Explore yourself by traveling farther than all travelers and conforming to the customs of all nations.",
+   "seconds": 23
+  },
+  {
+   "mind": "thoreau",
+   "index": 445,
+   "prompt": "646c93e5af53af23",
+   "reply": "It is one's duty to not support or benefit from injustice, even if one chooses to focus on other pursuits.",
+   "seconds": 28
+  },
+  {
+   "mind": "thoreau",
+   "index": 424,
+   "prompt": "82d4bf301a3a91a0",
+   "reply": "Strive for perfection in your work with unwavering resolve and singleness of purpose, and you may achieve results beyond the ordinary, transcending the limitations of time.",
+   "seconds": 33
+  },
+  {
+   "mind": "thoreau",
+   "index": 466,
+   "prompt": "394961940e05aad1",
+   "reply": "One should act only in ways that truly belong to oneself and the present moment, being cautious to avoid letting personal biases or the opinions of others influence one's actions excessively.",
+   "seconds": 19
+  },
+  {
+   "mind": "thoreau",
+   "index": 431,
+   "prompt": "d41365e2fa2e9c06",
+   "reply": "The main claim is that one should prioritize truth over wealth, hospitality, or fame.",
+   "seconds": 19
+  },
+  {
+   "mind": "thoreau",
+   "index": 462,
+   "prompt": "725b2481f2811386",
+   "reply": "This passage suggests that immersing oneself in unfamiliar surroundings can provide new perspectives on one's own community and its institutions.",
+   "seconds": 22
+  },
+  {
+   "mind": "thoreau",
+   "index": 201,
+   "prompt": "7b0e30d2305243d1",
+   "reply": "The main claim this passage makes is that engaging deeply with a task, even if the purpose is unclear, can provide a sense of purpose and strength.",
+   "seconds": 29
+  },
+  {
+   "mind": "thoreau",
+   "index": 336,
+   "prompt": "c3358cbb5c666bc6",
+   "reply": "Planting and tending to a lilac tree can leave a lasting legacy, as its sweet-scented flowers continue to bloom and tell the story of those who planted it long after they are gone.",
+   "seconds": 23
+  },
+  {
+   "mind": "thoreau",
+   "index": 15,
+   "prompt": "d5880e4663ebaea7",
+   "reply": "The main claim is that keeping warm is a grand necessity for our bodies, and we should take pains with food, clothing, shelter, and beds to ensure we stay warm.",
+   "seconds": 31
+  },
+  {
+   "mind": "thoreau",
+   "index": 272,
+   "prompt": "a03d6c2c7253211e",
+   "reply": "The main claim of the passage is that individuals should move beyond the hunter stage of development to pursue more noble or artistic endeavors.",
+   "seconds": 31
+  }
+ ]
+}
