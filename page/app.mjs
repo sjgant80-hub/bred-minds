@@ -6,6 +6,7 @@ import { fit, scores, attribute } from '../src/trace.mjs';
 import { readReply, recognises, LABELS } from '../src/judge.mjs';
 import { gate, firstWords } from '../src/card.mjs';
 import { compare, ASSUME } from '../src/cost.mjs';
+import { childGate } from '../src/breed.mjs';
 
 window.__bm = true;
 const $ = (id) => document.getElementById(id);
@@ -47,6 +48,7 @@ const [seal, sources, cards, drawn, maxims, persp, order, receipt, lock, witness
 const batches = order ? await Promise.all([1, 2, 3, 4].map((n) => getJSON('data/judge/batch-' + n + '.json'))) : [];
 const after = receipt ? await getJSON('data/after/organ-1-lean.json') : null;
 const usage = batches.every(Boolean) && batches.length ? await getJSON('data/judge/usage.json') : null;
+const [seal2, kids, receipt2] = await Promise.all([getJSON('claims/organ-2.json'), getJSON('data/children.json'), getJSON('receipts/organ-2.json')]);
 const prompts = batches.every(Boolean) ? await Promise.all([1, 2, 3, 4].map((n) => getText('data/judge/batch-' + n + '.prompt.txt'))) : [];
 const MINDS = sources ? sources.minds.map((m) => m.mind) : [];
 const NAMES = Object.fromEntries((sources ? sources.minds : []).map((m) => [m.mind, m.name]));
@@ -234,6 +236,58 @@ function leanView(a = after, check = null) {
     check);
 }
 
+// ---------- breeding (organ 2) ----------
+const short = (m) => (m === 'marcus' ? 'Marcus' : (NAMES[m] || m).split(' ').pop());
+const pairName = (p) => short(p[0]) + ' × ' + short(p[1]);
+let pairShown = 0;
+function verdictTable(r) {
+  return h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Claim'), h('th', {}, 'Result'), h('th', {}, 'Measured'))),
+    h('tbody', {}, r.verdicts.map((v) => { const [title, ...rest] = v.claim.split(': '), upper = rest.length && title === title.toUpperCase();
+      return h('tr', {}, h('td', {}, h('b', {}, v.id + ' '), upper ? h('b', {}, title.charAt(0) + title.slice(1).toLowerCase() + ': ') : null, upper ? rest.join(': ') : v.claim), h('td', { class: v.held ? 'held' : 'failed' }, v.held ? 'HELD' : 'FAILED'), h('td', { class: 'note' }, v.measured)); }))));
+}
+/** organ 2's headline, from its receipt: what held, and the numbers behind D4 to D7 */
+function headline2(r = receipt2) {
+  const pp = r.detail.perPair, sum = (k) => pp.reduce((a, x) => a + (x.grown || k === 'cross' ? x[k] : 0), 0), n = pp.length * 10;
+  const ctrl = (k) => r.detail.control.reduce((a, x) => a + x[k], 0) / r.detail.control.length, held2 = (id) => !!(r.verdicts.find((v) => v.id === id) || {}).held;
+  const grown = pp.filter((x) => x.grown).length, bal = (k) => pp.reduce((a, x) => a + x[k], 0) / pp.length;
+  return r.held + ' of ' + r.verdicts.length + ' sealed claims held. ' + grown + ' of 15 pairs grew a child. The cold judge named both parents as the top two in ' + sum('child') + ' of ' + n + ' child answers; one parent\'s answers alone got a given partner named beside them ' + pct(ctrl('judge')) + ' of the time' + (held2('D4') ? ', so the child carries both.' : ', so carrying both is not shown.') +
+    ' The naive cross carried both in ' + sum('cross') + ' of ' + n + (held2('D5') ? ': the child is as good as a plain mix, in new words.' : ': the child falls short of a plain mix.') +
+    ' Balance (0.50 is perfectly even): child ' + bal('childBalance').toFixed(2) + ', cross ' + bal('crossBalance').toFixed(2) + (held2('D6') ? ', so the child is the more even.' : ', so the child is not shown to be more even.') +
+    ' The trace model named both parents in ' + sum('trace') + ' of ' + n + ' child answers, against ' + pct(ctrl('trace')) + ' for one parent alone' + (held2('D7') ? ': both reached the words.' : ': not shown to reach the words.');
+}
+function breeding() {
+  if (!seal2) { fill('b2status', h('p', { class: 'out' }, 'Organ 2 could not be loaded.')); return; }
+  fill('b2expect', seal2.expectations);
+  const claims = h('ol', {}, seal2.claims.map((c) => h('li', {}, h('b', {}, c.id + ' '), c.claim)));
+  if (receipt2) fill('b2status', h('p', {}, headline2()), h('p', { class: 'note' }, 'Sealed at commit ', h('code', {}, receipt2.sealed.commit.slice(0, 7)), ', measured once; the receipt re-derives byte for byte on GitHub\'s runner. The failures are kept.'));
+  else if (kids) fill('b2status', h('p', {}, 'The 15 children and their crosses are bred and committed (pick a pair below). Their answers, the cold judge and the receipt follow, each committed before the next step reads it. The seven claims they will be measured against:'), claims);
+  else fill('b2status', h('p', {}, 'Organ 2 is sealed (', h('code', {}, 'claims/organ-2.json'), ') and its kernel and tools are committed; the local model is breeding the 15 children. The seven claims they will be measured against:'), claims);
+  if (!kids || !cards) return;
+  const P = Object.fromEntries(cards.minds.filter((m) => m.grown).map((m) => [m.mind, m.card.maxims.map((x) => x.maxim)]));
+  fill('b2pick', kids.pairs.map((p, i) => h('button', { 'aria-pressed': String(i === pairShown), class: i === pairShown ? 'go' : null, on: { click: () => { pairShown = i; breeding(); } } }, pairName(p.pair))));
+  const p = kids.pairs[pairShown], [a, b] = p.pair, c = p.child, x = p.cross;
+  const dropped = c.steps.filter((s) => !s.ok), keptN = c.steps.length - dropped.length;
+  fill('b2cards',
+    h('div', { class: 'panel' }, h('h3', {}, 'The child of ', mindTag(a, NAMES), ' and ', mindTag(b, NAMES)), c.grown ? h('p', {}, h('span', { class: 'pill' }, 'card ' + c.id.slice(0, 16))) : null,
+      c.grown ? h('ol', { class: 'maxims' }, c.card.maxims.map((m) => { const g = childGate(m.maxim, P[a], P[b], seal.blocked);
+        return h('li', {}, m.maxim, ' ', g.both ? h('span', { class: 'pill' }, 'draws on both') : null, h('span', { class: 'note' }, ' · gate re-run here: ' + (g.ok ? 'kept' : g.why))); }))
+        : h('p', { class: 'failed' }, 'No child grew: only ' + keptN + ' of ' + c.steps.length + ' candidates passed the gate, and the seal needs 8.'),
+      h('p', { class: 'note' }, keptN + ' of ' + c.steps.length + ' candidates kept by the gate; the child takes the first 12.'),
+      dropped.length ? h('details', {}, h('summary', {}, 'The ' + dropped.length + ' the gate dropped, and why'), h('ul', {}, dropped.map((s) => h('li', {}, s.maxim + ' — ', h('i', {}, s.why))))) : h('p', { class: 'note' }, 'The gate dropped none.'),
+      h('h3', {}, 'Voice'), x.card.voice.map((v, i) => h('div', { class: 'quote' }, h('small', {}, short(p.pair[i]) + ': '), '“' + v + '”'))),
+    h('div', { class: 'panel' }, h('h3', {}, 'The naive cross'), h('p', { class: 'note' }, 'The control: six of each parent\'s own maxims, alternating, and the same voice. It never went through the local model.'),
+      h('ol', { class: 'maxims' }, x.card.maxims.map((m, i) => h('li', {}, m.maxim, ' ', h('span', { class: 'pill' }, short(p.pair[i % 2]))))),
+      h('p', { class: 'note' }, 'Card ' + x.id.slice(0, 16) + '.')));
+  if (!receipt2) { fill('b2results'); return; }
+  const d = receipt2.detail;
+  fill('b2results', h('h3', {}, 'Results'), verdictTable(receipt2),
+    h('h3', {}, 'Pair by pair'), h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Pair'), h('th', { class: 'num' }, 'Kept'), h('th', { class: 'num' }, 'Draw on both'), h('th', { class: 'num' }, 'Judge: child carried both'), h('th', { class: 'num' }, 'Judge: cross carried both'), h('th', { class: 'num' }, 'Balance: child'), h('th', { class: 'num' }, 'Balance: cross'), h('th', { class: 'num' }, 'Trace model: child'))),
+      h('tbody', {}, d.perPair.map((r) => h('tr', {}, h('td', {}, pairName(r.pair)), h('td', { class: 'num' }, r.kept + ' / 16'), h('td', { class: 'num' }, r.both + ' / ' + r.kept), h('td', { class: 'num' }, r.grown ? r.child + ' / 10' : '—'), h('td', { class: 'num' }, r.cross + ' / 10'), h('td', { class: 'num' }, r.grown ? r.childBalance.toFixed(2) : '—'), h('td', { class: 'num' }, r.crossBalance.toFixed(2)), h('td', { class: 'num' }, r.grown ? r.trace + ' / 10' : '—')))))),
+    h('p', { class: 'note' }, 'Carried both: the judge\'s numbers for both parents are each higher than for every other thinker. Balance: the smaller of the two parents\' numbers over their sum (0.50 is perfectly even). The control is each parent\'s own organ 1 answers, judged in the same batches: how often one parent alone gets a given partner named beside it.'),
+    h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'One parent alone (control)'), h('th', { class: 'num' }, 'Answers'), h('th', { class: 'num' }, 'Judge: a partner named beside it'), h('th', { class: 'num' }, 'Trace model: a partner named beside it'))),
+      h('tbody', {}, d.control.map((r) => h('tr', {}, h('td', {}, mindTag(r.mind, NAMES)), h('td', { class: 'num' }, r.n), h('td', { class: 'num' }, pct(r.judge)), h('td', { class: 'num' }, pct(r.trace))))))));
+}
+
 // ---------- traced from the real run ----------
 function traced() {
   if (!cards || !drawn) return;
@@ -251,7 +305,7 @@ function traced() {
 
 // ---------- blueprint ----------
 function blueprint() {
-  const what = { text: 'The traces: the author\'s own span, passages, FIT and TEST, words, the blocked-word check, the seeded shuffle', trace: 'The trace model: naive Bayes over words; no language model inside', card: 'The gate, card growth, sham cards and the card id', stats: 'Wilson intervals and the bootstrap lower bound', judge: 'Reading the judge\'s replies; the recognition rule', cost: 'The cost case on this page' };
+  const what = { text: 'The traces: the author\'s own span, passages, FIT and TEST, words, the blocked-word check, the seeded shuffle', trace: 'The trace model: naive Bayes over words; no language model inside', card: 'The gate, card growth, sham cards and the card id', stats: 'Wilson intervals and the bootstrap lower bound', judge: 'Reading the judge\'s replies; the recognition rule', cost: 'The cost case on this page', breed: 'Organ 2: the pairs, the child gate (Latin script, traced, no copy), the child and the naive cross, what the judge carried, balance, the trace pair, the control' };
   const rows = witness ? witness.kernels : Object.keys(what).map((k) => ({ kernel: k }));
   fill($('kernels').querySelector('tbody'), rows.map((r) => h('tr', {}, h('td', {}, h('code', {}, 'src/' + r.kernel + '.mjs')), h('td', {}, what[r.kernel] || ''), h('td', { class: 'num' }, r.total ? r.killed + ' / ' + r.total : '—'))));
 }
@@ -313,10 +367,12 @@ function words2() {
     ? 'Organ 1 asked whether a twelve-line card grown from an author\'s own words carries a recognisable pattern of thought. ' + receipt.held + ' of ' + receipt.verdicts.length + ' sealed claims held. ' + (d.cardJudge ? 'A cold judge recognised ' + d.cardJudge.k + ' of ' + d.cardJudge.n + ' card answers (' + pct(d.cardJudge.rate) + ', chance 17%)' + (d.shamJudge ? ' against ' + d.shamJudge.k + ' of ' + d.shamJudge.n + ' sham answers' : '') + '. ' : '') + 'The whole check ran on one ordinary laptop, its only cloud step a judge that never saw a card, and it rebuilds byte for byte on GitHub\'s runner. The method is the product: any persona, from any source you own, grown and proven the same way before anyone relies on it.'
     : 'The board case is written from the receipt once it is committed.');
   if (receipt) fill('paperresults', h('p', {}, h('b', {}, 'Results. '), headline() + ' ' + receipt.verdicts.map((v) => v.id + ' ' + (v.held ? 'held' : 'failed')).join(', ') + '.'));
+  fill('paper2results', receipt2 ? h('p', {}, h('b', {}, 'Organ 2 results. '), headline2() + ' ' + receipt2.verdicts.map((v) => v.id + ' ' + (v.held ? 'held' : 'failed')).join(', ') + '.')
+    : h('p', { class: 'note' }, seal2 ? 'Organ 2 is sealed (claims/organ-2.json, committed before its code) and being bred; its results appear here from its receipt.' : ''));
 }
 
 // ---------- start ----------
-overview(); cardView(); results(); traced(); blueprint(); sliders(); caseView(); words2();
+overview(); cardView(); results(); breeding(); traced(); blueprint(); sliders(); caseView(); words2();
 if (items) blind();
 $('load').addEventListener('click', grow);
 $('attr').addEventListener('click', () => model && attributeMine());
