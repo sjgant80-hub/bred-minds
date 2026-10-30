@@ -1,0 +1,22 @@
+name: gate
+on: [push, pull_request]
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }                  # the measurement finds the commit that sealed its claims
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: the kernels - unit, edge and garbage suites
+        run: node --test test/*.test.mjs
+      - name: the mutation gate - every mutant of every kernel must be killed by its tests
+        run: |
+          git clone --depth 1 --branch v0.6 https://github.com/sjgant80-hub/witness.git /tmp/witness6
+          for k in text trace card stats judge; do
+            node /tmp/witness6/witness.mjs mutate src/$k.mjs --timeout 120000 --cap 600 --test node --test test/$k.test.mjs | tee /tmp/w.txt
+            grep -q '"clean": true' /tmp/w.txt || { echo "::error::mutants survived in src/$k.mjs"; exit 1; }
+          done
+      - name: organ 1 - once measured, the receipt is re-derived from the committed replies byte for byte
+        run: |
+          if [ -f receipts/organ-1.json ]; then node tools/measure-1.mjs --check; else echo "organ 1 sealed, being grown and measured"; fi

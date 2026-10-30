@@ -1,0 +1,9 @@
+{
+ "name": "bred-minds",
+ "version": "0.1.0",
+ "type": "module",
+ "license": "MIT",
+ "description": "Pattern-models of great minds grown from their own public-domain words, bred into new combinations; every step sealed before it is measured",
+ "scripts": { "test": "node --test test/*.test.mjs" },
+ "engines": { "node": ">=20" }
+}
