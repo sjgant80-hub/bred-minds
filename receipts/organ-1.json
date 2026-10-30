@@ -1,0 +1,210 @@
+{
+ "kind": "bred-minds.receipt",
+ "organ": 1,
+ "sealed": {
+  "commit": "76210e438973270a48ceed309dbb3472ffe09b09"
+ },
+ "asked": {
+  "maxims": {
+   "model": "qwen2.5:7b",
+   "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "ollama": "0.40.5",
+   "quantization": "Q4_K_M"
+  },
+  "perspectives": {
+   "model": "qwen2.5:7b",
+   "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "ollama": "0.40.5",
+   "quantization": "Q4_K_M"
+  }
+ },
+ "held": 7,
+ "verdicts": [
+  {
+   "id": "B1",
+   "kind": "property",
+   "claim": "the six texts are the files of data/sources.json, byte for byte; no TEST passage is read by the cards or by the trace model's fitting (scrambling every TEST passage leaves every card and the fitted model unchanged); every kept maxim passes the gate; every card rebuilds byte for byte from the committed local-model replies; every perspective and every judge batch was answered to its sealed prompt (the prompt's hash recorded with each reply); the name rule was applied to every perspective",
+   "held": true,
+   "measured": "texts as recorded true; TEST never read true; every kept maxim passes the gate true; cards rebuild byte for byte true; maxims asked to their sealed prompts true; 200 perspectives to their sealed prompts and seeds true (0 asked again, 0 still named); judge batches to their sealed prompts true (200 of 200 lines readable); the name rule applied true"
+  },
+  {
+   "id": "B2",
+   "kind": "prediction",
+   "claim": "THE TRACES ARE DISTINCT: the trace model attributes TEST passages to the right mind with a macro-averaged accuracy (the mean of the six minds' recalls) of at least 0.80, and every mind's recall is at least 0.50",
+   "held": true,
+   "measured": "macro accuracy 0.956684 on 727 TEST passages; marcus 49/52, montaigne 417/418, emerson 63/64, james 47/50, nietzsche 45/49, thoreau 90/94"
+  },
+  {
+   "id": "B3",
+   "kind": "prediction",
+   "claim": "THE STOCK GROWS: all six minds keep at least 8 maxims through the gate, so all six cards grow",
+   "held": true,
+   "measured": "marcus 19 of 24 kept, montaigne 21 of 24 kept, emerson 22 of 24 kept, james 21 of 24 kept, nietzsche 22 of 24 kept, thoreau 21 of 24 kept"
+  },
+  {
+   "id": "B4",
+   "kind": "prediction",
+   "claim": "A MIND IS RECOGNISED: of the 120 perspectives written from the cards, the judge recognises the card's mind in at least 40%, and the Wilson 95% lower bound of that rate is above 1/6, the chance of picking one of six",
+   "held": true,
+   "measured": "114 of 120 recognised (0.95, Wilson 0.895196–0.976886; chance 0.166667); by mind marcus 20/20, montaigne 20/20, emerson 18/20, james 18/20, nietzsche 18/20, thoreau 20/20"
+  },
+  {
+   "id": "B5",
+   "kind": "prediction",
+   "claim": "NOT A SHAM: the Wilson 95% lower bound of the card perspectives' recognition rate is above the Wilson 95% upper bound of the sham perspectives' rate (60 perspectives from cards of pooled maxims, scored as the mind they are labelled with)",
+   "held": true,
+   "measured": "cards 0.895196 (lower bound) against shams 0.180692 (upper bound; 5 of 60)"
+  },
+  {
+   "id": "B6",
+   "kind": "prediction",
+   "claim": "RECOGNISED WITHOUT A LANGUAGE MODEL: the trace model, fitted on FIT passages of the old books, attributes the 120 card perspectives to the card's mind at a rate whose Wilson 95% lower bound is above 1/6",
+   "held": true,
+   "measured": "the trace model: 57 of 120 (0.475, Wilson 0.387819–0.563732); by mind marcus 2/20, montaigne 2/20, emerson 20/20, james 20/20, nietzsche 12/20, thoreau 1/20"
+  },
+  {
+   "id": "B7",
+   "kind": "prediction",
+   "claim": "THE JUDGE TELLS A MIND FROM NONE: the judge's mean number for 'none' is higher on the 20 base perspectives than on the 120 card perspectives, the paired-free bootstrap 95% lower bound of the difference above 0 (2,000 resamples of each group, seed 99)",
+   "held": true,
+   "measured": "mean \"none\": base 80.7 (20 readable) against cards 13.416667 (120 readable); bound 64.25"
+  }
+ ],
+ "detail": {
+  "recall": [
+   {
+    "mind": "marcus",
+    "n": 52,
+    "right": 49
+   },
+   {
+    "mind": "montaigne",
+    "n": 418,
+    "right": 417
+   },
+   {
+    "mind": "emerson",
+    "n": 64,
+    "right": 63
+   },
+   {
+    "mind": "james",
+    "n": 50,
+    "right": 47
+   },
+   {
+    "mind": "nietzsche",
+    "n": 49,
+    "right": 45
+   },
+   {
+    "mind": "thoreau",
+    "n": 94,
+    "right": 90
+   }
+  ],
+  "perMind": [
+   {
+    "mind": "marcus",
+    "n": 20,
+    "judge": 20,
+    "trace": 2,
+    "sham": 3
+   },
+   {
+    "mind": "montaigne",
+    "n": 20,
+    "judge": 20,
+    "trace": 2,
+    "sham": 0
+   },
+   {
+    "mind": "emerson",
+    "n": 20,
+    "judge": 18,
+    "trace": 20,
+    "sham": 0
+   },
+   {
+    "mind": "james",
+    "n": 20,
+    "judge": 18,
+    "trace": 20,
+    "sham": 2
+   },
+   {
+    "mind": "nietzsche",
+    "n": 20,
+    "judge": 18,
+    "trace": 12,
+    "sham": 0
+   },
+   {
+    "mind": "thoreau",
+    "n": 20,
+    "judge": 20,
+    "trace": 1,
+    "sham": 0
+   }
+  ],
+  "cardJudge": {
+   "k": 114,
+   "n": 120,
+   "rate": 0.95,
+   "low": 0.895196,
+   "high": 0.976886
+  },
+  "shamJudge": {
+   "k": 5,
+   "n": 60,
+   "rate": 0.083333,
+   "low": 0.03612,
+   "high": 0.180692
+  },
+  "cardTrace": {
+   "k": 57,
+   "n": 120,
+   "rate": 0.475,
+   "low": 0.387819,
+   "high": 0.563732
+  },
+  "cards": [
+   {
+    "mind": "marcus",
+    "id": "8a0a379ea0bea636fe65e8e5d6694c7a0141c8eabf46872e8c668dd69e84f54c",
+    "kept": 19,
+    "grown": true
+   },
+   {
+    "mind": "montaigne",
+    "id": "ef387a25f0bd8b722eb7a82b600affbcde02492c03acff16bb37f10ee2de5f49",
+    "kept": 21,
+    "grown": true
+   },
+   {
+    "mind": "emerson",
+    "id": "df7a1b581845de75fd6ab9ba3de4c667329ce4a3fd8b2a7d2ec4cb720da5d299",
+    "kept": 22,
+    "grown": true
+   },
+   {
+    "mind": "james",
+    "id": "b2f000e52b496a10f419839c523559619e98c902d1312c597e32d3053d1b013c",
+    "kept": 21,
+    "grown": true
+   },
+   {
+    "mind": "nietzsche",
+    "id": "6514878bbce85c913484e425e564771ad9f1b058411d46e5afb20f89f171b238",
+    "kept": 22,
+    "grown": true
+   },
+   {
+    "mind": "thoreau",
+    "id": "d9a4bf3b402185324f43cd5f6224f584fa9c915fc0e4d8e4f4b3984c992f0037",
+    "kept": 21,
+    "grown": true
+   }
+  ]
+ }
+}
