@@ -1,0 +1,100 @@
+{
+ "kind": "bred-minds.sources",
+ "why": "the breeding stock's traces: six public-domain books, downloaded 2026-10-29 from Project Gutenberg with Simon's go-ahead, kept byte for byte (CRLF and Project Gutenberg's own header and licence included). Each mind is grown only from the span of its book that is the author's own words: from its start heading to its end heading (each matched as a whole line, trimmed, at the occurrence given, counted from the Project Gutenberg start marker), never an editor's introduction, notes or contents.",
+ "note": "these are MODELS of thought-patterns grown from public texts: not the people, not resurrections, not conscious beings. Jung was left out: his works are still in copyright in the UK until 2031.",
+ "minds": [
+  {
+   "mind": "marcus",
+   "name": "Marcus Aurelius",
+   "path": "data/texts/pg2680.txt",
+   "sha256": "6977474f82a39dd88a4af31a59504821658174d33c177732c54357e4d680b96c",
+   "from": "https://www.gutenberg.org/ebooks/2680 (Project Gutenberg eBook #2680, released June 1, 2001)",
+   "work": "Meditations, translated by Meric Casaubon (1634), with an introduction, appendix, notes and glossary by a later editor that are not used",
+   "start": {
+    "line": "THE FIRST BOOK",
+    "occurrence": 1
+   },
+   "end": {
+    "line": "APPENDIX",
+    "occurrence": 2
+   },
+   "licence": "public domain (the translation 1634); Project Gutenberg's licence travels with the file",
+   "bytes": 425304
+  },
+  {
+   "mind": "montaigne",
+   "name": "Michel de Montaigne",
+   "path": "data/texts/pg3600.txt",
+   "sha256": "1b4c87312f0890e04cecee48e3a5fa263de65743230b819e16cb1bd72f7aee59",
+   "from": "https://www.gutenberg.org/ebooks/3600 (Project Gutenberg eBook #3600, released October 26, 2004)",
+   "work": "Essays, translated by Charles Cotton (1685–86), edited by William Carew Hazlitt (1877); the editor's preface is not used",
+   "start": {
+    "line": "CHAPTER I",
+    "occurrence": 1
+   },
+   "end": null,
+   "licence": "public domain; Project Gutenberg's licence travels with the file",
+   "bytes": 3105655
+  },
+  {
+   "mind": "emerson",
+   "name": "Ralph Waldo Emerson",
+   "path": "data/texts/pg2944.txt",
+   "sha256": "5d9d28c12da8bd9aaf3043e9a2d08fbd46116efd5a3736490a393599aef6d278",
+   "from": "https://www.gutenberg.org/ebooks/2944 (Project Gutenberg eBook #2944, released December 1, 2001)",
+   "work": "Essays, First Series (1841)",
+   "start": {
+    "line": "HISTORY",
+    "occurrence": 1
+   },
+   "end": null,
+   "licence": "public domain; Project Gutenberg's licence travels with the file",
+   "bytes": 439572
+  },
+  {
+   "mind": "james",
+   "name": "William James",
+   "path": "data/texts/pg5116.txt",
+   "sha256": "92c8654ebc3052887740ab0ce8cd953456f63ba3f7749d31377488d807765db6",
+   "from": "https://www.gutenberg.org/ebooks/5116 (Project Gutenberg eBook #5116, released February 1, 2004)",
+   "work": "Pragmatism: A New Name for Some Old Ways of Thinking (1907); the contents list is not used",
+   "start": {
+    "line": "Lecture I",
+    "occurrence": 2
+   },
+   "end": null,
+   "licence": "public domain; Project Gutenberg's licence travels with the file",
+   "bytes": 330371
+  },
+  {
+   "mind": "nietzsche",
+   "name": "Friedrich Nietzsche",
+   "path": "data/texts/pg4363.txt",
+   "sha256": "6ee088f717d3760036086f108c03d57588036c9d344b7d71edbef4e631bd374a",
+   "from": "https://www.gutenberg.org/ebooks/4363 (Project Gutenberg eBook #4363, released August 1, 2003)",
+   "work": "Beyond Good and Evil (1886), translated by Helen Zimmern (1907; she died in 1934); the contents list is not used, the author's own preface is",
+   "start": {
+    "line": "PREFACE",
+    "occurrence": 2
+   },
+   "end": null,
+   "licence": "public domain; Project Gutenberg's licence travels with the file",
+   "bytes": 408794
+  },
+  {
+   "mind": "thoreau",
+   "name": "Henry David Thoreau",
+   "path": "data/texts/pg205.txt",
+   "sha256": "2d9a76a2e3e8195c69430516ebd33c4d0757a53ad432ff6186b7b794e6fe99f9",
+   "from": "https://www.gutenberg.org/ebooks/205 (Project Gutenberg eBook #205, released January 1, 1995)",
+   "work": "Walden (1854) and On the Duty of Civil Disobedience (1849); the contents list is not used",
+   "start": {
+    "line": "Economy",
+    "occurrence": 2
+   },
+   "end": null,
+   "licence": "public domain; Project Gutenberg's licence travels with the file",
+   "bytes": 667957
+  }
+ ]
+}
