@@ -277,7 +277,9 @@ function breeding() {
   fill('b2expect', seal2.expectations);
   const claims = h('ol', {}, seal2.claims.map((c) => h('li', {}, h('b', {}, c.id + ' '), c.claim)));
   if (receipt2) fill('b2status', h('p', {}, headline2()), h('p', { class: 'note' }, 'Sealed at commit ', h('code', {}, receipt2.sealed.commit.slice(0, 7)), ', measured once; the receipt re-derives byte for byte on GitHub\'s runner. The failures are kept.'));
-  else if (kids) fill('b2status', h('p', {}, 'The 15 children and their crosses are bred and committed (pick a pair below). Their answers, the cold judge and the receipt follow, each committed before the next step reads it. The seven claims they will be measured against:'), claims);
+  else if (kids) { const g = kids.pairs.filter((p) => p.child.grown).length;
+    fill('b2status', h('p', {}, h('b', {}, g + ' of 15 pairs grew a child. '), g < 15 ? 'D2 needs all 15, so it fails, and the failure is kept. The pairs that grew none mostly wrote near-copies of a parent maxim, which the gate refuses; as sealed, their answers count as misses. The batch change this forced was written down before any answer: ' : '', g < 15 ? h('code', {}, 'claims/organ-2-amend.json') : null, g < 15 ? '. ' : '',
+      'Pick a pair below. The answers, the cold judge and the receipt follow, each committed before the next step reads it. The seven claims:'), claims); }
   else fill('b2status', h('p', {}, 'Organ 2 is sealed (', h('code', {}, 'claims/organ-2.json'), ') and its kernel and tools are committed; the local model is breeding the 15 children. The seven claims they will be measured against:'), claims);
   if (!kids || !cards) return;
   const P = Object.fromEntries(cards.minds.filter((m) => m.grown).map((m) => [m.mind, m.card.maxims.map((x) => x.maxim)]));
