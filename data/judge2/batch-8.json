@@ -1,0 +1,13 @@
+{
+ "kind": "bred-minds.judge-answers-2",
+ "v": 1,
+ "batch": 8,
+ "judge": {
+  "name": "claude-opus-5-5",
+  "asked": "a fresh Claude Code subagent, cold: it read only its batch file and wrote only its reply file",
+  "tokens": 85728,
+  "toolUses": 2
+ },
+ "prompt": "8efe8aa79de16de7",
+ "reply": "1: marcus 3, montaigne 10, emerson 7, james 5, nietzsche 2, thoreau 58, none 15\n2: marcus 55, montaigne 12, emerson 3, james 8, nietzsche 2, thoreau 5, none 15\n3: marcus 33, montaigne 6, emerson 38, james 5, nietzsche 3, thoreau 5, none 10\n4: marcus 4, montaigne 5, emerson 8, james 5, nietzsche 2, thoreau 61, none 15\n5: marcus 58, montaigne 5, emerson 6, james 10, nietzsche 2, thoreau 6, none 13\n6: marcus 52, montaigne 3, emerson 32, james 4, nietzsche 2, thoreau 2, none 5\n7: marcus 10, montaigne 10, emerson 15, james 42, nietzsche 2, thoreau 3, none 18\n8: marcus 62, montaigne 10, emerson 3, james 4, nietzsche 2, thoreau 7, none 12\n9: marcus 4, montaigne 4, emerson 10, james 18, nietzsche 2, thoreau 50, none 12\n10: marcus 5, montaigne 15, emerson 3, james 50, nietzsche 3, thoreau 2, none 22\n11: marcus 18, montaigne 8, emerson 25, james 5, nietzsche 3, thoreau 4, none 37\n12: marcus 5, montaigne 10, emerson 8, james 50, nietzsche 2, thoreau 5, none 20\n13: marcus 3, montaigne 4, emerson 50, james 3, nietzsche 35, thoreau 2, none 3\n14: marcus 65, montaigne 4, emerson 3, james 6, nietzsche 2, thoreau 2, none 18\n15: marcus 3, montaigne 6, emerson 4, james 3, nietzsche 70, thoreau 4, none 10\n16: marcus 15, montaigne 4, emerson 3, james 4, nietzsche 2, thoreau 2, none 70\n17: marcus 75, montaigne 3, emerson 3, james 5, nietzsche 2, thoreau 4, none 8\n18: marcus 5, montaigne 3, emerson 60, james 12, nietzsche 2, thoreau 3, none 15\n19: marcus 62, montaigne 10, emerson 3, james 4, nietzsche 1, thoreau 5, none 15\n20: marcus 60, montaigne 12, emerson 4, james 5, nietzsche 2, thoreau 2, none 15\n21: marcus 50, montaigne 4, emerson 12, james 25, nietzsche 1, thoreau 1, none 7\n22: marcus 2, montaigne 6, emerson 42, james 3, nietzsche 3, thoreau 38, none 6\n23: marcus 40, montaigne 4, emerson 3, james 3, nietzsche 15, thoreau 2, none 33\n24: marcus 2, montaigne 5, emerson 4, james 3, nietzsche 35, thoreau 43, none 8\n25: marcus 25, montaigne 7, emerson 2, james 25, nietzsche 25, thoreau 1, none 15\n"
+}
