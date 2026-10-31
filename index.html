@@ -45,6 +45,27 @@ npm test
 node tools/measure-1.mjs --check</pre>
       The last line rebuilds the receipt from the committed replies and says whether it matches byte for byte. No model is asked anything.</li>
   </ol>
+  <details class="panel" id="glossary"><summary>The words this page uses, in plain terms</summary>
+    <dl>
+      <dt>Card</dt><dd>A small pattern-model of one mind: twelve one-sentence maxims drawn from the author's own book, plus two 60-word samples of the author's voice.</dd>
+      <dt>Maxim</dt><dd>One sentence stating the main claim of one passage of the book, written by the local model and checked by the gate.</dd>
+      <dt>The gate</dt><dd>A fixed rule that keeps a maxim only if it has 6 to 40 words, shares at least two content words with its own passage (a content word is 4 or more letters and not a common word like "which"), and names no blocked word. It checks that a maxim traces to its passage, not that it is wise.</dd>
+      <dt>Blocked words</dt><dd>The six thinkers' names, their best-known books and the schools named after them (listed under The cards). An answer that names one could win just by naming, so it is asked again, and if it still names one it counts as a miss.</dd>
+      <dt>Card answer</dt><dd>An answer to a question about how to live, written by the local model from one card alone.</dd>
+      <dt>Sham card, sham answer</dt><dd>The control. A sham card holds twelve maxims drawn at random from all six cards, under one mind's label. A sham answer is written from it. If sham answers were "recognised" as their label as often as card answers, the cards would carry nothing.</dd>
+      <dt>Base answer</dt><dd>An answer the local model writes from no card at all: its own voice, the other control.</dd>
+      <dt>Cold judge</dt><dd>A fresh Claude Opus 5.5 session that sees only a batch of shuffled answers, never a card, and gives each answer a number for each thinker and for none.</dd>
+      <dt>Trace model</dt><dd>A word-count model (naive Bayes) fitted on the six books. It has no language model inside it: it only knows which words each author used, and how often.</dd>
+      <dt>FIT and TEST</dt><dd>Passages 8 and 9 of every ten are TEST: held back, and never read by anything except the trace model's test. The rest are FIT.</dd>
+      <dt>Temperature 0</dt><dd>The local model's randomness turned off, so the same passage always gives the same maxim and anyone can repeat it. The answers use temperature 0.7, with a fixed seed for each.</dd>
+      <dt>Macro-averaged accuracy</dt><dd>The share of each author's TEST passages the trace model got right, averaged over the six, so the author with the longest book does not dominate.</dd>
+      <dt>Wilson 95% bound</dt><dd>The range a rate very probably lies in, given how few cases it was measured on. A claim "above 1 in 6" holds only if the whole range is above 1 in 6.</dd>
+      <dt>Bootstrap lower bound</dt><dd>The same idea for a difference: the cases are resampled 2,000 times, and the claim holds only if the low end (the 2.5th percentile) of the difference is past the bar.</dd>
+      <dt>Sealed</dt><dd>Written down and committed before the code that measures it existed. The measurement refuses to run if the sealed file has changed.</dd>
+      <dt>Receipt; byte for byte on GitHub's runner</dt><dd>The receipt is the file of results. On every change, GitHub's own computers rebuild it from the committed records and fail the build if a single character differs. Nobody has to trust our laptop.</dd>
+      <dt>Child, naive cross, control (organ 2)</dt><dd>A child is a new card the local model writes from two parent cards. A naive cross is the plain mix: six of each parent's own maxims. The control is each parent's answers alone, showing how often a partner gets named beside it for free.</dd>
+    </dl>
+  </details>
 </section>
 
 <section id="cards">
@@ -56,6 +77,11 @@ node tools/measure-1.mjs --check</pre>
     <p>A sham card is the control. It holds twelve maxims drawn at random from all six cards pooled together, and the voice of two cards, and it is labelled with one mind. If a judge "recognises" sham answers as that mind about as often as real ones, the real cards carry nothing. The receipt checks that real cards beat shams.</p>
     <div id="shams"></div>
   </details>
+  <details class="panel"><summary>The blocked words, and why</summary>
+    <p>These are fixed in the seal. A maxim that names one is dropped by the gate. An answer that names one is asked once more with a new seed. If it still names one, it is kept, marked, and counted as a miss for its card, so no answer can be "recognised" just by naming its thinker. Matching is whole words, any case.</p>
+    <p class="mono" id="blockedlist"></p>
+  </details>
+  <details class="panel"><summary>The gate at work: one kept, one dropped, from the real run</summary><div id="gateeg"></div></details>
 </section>
 
 <section id="blind">
@@ -195,10 +221,11 @@ node tools/measure-1.mjs --check</pre>
 
 <section id="case">
   <h2>The case</h2>
-  <p class="lede">Bred Minds turns a body of writing into a small, checkable pattern-model, and proves whether the pattern carried with a blind, sham-controlled test anyone can re-run.</p>
+  <p class="lede">Bred Minds turns a body of writing into a small, checkable pattern-model, and proves whether the pattern carried with a blind, sham-controlled test anyone can re-run (take it yourself under <a href="#blind">Blind test</a>; every number is under <a href="#results">Results</a>).</p>
   <h3>People with an AI seat, against this rail, for one check like this one</h3>
   <div id="costlead" class="big"></div>
   <div class="vs" id="costvs"></div>
+  <details class="panel"><summary>How each figure is computed</summary><div id="formulas"></div></details>
   <details class="panel" open><summary>Move the assumptions</summary>
     <p class="note">Every price and rate is read from <code>data/prices.lock.json</code>, each with its source and the date it was checked. The amounts of work (words read, seconds the model ran, characters the judge read and wrote) are counted from this run's own records. The assumptions start at the floor; move them and the kernel (<code>src/cost.mjs</code>) recomputes.</p>
     <div class="sliders" id="sliders"></div>
@@ -251,6 +278,31 @@ node tools/measure-1.mjs --check</pre>
   <details class="panel"><summary>Is this the real Marcus Aurelius?</summary><p>No. It is a card of twelve sentences a small model drew from a 1634 translation of his notebooks, checked against the passages they came from. It is a model of a pattern of thought, not the man, and it is not conscious.</p></details>
   <details class="panel"><summary>Why these six?</summary><p>Their books are public domain in the UK and the US, their patterns of thought are distinct, and a judge knows them well enough to be a hard test. Carl Jung was left out: his writing is in UK copyright until 2031. William James carries psychology instead.</p></details>
   <details class="panel"><summary>Why a sham card?</summary><p>A judge that knows these thinkers might guess "Marcus" for anything stoical-sounding. A sham card is labelled with a mind but holds maxims from all six. If sham answers were "recognised" as often as real ones, the real cards would carry nothing. The receipt checks that the real cards beat the shams by more than chance.</p></details>
+  <details class="panel"><summary>Are the maxims faithful to what the author meant?</summary>
+    <p>The gate cannot tell you that, and the page does not claim it. The gate checks only that each maxim traces to its own passage: it shares the passage's words, keeps to one sentence, and names no thinker. It does not check meaning. Two things let a person check meaning:</p>
+    <ul>
+      <li>Every maxim on every card opens to the passage it came from, so a reader can judge it against the book in seconds.</li>
+      <li>Every sentence the gate dropped is listed with its reason.</li>
+    </ul>
+    <p>Of the 144 sentences the local model wrote, 126 passed the gate and 72 are on the cards. Some read as summaries ("The main claim is that…"), and one ends in Chinese. They are shown as they are. What the blind test adds is evidence that a pattern carried, not that every maxim is right.</p></details>
+  <details class="panel"><summary>Could the judge just be biased, or guessing from famous ideas?</summary>
+    <p>It knows these thinkers well, so it is tested against three controls in the same blind batches:</p>
+    <ul>
+      <li><b>Sham answers</b>, from cards that mix all six minds under one label. It named the label 5 times in 60, against 114 times in 120 for real cards.</li>
+      <li><b>Base answers</b>, from no card. It gave "none" 80.7 points on average, against 13.4 for card answers.</li>
+      <li><b>The trace model</b>, which has no language model inside it at all.</li>
+    </ul>
+    <p>A judge guessing from fame would score the shams as high as the cards. It did not. This is one run, so its record is this receipt, not a history. You can swap in any judge you trust, and the receipt names which judge was used.</p></details>
+  <details class="panel"><summary>Does the local model's own modern voice skew the results?</summary><p>It writes modern English, and that is measured, not assumed. The base answers (no card) show its own voice: the judge read them as "none of the six". The trace model is where the modern voice shows most: it leans toward Emerson and James for any modern-English advice. That is shown in full under Results. Why it leans is a guess, not a measured cause. The next organ measures against controls that carry the same lean, so the lean cancels out.</p></details>
+  <details class="panel"><summary>What if a source text has errors, or is in another language?</summary><p>The texts are used exactly as published, byte for byte, with their fingerprints recorded. An error in a source passes into its passage, and the passage is shown beside every maxim, so it is visible. The method works for any language your local model writes well. The trace model as built counts English words only (the letters a to z), so a source in another language needs its own word rule, sealed before it is used.</p></details>
+  <details class="panel"><summary>How would an editor check a persona before it ships?</summary>
+    <ol>
+      <li>Read each maxim beside its passage, and strike any that misstate the book.</li>
+      <li>Read the dropped list.</li>
+      <li>Run the blind test against shams on questions your readers actually ask.</li>
+      <li>Ship only if the receipt says held.</li>
+    </ol>
+    <p>When an author's card fails, the receipt says so, claim by claim, and the card does not ship. A wrong persona is caught by a failed claim, not by a complaint.</p></details>
   <details class="panel"><summary>What exactly did the judge see?</summary><p>Four fresh Claude Opus 5.5 sessions, one per batch of 50 shuffled answers. Each read its batch file and wrote its reply: two tool uses each, by the harness's own record. Each session also carried the standing instructions every subagent on this machine is given. Those are the operator's own working rules: no card, no answer key and no order of the answers. Which answer sits where is kept in <code>data/judge/order.json</code>, which no judge read. The token counts are in <code>data/judge/usage.json</code>, and the cost case pays for all of them.</p></details>
   <details class="panel"><summary>Why a trace model as well as the judge?</summary><p>Because the judge is itself a language model that has read about these thinkers. The trace model has read nothing but the six old books and counts words. If it also recognises a card's answers, the pattern reached the words, not just the ideas a judge associates with a name. In organ 1 it also showed a lean, found after the receipt and shown under Results: it sends most modern-English advice to Emerson or James, whoever wrote it. So its count against chance says less than it seems, and the next organ measures the trace model against the controls, not against chance.</p></details>
   <details class="panel"><summary>Can I trust numbers I cannot re-run?</summary><p>You do not have to. Clone the repository and run <code>node tools/measure-1.mjs --check</code>: it rebuilds the receipt from the committed replies, byte for byte, without asking any model anything. GitHub's runner does the same on every push.</p></details>

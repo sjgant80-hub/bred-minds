@@ -131,7 +131,24 @@ function cardView() {
     dropped.length ? h('details', {}, h('summary', {}, 'The ' + dropped.length + ' the gate dropped, and why'), h('ul', {}, dropped.map((s) => h('li', {}, s.maxim + ' — ', h('i', {}, s.why))))) : h('p', { class: 'note' }, 'The gate dropped none.'),
     h('p', { class: 'note' }, m.kept + ' of 24 kept; the card takes the first 12.'),
     m.card.maxims.some((x) => CJK.test(x.maxim)) ? h('p', { class: 'note' }, 'One maxim on this card ends in Chinese: the local model switched language mid-sentence. The sealed gate does not check language, so it was kept, and it is shown as it is. It is the only one of the ' + cards.minds.reduce((a, c) => a + c.card.maxims.length, 0) + ' maxims on the six cards.') : null);
+  if (seal) $('blockedlist').textContent = seal.blocked.join(' · ');
+  gateExample();
   fill('shams', cards.shams.map((s) => h('details', {}, h('summary', {}, 'Sham labelled ' + NAMES[s.mind] + ' · ' + s.id.slice(0, 12)), h('ol', {}, s.card.maxims.map((x) => h('li', {}, x.maxim))))));
+}
+
+/** one sentence the gate kept and one it dropped for sharing too few words, from the real run, the gate re-run here */
+function gateExample() {
+  if (!drawn || !seal) return;
+  const text = (mind, i) => ((drawn.minds.find((x) => x.mind === mind) || { passages: [] }).passages.find((p) => p.index === i) || {}).text || '';
+  const show = (mind, s, label) => {
+    const t = text(mind, s.index), g = gate(s.maxim, t, seal.blocked), inP = content(t), mine = [...content(s.maxim)];
+    return h('div', { class: 'panel' }, h('p', {}, h('b', {}, label + ' '), mindTag(mind, NAMES), ', passage ' + s.index + '.'), h('div', { class: 'quote' }, s.maxim),
+      h('p', { class: 'note' }, 'Its content words (compared after a final "s" is removed, as sealed, so "status" reads "statu"): ' + mine.map((w) => (inP.has(w) ? w + ' (in the passage)' : w)).join(', ') + '. ' + words(s.maxim).length + ' words. The gate, re-run here: ' + g.why + '.'),
+      h('details', {}, h('summary', {}, 'The passage it came from'), h('div', { class: 'quote' }, t)));
+  };
+  const m = cards.minds.find((x) => x.steps.some((s) => !s.kept && /shared/.test(s.why)));
+  if (!m) return;
+  fill('gateeg', show(m.mind, m.steps.find((s) => s.kept), 'Kept.'), show(m.mind, m.steps.find((s) => !s.kept && /shared/.test(s.why)), 'Dropped.'));
 }
 
 // ---------- the blind test ----------
@@ -231,7 +248,7 @@ function leanView(a = after, check = null) {
     h('p', {}, h('span', { class: 'pill' }, 'found after the receipt, not sealed'), ' B6 held, but its mind-by-mind counts are uneven, so every answer\'s call is shown. Each row is a group of answers; each column is the mind the trace model named.'),
     h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Answers'), h('th', { class: 'num' }, 'n'), MINDS.map((m) => h('th', { class: 'num' }, NAMES[m].split(' ').pop())))),
       h('tbody', {}, a.groups.map((g) => h('tr', {}, h('td', {}, label(g)), h('td', { class: 'num' }, g.n), MINDS.map((m) => h('td', { class: 'num' + (g.kind === 'card' && g.mind === m ? ' held' : '') }, g.sent[m] ? String(g.sent[m]) : '·'))))))),
-    h('p', {}, h('b', {}, 'Read plainly. '), 'The 80 controls (20 answers written from no card, 60 from shams) are the answers no single mind wrote. The trace model sent ' + L.leanK + ' of them to ' + NAMES[L.pair[0]] + ' or ' + NAMES[L.pair[1]] + ': it leans toward those two for any modern-English advice. So a card answer it gives to one of them is only partly the card speaking. Outside the lean, the answers from ' + NAMES[L.best].split(' ').pop() + '\'s card went to him ' + L.card[L.best] + ' times in 20, where only ' + L.ctrl[L.best] + ' of the 80 controls did: that is the cleanest sign the words carried. ' + (L.weak.length ? L.weak.map((m) => NAMES[m]).join(', ').replace(/, ([^,]*)$/, ' and $1') + ' it almost never named. A likely part of the reason: the maxims were stated in modern English, and the Marcus and Montaigne it was fitted on are 17th-century translations. That does not explain Thoreau, whose answers went mostly to Emerson, his neighbour in Concord and in vocabulary.' : '')),
+    h('p', {}, h('b', {}, 'Read plainly. '), 'The 80 controls (20 answers written from no card, 60 from shams) are the answers no single mind wrote. The trace model sent ' + L.leanK + ' of them to ' + NAMES[L.pair[0]] + ' or ' + NAMES[L.pair[1]] + ': it leans toward those two for any modern-English advice. So a card answer it gives to one of them is only partly the card speaking. Outside the lean, the answers from ' + NAMES[L.best].split(' ').pop() + '\'s card went to him ' + L.card[L.best] + ' times in 20, where only ' + L.ctrl[L.best] + ' of the 80 controls did: that is the cleanest sign the words carried. ' + (L.weak.length ? L.weak.map((m) => NAMES[m]).join(', ').replace(/, ([^,]*)$/, ' and $1') + ' it almost never named. Why is a guess, not a measured cause: perhaps that the maxims were stated in modern English, and the Marcus and Montaigne it was fitted on are 17th-century translations. That does not explain Thoreau, whose answers went mostly to Emerson, his neighbour in Concord and in vocabulary.' : '')),
     h('p', { class: 'note' }, 'The judge does not share the lean: it recognised the card answers of all six minds 18 to 20 times in 20, and the shams 5 times in 60. The lesson is written into the next seal: a word-count check is barred against the controls, not against chance.'),
     check);
 }
@@ -338,6 +355,17 @@ function caseView() {
       h('li', {}, 'The cold judge: ' + R.tokens.in.toLocaleString('en-GB') + ' tokens in and ' + R.tokens.out.toLocaleString('en-GB') + ' out, ' + gbp(R.judge) + '. Counted high: the input is ' + (run.judgeTokens > Math.ceil(run.judgeInChars / c.assume.charsPerToken) ? 'the harness\'s own count of the four whole judge sessions (their instructions, the batch, the reply), all priced as input' : 'its prompts at one token per ' + c.assume.charsPerToken + ' characters') + '; the replies at one token per ' + c.assume.charsPerToken + ' characters.'),
       h('li', {}, 'The trace model: seconds of the laptop, no cost worth counting')),
       h('p', {}, h('b', {}, 'Total: ' + gbp(R.total)))));
+  const pw = run.passageWords.reduce((a, b) => a + b, 0), sw = run.perspectiveWords.reduce((a, b) => a + b, 0), r = c.rates, a = c.assume;
+  fill('formulas', h('ul', {},
+    h('li', {}, 'Reading the sources: ' + pw.toLocaleString('en-GB') + ' words in the ' + run.passageWords.length + ' passages ÷ ' + r.wpm + ' words a minute (the adult reading rate, Brysbaert 2019) = ' + hrs(P.hours.read) + '.'),
+    h('li', {}, 'Writing the maxims: ' + run.passageWords.length + ' × ' + a.maximMinutes + ' minute = ' + hrs(P.hours.write) + '.'),
+    h('li', {}, 'Asking the seat: ' + run.perspectiveWords.length + ' answers × ' + a.askSeconds + ' seconds = ' + hrs(P.hours.ask) + '.'),
+    h('li', {}, 'Reviewing blind: (' + sw.toLocaleString('en-GB') + ' answer words ÷ ' + r.wpm + ' a minute + ' + run.perspectiveWords.length + ' × ' + a.decideSeconds + ' seconds to decide) × ' + a.reviewers + ' reviewer' + (a.reviewers === 1 ? '' : 's') + ' = ' + hrs(P.hours.review) + '.'),
+    h('li', {}, 'Staff: ' + P.totalHours.toFixed(2) + ' hours × ' + gbp(r.wage) + ' = ' + gbp(P.staff) + '; seat: ' + a.seats + ' × ' + gbp(r.seat) + ' = ' + gbp(P.seat) + '.'),
+    h('li', {}, 'The rail\'s person: ' + a.setupMinutes + ' minutes × ' + gbp(r.wage) + ' an hour = ' + gbp(R.staff) + '.'),
+    h('li', {}, 'Power: ' + Math.round(run.localSeconds).toLocaleString('en-GB') + ' seconds × ' + r.watts + ' W ÷ 3,600,000 = ' + R.kWh.toFixed(3) + ' kWh × ' + r.pencePerKwh + 'p = ' + gbp(R.power) + '.'),
+    h('li', {}, 'Judge: (' + R.tokens.in.toLocaleString('en-GB') + ' × $' + r.inPerM + ' + ' + R.tokens.out.toLocaleString('en-GB') + ' × $' + r.outPerM + ') ÷ 1,000,000 × ' + r.gbpPerUsd + ' £ per $ = ' + gbp(R.judge) + '.')),
+    h('p', { class: 'note' }, 'The counts are from this run\'s own records; the rates from data/prices.lock.json; the arithmetic is src/cost.mjs, under the mutation gate.'));
   fill('year', h('label', { class: 'controls' }, 'Checks a month ', (() => { const i = h('input', { type: 'number', min: '1', max: '500', value: String(perMonth), 'aria-label': 'Checks a month' }); i.addEventListener('input', () => { const v = Number(i.value); if (Number.isFinite(v) && v >= 1 && v <= 500) { perMonth = v; caseView(); } }); return i; })()),
     h('p', {}, 'At ' + perMonth + ' check' + (perMonth === 1 ? '' : 's') + ' a month: people ' + gbp(c.year.people) + ' a year; the rail ' + gbp(c.year.rail) + '. ', h('b', {}, gbp(c.year.save) + ' saved and ' + Math.round(c.year.hoursBack) + ' hours of staff time back'), ', every one of them re-checkable.'),
     (() => { const med = lock.entries.find((e) => e.id === 'ons-ashe-2025-median-hourly'), alt = med && compare(run, { entries: lock.entries.map((e) => (e.id === 'uk-national-living-wage' ? { ...e, value: med.value } : e)) }, over, perMonth);

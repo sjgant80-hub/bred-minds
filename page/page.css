@@ -88,3 +88,5 @@ footer{max-width:1080px;margin:0 auto;padding:24px 16px 48px;color:var(--soft);f
 .fl-l path{fill:none;stroke:var(--soft);stroke-width:1.6}
 .fl-ar{fill:var(--soft)}
 .fl-n{fill:var(--soft);font-size:12.5px}
+
+dl{margin:8px 0}dt{font-weight:600;margin-top:12px}dd{margin:2px 0 0;color:var(--soft)}
