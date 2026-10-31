@@ -1,0 +1,490 @@
+{
+ "kind": "bred-minds.receipt",
+ "organ": 2,
+ "sealed": {
+  "commit": "35bf5f9968b8a51a52bb98ccf67d5e8905c0cd55",
+  "amended": "4dacaf8433c4029ce78c2687bc3a29676bd044a5"
+ },
+ "asked": {
+  "breed": {
+   "model": "qwen2.5:7b",
+   "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "ollama": "0.40.5",
+   "quantization": "Q4_K_M"
+  },
+  "perspectives": {
+   "model": "qwen2.5:7b",
+   "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "ollama": "0.40.5",
+   "quantization": "Q4_K_M"
+  },
+  "judge": [
+   {
+    "batch": 1,
+    "tokens": 84210,
+    "toolUses": 2
+   },
+   {
+    "batch": 2,
+    "tokens": 86962,
+    "toolUses": 2
+   },
+   {
+    "batch": 3,
+    "tokens": 88505,
+    "toolUses": 2
+   },
+   {
+    "batch": 4,
+    "tokens": 82291,
+    "toolUses": 2
+   },
+   {
+    "batch": 5,
+    "tokens": 85456,
+    "toolUses": 2
+   },
+   {
+    "batch": 6,
+    "tokens": 87533,
+    "toolUses": 2
+   },
+   {
+    "batch": 7,
+    "tokens": 87760,
+    "toolUses": 2
+   },
+   {
+    "batch": 8,
+    "tokens": 85728,
+    "toolUses": 2
+   }
+  ]
+ },
+ "held": 2,
+ "verdicts": [
+  {
+   "id": "D1",
+   "kind": "property",
+   "claim": "organ 1's cards, answers and receipt are unchanged and its receipt still re-derives byte for byte; no TEST passage is read; every kept child maxim passes the gate; every child and cross card rebuilds byte for byte from the committed local-model replies; every reply was asked to its sealed prompt and seed (the prompt's hash recorded with each); every judge batch was answered to its sealed prompt; the name rule was applied to every answer",
+   "held": true,
+   "measured": "organ 1 unchanged since the seal true; organ 1 receipt re-derives true; TEST never read true; every kept child maxim passes the gate true; children rebuild byte for byte true; breeding asked to its sealed prompts true; 280 answers to their sealed prompts and seeds true (0 asked again, 0 still named); judge batches to their sealed prompts true (340 of 340 lines readable); the name rule applied true"
+  },
+  {
+   "id": "D2",
+   "kind": "prediction",
+   "claim": "THE STOCK BREEDS: all 15 pairs grow a child (at least 8 of its candidate maxims kept by the gate)",
+   "held": false,
+   "measured": "marcus+montaigne 12 of 16, marcus+emerson 15 of 16, marcus+james 15 of 16, marcus+nietzsche 15 of 16, marcus+thoreau 14 of 16, montaigne+emerson 6 of 16, montaigne+james 7 of 16, montaigne+nietzsche 10 of 16, montaigne+thoreau 15 of 16, emerson+james 15 of 16, emerson+nietzsche 11 of 16, emerson+thoreau 12 of 16, james+nietzsche 16 of 16, james+thoreau 14 of 16, nietzsche+thoreau 13 of 16"
+  },
+  {
+   "id": "D3",
+   "kind": "prediction",
+   "claim": "THE CHILD DRAWS ON BOTH: of all kept child maxims across the 15 children, at least half draw on both parents",
+   "held": false,
+   "measured": "81 of 190 kept child maxims draw on both parents (0.426316)"
+  },
+  {
+   "id": "D4",
+   "kind": "prediction",
+   "claim": "BOTH PARENTS CARRIED, AGAINST THE CONTROL: the judge's numbers carry the child's two parents in at least 40% of the 150 child answers, and the bootstrap 95% lower bound of (the child answers' carried rate minus the 60 single answers' control value) is above 0",
+   "held": true,
+   "measured": "child answers carried both parents 68 of 150 (0.453333); control mean 0.146667 over 60 single answers; difference lower bound 0.226667"
+  },
+  {
+   "id": "D5",
+   "kind": "prediction",
+   "claim": "AS GOOD AS A MIX: the bootstrap 95% lower bound of (the child answers' carried rate minus the 150 cross answers' carried rate) is above -0.10",
+   "held": false,
+   "measured": "child 0.453333 against cross 0.666667 (100 of 150); difference lower bound -0.333333"
+  },
+  {
+   "id": "D6",
+   "kind": "prediction",
+   "claim": "MORE EVEN THAN A MIX: the bootstrap 95% lower bound of (the child answers' mean balance minus the cross answers' mean balance) is above 0",
+   "held": false,
+   "measured": "mean balance: child 0.206424 against cross 0.273514; difference lower bound -0.102171"
+  },
+  {
+   "id": "D7",
+   "kind": "prediction",
+   "claim": "BOTH PARENTS IN THE WORDS, AGAINST THE CONTROL: the bootstrap 95% lower bound of (the share of child answers whose trace-model pair is the child's two parents minus the 60 single answers' control value, built the same way from the trace model's pairs) is above 0",
+   "held": false,
+   "measured": "the trace model named both parents on 11 of 150 child answers (0.073333); control mean 0.116667; difference lower bound -0.086667"
+  }
+ ],
+ "detail": {
+  "perPair": [
+   {
+    "pair": [
+     "marcus",
+     "montaigne"
+    ],
+    "kept": 12,
+    "both": 3,
+    "grown": true,
+    "child": 6,
+    "cross": 9,
+    "childBalance": 0.206515,
+    "crossBalance": 0.271406,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "marcus",
+     "emerson"
+    ],
+    "kept": 15,
+    "both": 9,
+    "grown": true,
+    "child": 9,
+    "cross": 10,
+    "childBalance": 0.429044,
+    "crossBalance": 0.357572,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "marcus",
+     "james"
+    ],
+    "kept": 15,
+    "both": 6,
+    "grown": true,
+    "child": 3,
+    "cross": 5,
+    "childBalance": 0.131297,
+    "crossBalance": 0.18689,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "marcus",
+     "nietzsche"
+    ],
+    "kept": 15,
+    "both": 7,
+    "grown": true,
+    "child": 6,
+    "cross": 6,
+    "childBalance": 0.289412,
+    "crossBalance": 0.20782,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "marcus",
+     "thoreau"
+    ],
+    "kept": 14,
+    "both": 11,
+    "grown": true,
+    "child": 7,
+    "cross": 4,
+    "childBalance": 0.24478,
+    "crossBalance": 0.220284,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "montaigne",
+     "emerson"
+    ],
+    "kept": 6,
+    "both": 3,
+    "grown": false,
+    "child": 0,
+    "cross": 9,
+    "childBalance": 0,
+    "crossBalance": 0.315619,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "montaigne",
+     "james"
+    ],
+    "kept": 7,
+    "both": 0,
+    "grown": false,
+    "child": 0,
+    "cross": 5,
+    "childBalance": 0,
+    "crossBalance": 0.269545,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "montaigne",
+     "nietzsche"
+    ],
+    "kept": 10,
+    "both": 2,
+    "grown": true,
+    "child": 3,
+    "cross": 8,
+    "childBalance": 0.200784,
+    "crossBalance": 0.345134,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "montaigne",
+     "thoreau"
+    ],
+    "kept": 15,
+    "both": 7,
+    "grown": true,
+    "child": 8,
+    "cross": 5,
+    "childBalance": 0.312591,
+    "crossBalance": 0.198776,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "emerson",
+     "james"
+    ],
+    "kept": 15,
+    "both": 5,
+    "grown": true,
+    "child": 2,
+    "cross": 8,
+    "childBalance": 0.206463,
+    "crossBalance": 0.300497,
+    "trace": 7
+   },
+   {
+    "pair": [
+     "emerson",
+     "nietzsche"
+    ],
+    "kept": 11,
+    "both": 5,
+    "grown": true,
+    "child": 6,
+    "cross": 7,
+    "childBalance": 0.235312,
+    "crossBalance": 0.250547,
+    "trace": 1
+   },
+   {
+    "pair": [
+     "emerson",
+     "thoreau"
+    ],
+    "kept": 12,
+    "both": 7,
+    "grown": true,
+    "child": 10,
+    "cross": 9,
+    "childBalance": 0.242083,
+    "crossBalance": 0.292841,
+    "trace": 1
+   },
+   {
+    "pair": [
+     "james",
+     "nietzsche"
+    ],
+    "kept": 16,
+    "both": 5,
+    "grown": true,
+    "child": 5,
+    "cross": 6,
+    "childBalance": 0.279221,
+    "crossBalance": 0.331303,
+    "trace": 2
+   },
+   {
+    "pair": [
+     "james",
+     "thoreau"
+    ],
+    "kept": 14,
+    "both": 6,
+    "grown": true,
+    "child": 2,
+    "cross": 3,
+    "childBalance": 0.163353,
+    "crossBalance": 0.26344,
+    "trace": 0
+   },
+   {
+    "pair": [
+     "nietzsche",
+     "thoreau"
+    ],
+    "kept": 13,
+    "both": 5,
+    "grown": true,
+    "child": 1,
+    "cross": 6,
+    "childBalance": 0.155501,
+    "crossBalance": 0.291044,
+    "trace": 0
+   }
+  ],
+  "control": [
+   {
+    "mind": "marcus",
+    "n": 10,
+    "judge": 0.12,
+    "trace": 0.04
+   },
+   {
+    "mind": "montaigne",
+    "n": 10,
+    "judge": 0.14,
+    "trace": 0.06
+   },
+   {
+    "mind": "emerson",
+    "n": 10,
+    "judge": 0.12,
+    "trace": 0.2
+   },
+   {
+    "mind": "james",
+    "n": 10,
+    "judge": 0.16,
+    "trace": 0.2
+   },
+   {
+    "mind": "nietzsche",
+    "n": 10,
+    "judge": 0.16,
+    "trace": 0.14
+   },
+   {
+    "mind": "thoreau",
+    "n": 10,
+    "judge": 0.18,
+    "trace": 0.06
+   }
+  ],
+  "children": [
+   {
+    "pair": [
+     "marcus",
+     "montaigne"
+    ],
+    "id": "04a9906929bfcad8fe6f06f4e53aaedd0d64ab350f4f389d1f5722664f17da1a",
+    "cross": "9263a5b41007369dcf2f6473dbb2b76d50f33bca52ec42bcf71b26ce7f6bce3c"
+   },
+   {
+    "pair": [
+     "marcus",
+     "emerson"
+    ],
+    "id": "c4f24fe1c2766b8a5f58e45b3f6bcad0f19cbe061d14735e55e87778fbf2887a",
+    "cross": "d8cfca761f0849be9e2211b5e984ba100ec9630c040d600e6d567da0813a48e2"
+   },
+   {
+    "pair": [
+     "marcus",
+     "james"
+    ],
+    "id": "e063a884230667c06294d1ea58d03f9d51f66cbff9d6cb8583fe5d001adf854f",
+    "cross": "b3e57d42eed08841f169e20c6ad5c04b3520a5f3dbb4d6aa66973f9410ef9d44"
+   },
+   {
+    "pair": [
+     "marcus",
+     "nietzsche"
+    ],
+    "id": "93bf5cdc27b9213dfca442a8445500c83e4d58e53058e6b9dd9e28fe60f7463f",
+    "cross": "0bf50c0c49c2ddf1bb94503d4c2f9e8279451bebd5653713f093d8780035aecb"
+   },
+   {
+    "pair": [
+     "marcus",
+     "thoreau"
+    ],
+    "id": "01c52a12dd3238487f59fb94cd854c62dcac0f2edb371db824e9188e8504be86",
+    "cross": "6e99d0d5a5dd894aff13e4b442ea87cf4052315786ab4f930e39b17dca11640e"
+   },
+   {
+    "pair": [
+     "montaigne",
+     "emerson"
+    ],
+    "id": null,
+    "cross": "4e9c5aaf363aff8109d14ae6f1a14735ace08d17e61959b74eb20307a74ef2d3"
+   },
+   {
+    "pair": [
+     "montaigne",
+     "james"
+    ],
+    "id": null,
+    "cross": "04c6b9f3439320aeb77393e45c3a0b76c455b47b7a209fe008df2f62cb92ad21"
+   },
+   {
+    "pair": [
+     "montaigne",
+     "nietzsche"
+    ],
+    "id": "ee307ee08d2307573655493b380b800f937ddbbb4398edad1c311d56949e2027",
+    "cross": "d4e604c58365cebddcdd922b1c7fcf5b7436a0031aa9ba0b3f18d883d111f991"
+   },
+   {
+    "pair": [
+     "montaigne",
+     "thoreau"
+    ],
+    "id": "35d2865ab8849f241de1bd95ad3ac197f5f2a60f73291f2aa728d0f21e99ef51",
+    "cross": "b339f244d5e9a876c113dd7f2cdf66fd567dc084b0a835628a37f7c95055de89"
+   },
+   {
+    "pair": [
+     "emerson",
+     "james"
+    ],
+    "id": "b4fde0007a2d2378dbae857d081d2696c9376182331800afb624ed3d1afddb62",
+    "cross": "baf60c2bb2ee001360d8b9ad686420f28c3d75f3f0034800a98e03465363e158"
+   },
+   {
+    "pair": [
+     "emerson",
+     "nietzsche"
+    ],
+    "id": "4a1c2482c739a2381e8d9781eb176229480f4c51a329d354af9e4a5e6d7edfb6",
+    "cross": "8bb4e1672f9089934e0187d0f87c7399d69038f3883d46825559a18f52eabd45"
+   },
+   {
+    "pair": [
+     "emerson",
+     "thoreau"
+    ],
+    "id": "d90425629245e0d9ab0915f58b176473fb23bc2de0857db660d6ad06ae7f9d00",
+    "cross": "8641f240ac14051ea45454cb055f9b68e7c2553104b1d55ec6e85adf2c2ca300"
+   },
+   {
+    "pair": [
+     "james",
+     "nietzsche"
+    ],
+    "id": "bf988a4d5fa17301267ea684e9857bd1617e828344241c1518dd2a04aa2bf696",
+    "cross": "54f6c6ba540d8acc91f7291ef1f827efa097619d54ded8b9f9f2be8d2fd822d5"
+   },
+   {
+    "pair": [
+     "james",
+     "thoreau"
+    ],
+    "id": "a3dc77a8430ecdbb69356036ec1782ecc81cb69e1fd10210d5d5e9af826adfe4",
+    "cross": "35d4eabb0b2ab83291ebe5b76c584552957a712099e171d134518887e797c459"
+   },
+   {
+    "pair": [
+     "nietzsche",
+     "thoreau"
+    ],
+    "id": "2a1f49c42b46db3467982612d30b6677e257ccffc632cc45f23ecf98bab31824",
+    "cross": "1c0d233e270a540f8173d923abefacff828eb3bf1ecba1910c70fbf2ca070f5c"
+   }
+  ]
+ }
+}
