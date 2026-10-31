@@ -22,6 +22,9 @@ export const breedPrompt = (first, second) => 'Below are two patterns of thought
 /** the sealed head of every organ 2 batch */
 export const HEAD2 = (() => { const p = SEAL2.judge.prompt, a = p.indexOf("'") + 1; return p.slice(a, p.indexOf("' then the 45 passages", a)); })();
 
+/** the head for a batch of n passages: the sealed head, its two numbers changed when n is not 45 (claims/organ-2-amend.json) */
+export const headFor = (n) => (n === BATCH2 ? HEAD2 : HEAD2.replace('Below are 45 short passages', 'Below are ' + n + ' short passages').replace('Reply with exactly 45 lines', 'Reply with exactly ' + n + ' lines'));
+
 /** every pair's child and cross, from the committed breeding replies: { pairs: [{ k, pair, child: breed(), cross: cross() }] } */
 export function children(replies = JSON.parse(read('data/local/children.json')).items, P = parents()) {
   const by = new Map(replies.map((x) => [x.pair.join('+'), x.reply]));

@@ -1,0 +1,11 @@
+{
+ "kind": "bred-minds.claims-amendment",
+ "organ": 2,
+ "v": 1,
+ "amends": "claims/organ-2.json, which is unchanged; no claim, threshold, prompt or seed changes",
+ "when": "Written after the 15 children were grown and committed (3afed29), before any organ 2 answer was written and before any organ 2 batch was judged.",
+ "why": "13 of 15 pairs grew a child (Montaigne x Emerson kept 6 of 16 candidates, Montaigne x James 7 of 16), so D2 fails. As sealed, a pair that grows no child has its child answers not written, and they count as misses everywhere. That leaves 340 answers to judge (130 child, 150 cross, 60 single), not the 360 the sealed batch rule names, so 'eight batches of 45' cannot hold exactly.",
+ "change": "The 340 answers in one order shuffled by the seed library's shuffle (rng seed 4343), in batches of 45 in that order, the eighth holding the last 25. The eighth batch's prompt is the sealed head with its two numbers ('Below are 45 short passages', 'Reply with exactly 45 lines') changed to 25. Every other word of every prompt is as sealed.",
+ "seenBeforeThis": "D2's result (13 of 15 grew), and, from a dry run of the measurement on these committed children with fake answers and fake judge readings (in a scratch copy, never committed here), D3's result: 81 of the 190 kept child maxims draw on both parents (0.43), below its bar of half. Both are fixed by the committed children and nothing later can change them. Nothing about any real answer or any judge reading has been seen.",
+ "measurement": "D4 to D7 count the 20 child answers of the two pairs without a child as misses (carried 0, balance 0, trace 0), as sealed. The measurement refuses to run if this file differs from the commit that added it, and the receipt names that commit."
+}

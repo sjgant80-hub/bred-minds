@@ -29,12 +29,21 @@ function sealed() {
   return { commit: touched[touched.length - 1] || null, unchanged };
 }
 
+/** the commit that added organ 2's amendment, and whether it is unchanged since (null when there is none) */
+function amended() {
+  const touched = git('log', '--format=%H', '--', 'claims/organ-2-amend.json').split('\n').filter(Boolean);
+  if (!touched.length) return null;
+  return { commit: touched[touched.length - 1], unchanged: touched.length === 1 && git('status', '--porcelain', '--', 'claims/organ-2-amend.json') === '' };
+}
+
 /** whether organ 1's files are what they were at organ 2's seal */
 const organ1Unchanged = (commit) => ['data/cards.json', 'data/local/perspectives.json', 'receipts/organ-1.json'].every((f) => git('diff', '--name-only', commit, '--', f) === '' && git('status', '--porcelain', '--', f) === '');
 
 export function measure2() {
   const s = sealed();
   if (!s.unchanged) throw new Error('claims/organ-2.json differs from the commit that sealed it');
+  const am = amended();
+  if (am && !am.unchanged) throw new Error('claims/organ-2-amend.json differs from the commit that added it');
   const SEAL2 = JSON.parse(read('claims/organ-2.json'));
   // D1, piece by piece
   const o1Files = organ1Unchanged(s.commit), o1Receipt = JSON.stringify(measure(), null, 1) + '\n' === read('receipts/organ-1.json');
@@ -87,7 +96,7 @@ export function measure2() {
     return { pair, kept: kept[k].length, both: kept[k].filter((x) => x.both).length, grown: C.pairs[k].child.grown, child: sum(childC), cross: sum(crossC), childBalance: r6(mean(sl(childB))), crossBalance: r6(mean(sl(crossB))), trace: sum(childT) }; });
   const perMind = MINDS.map((m) => { const ix = singles.map(([, x], i) => (x.mind === m ? i : -1)).filter((i) => i >= 0); return { mind: m, n: ix.length, judge: r6(mean(ix.map((i) => ctrlJ[i]))), trace: r6(mean(ix.map((i) => ctrlT[i]))) }; });
   const usage = batches.map((b) => (b ? { batch: b.batch, tokens: b.judge.tokens, toolUses: b.judge.toolUses } : null));
-  return { kind: 'bred-minds.receipt', organ: 2, sealed: { commit: s.commit }, asked: { breed: raw.asked, perspectives: R.asked, judge: usage }, held: verdicts.filter((v) => v.held).length, verdicts,
+  return { kind: 'bred-minds.receipt', organ: 2, sealed: { commit: s.commit, ...(am ? { amended: am.commit } : {}) }, asked: { breed: raw.asked, perspectives: R.asked, judge: usage }, held: verdicts.filter((v) => v.held).length, verdicts,
     detail: { perPair, control: perMind, children: C.pairs.map((p) => ({ pair: p.pair, id: p.child.id, cross: p.cross.id })) } };
 }
 

@@ -2,7 +2,7 @@
 // use the sealed seeds and options, read organ 1's six grown cards, and run the 15 pairs in the sealed order.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { SEAL2, PAIRS, QUESTIONS, BATCH2, OPTIONS2, SEEDS2, parents, breedPrompt, HEAD2 } from '../tools/stock2.mjs';
+import { SEAL2, PAIRS, QUESTIONS, BATCH2, OPTIONS2, SEEDS2, parents, breedPrompt, HEAD2, headFor } from '../tools/stock2.mjs';
 import { SEAL, MINDS } from '../tools/stock.mjs';
 
 const quoted = (field, end) => { const a = field.indexOf("'") + 1; return field.slice(a, field.indexOf(end, a)).replace(/\\n/g, '\n'); };
@@ -21,6 +21,14 @@ test('the judge head is the sealed one, and asks for 45 lines', () => {
   assert.ok(HEAD2.includes('of one of six thinkers, of two of them together, or of none of them'));
   assert.ok(HEAD2.includes('Reply with exactly 45 lines'));
   assert.equal(BATCH2, 45);
+});
+
+test('a short batch\'s head changes only its two numbers (claims/organ-2-amend.json)', () => {
+  assert.equal(headFor(45), HEAD2);
+  const h25 = headFor(25);
+  assert.ok(h25.startsWith('Below are 25 short passages.') && h25.includes('Reply with exactly 25 lines'));
+  assert.equal(h25.replace('Below are 25 short', 'Below are 45 short').replace('exactly 25 lines', 'exactly 45 lines'), HEAD2);
+  assert.ok(!h25.includes('45'));
 });
 
 test('the sealed seeds, options and questions', () => {
