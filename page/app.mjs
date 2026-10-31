@@ -6,7 +6,7 @@ import { fit, scores, attribute } from '../src/trace.mjs';
 import { readReply, recognises, LABELS } from '../src/judge.mjs';
 import { gate, firstWords } from '../src/card.mjs';
 import { compare, ASSUME } from '../src/cost.mjs';
-import { childGate } from '../src/breed.mjs';
+import { childGate, carries, balance } from '../src/breed.mjs';
 
 window.__bm = true;
 const $ = (id) => document.getElementById(id);
@@ -48,7 +48,11 @@ const [seal, sources, cards, drawn, maxims, persp, order, receipt, lock, witness
 const batches = order ? await Promise.all([1, 2, 3, 4].map((n) => getJSON('data/judge/batch-' + n + '.json'))) : [];
 const after = receipt ? await getJSON('data/after/organ-1-lean.json') : null;
 const usage = batches.every(Boolean) && batches.length ? await getJSON('data/judge/usage.json') : null;
-const [seal2, kids, receipt2] = await Promise.all([getJSON('claims/organ-2.json'), getJSON('data/children.json'), getJSON('receipts/organ-2.json')]);
+const [seal2, kids, receipt2, persp2, order2] = await Promise.all([getJSON('claims/organ-2.json'), getJSON('data/children.json'), getJSON('receipts/organ-2.json'), getJSON('data/local/perspectives-2.json'), getJSON('data/judge2/order.json')]);
+const batches2 = order2 ? await Promise.all([1, 2, 3, 4, 5, 6, 7, 8].map((n) => getJSON('data/judge2/batch-' + n + '.json'))) : [];
+const reading2 = new Map();
+if (order2 && batches2.every(Boolean)) order2.keys.forEach((k, i) => { const b = batches2[Math.floor(i / 45)]; reading2.set(k, readReply(b.reply, 45)[i % 45]); });
+const answer2 = new Map(((persp2 && persp2.items) || []).map((x) => [x.kind + ':' + x.pair.join('+') + ':' + x.q, x]));
 const prompts = batches.every(Boolean) ? await Promise.all([1, 2, 3, 4].map((n) => getText('data/judge/batch-' + n + '.prompt.txt'))) : [];
 const MINDS = sources ? sources.minds.map((m) => m.mind) : [];
 const NAMES = Object.fromEntries((sources ? sources.minds : []).map((m) => [m.mind, m.name]));
@@ -273,6 +277,21 @@ function headline2(r = receipt2) {
     ' Balance (0.50 is perfectly even): child ' + bal('childBalance').toFixed(2) + ', cross ' + bal('crossBalance').toFixed(2) + (held2('D6') ? ', so the child is the more even.' : ', so the child is not shown to be more even.') +
     ' The trace model named both parents in ' + sum('trace') + ' of ' + n + ' child answers, against ' + pct(ctrl('trace')) + ' for one parent alone' + (held2('D7') ? ': both reached the words.' : ': not shown to reach the words.');
 }
+/** what the child and its cross wrote to one question, side by side, with the cold judge's numbers for each */
+let qShown = 1;
+function answersView(p) {
+  if (!persp2) { fill('b2answers'); return; }
+  const [a, b] = p.pair;
+  const one = (kind) => {
+    const k = kind + ':' + p.pair.join('+') + ':' + qShown, x = answer2.get(k), r = reading2.get(k);
+    if (!x) return h('div', { class: 'panel' }, h('h3', {}, kind === 'child' ? 'The child' : 'The plain mix'), h('p', { class: 'note' }, kind === 'child' && !p.child.grown ? 'No child grew, so it wrote nothing; as sealed, this counts as a miss.' : 'Not written yet.'));
+    return h('div', { class: 'panel' }, h('h3', {}, kind === 'child' ? 'The child wrote' : 'The plain mix wrote'), h('div', { class: 'quote' }, x.reply.replace(/\s+/g, ' ').trim()),
+      r ? h('div', {}, h('p', { class: 'note' }, 'The cold judge\'s numbers (it saw this among 45, not knowing what wrote it):'), bars(r),
+        h('p', {}, carries(r, a, b) ? h('span', { class: 'held' }, 'Carries both parents') : h('span', { class: 'failed' }, 'Does not carry both parents'), ' · balance ' + balance(r, a, b).toFixed(2))) : h('p', { class: 'note' }, 'The judge\'s numbers appear here once its replies are committed.'));
+  };
+  fill('b2answers', h('h3', {}, 'What they wrote'), h('div', { class: 'controls', role: 'group', 'aria-label': 'Pick a question' }, Q.slice(0, 10).map((q, i) => h('button', { 'aria-pressed': String(i + 1 === qShown), class: i + 1 === qShown ? 'go' : null, title: q, on: { click: () => { qShown = i + 1; answersView(p); } } }, 'Q' + (i + 1)))),
+    h('p', {}, h('b', {}, 'Question ' + qShown + ': '), Q[qShown - 1]), h('div', { class: 'grid g2' }, one('child'), one('cross')));
+}
 function breeding() {
   if (!seal2) { fill('b2status', h('p', { class: 'out' }, 'Organ 2 could not be loaded.')); return; }
   fill('b2expect', seal2.expectations);
@@ -298,6 +317,7 @@ function breeding() {
     h('div', { class: 'panel' }, h('h3', {}, 'The naive cross'), h('p', { class: 'note' }, 'The control: six of each parent\'s own maxims, alternating, and the same voice. It never went through the local model.'),
       h('ol', { class: 'maxims' }, x.card.maxims.map((m, i) => h('li', {}, m.maxim, ' ', h('span', { class: 'pill' }, short(p.pair[i % 2]))))),
       h('p', { class: 'note' }, 'Card ' + x.id.slice(0, 16) + '.')));
+  answersView(p);
   if (!receipt2) { fill('b2results'); return; }
   const d = receipt2.detail;
   fill('b2results', h('h3', {}, 'Results'), verdictTable(receipt2),
@@ -408,6 +428,9 @@ function words2() {
 overview(); cardView(); results(); breeding(); traced(); blueprint(); sliders(); caseView(); words2();
 if (items) blind();
 $('load').addEventListener('click', grow);
+const openGlossary = () => { if ($('glossary')) $('glossary').open = true; };
+$('toglossary').addEventListener('click', openGlossary);
+if (location.hash === '#glossary') openGlossary();
 $('attr').addEventListener('click', () => model && attributeMine());
 $('unseen').addEventListener('click', () => model && unseen.length && pickUnseen());
 if (receipt) $('sealnote').append(' Sealed at commit ', h('code', {}, receipt.sealed.commit.slice(0, 7)), '; measured once.');

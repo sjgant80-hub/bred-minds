@@ -114,6 +114,7 @@ node tools/measure-1.mjs --check</pre>
 
 <section id="breeding">
   <h2>Breeding</h2>
+  <p class="note">New here? A <b>card</b> is one mind's twelve maxims plus two short samples of its voice; the <b>gate</b> is the fixed rule that keeps or drops a maxim; the <b>cold judge</b> is a fresh AI session that sees only shuffled answers. Every term is in <a href="#glossary" id="toglossary">the glossary</a>.</p>
   <p>Organ 2 breeds the cards. For every pair of the six minds, the local model reads both parent cards and writes sixteen new maxims for a single pattern of thought that holds both. A gate keeps a new maxim only if:</p>
   <ul>
     <li>it is 6 to 40 words;</li>
@@ -122,7 +123,8 @@ node tools/measure-1.mjs --check</pre>
     <li>it shares at least two content words with the parents' maxims;</li>
     <li>it is not a near-copy of any one parent maxim.</li>
   </ul>
-  <p>The first twelve kept are the <b>child</b>. Beside every child sits its control, the <b>naive cross</b>: six of each parent's own maxims, alternating, with the same voice. If breeding is worth anything, the child must carry both parents at least as well as that plain mix does, in new words.</p>
+  <p>The first twelve kept are the <b>child</b>. A pair with fewer than eight kept grows no child, and its answers count as misses. Beside every child sits its control, the <b>naive cross</b> (the plain mix): six of each parent's own maxims, alternating, with the same voice. If breeding is worth anything, the child must carry both parents at least as well as that plain mix does, in new words.</p>
+  <p>The local model then answers ten questions from every child and every cross. The same cold judge as organ 1 reads them: eight fresh Claude Opus 5.5 sessions, each seeing one shuffled batch. Each parent's own organ 1 answers sit in the same batches as a third control, showing how often one parent alone gets a partner named beside it. An answer <b>carries both</b> parents when the judge's numbers for those two are each higher than for every other thinker. Its <b>balance</b> is the smaller of the two numbers over their sum. For example, Marcus 40 and Nietzsche 20 gives 20 ÷ 60 = 0.33; 0.50 is perfectly even.</p>
   <svg viewBox="0 0 980 230" role="img" aria-labelledby="flow2t" id="flow2">
     <title id="flow2t">From two parent cards to organ 2's receipt</title>
     <g class="fl">
@@ -145,6 +147,7 @@ node tools/measure-1.mjs --check</pre>
   <div class="panel" id="b2status"><p class="out">Loading organ 2…</p></div>
   <div class="controls" role="group" aria-label="Pick a pair" id="b2pick"></div>
   <div class="grid g2" id="b2cards"></div>
+  <div id="b2answers"></div>
   <div id="b2results"></div>
   <details class="panel"><summary>What was written down before organ 2 ran</summary><p id="b2expect"></p></details>
 </section>
