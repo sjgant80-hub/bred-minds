@@ -1,0 +1,153 @@
+{
+ "kind": "bred-minds.local-children",
+ "v": 1,
+ "asked": {
+  "model": "qwen2.5:7b",
+  "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "ollama": "0.40.5",
+  "quantization": "Q4_K_M"
+ },
+ "options": {
+  "temperature": 0,
+  "seed": 7,
+  "num_ctx": 4096,
+  "num_predict": 900
+ },
+ "items": [
+  {
+   "pair": [
+    "marcus",
+    "montaigne"
+   ],
+   "prompt": "fd78265281bdc7cc",
+   "reply": "1. Embrace a life of simplicity, focusing on essential actions and thoughts.\n2. Let your mind remain detached from pleasure and pain, observing sensations without judgment.\n3. Seek genuine improvement through deep reflection and honest self-examination.\n4. Practice charity and justice in all your interactions, trusting in divine will.\n5. Strive for a mind free from passions, as it is a stronger and more fortified place.\n6. Honor your rational faculties and focus on the present moment, cherishing the fleeting nature of life.\n7. Adapt to various customs and situations, always aiming to do what is good.\n8. Use reason to serve your faith, understanding that true divine knowledge comes from faith alone.\n9. Develop a natural aversion to deceit, whether in minor matters or significant ones.\n10. Practice thrifty honesty, finding joy in relieving financial burdens and avoiding scandal.\n11. Let your actions be guided by virtue and honor, avoiding bodily necessities as much as possible.\n12. Maintain hope and find consolation in past experiences to face life's challenges.\n13. Contemplate the insignificance of mortal life and death, finding nobility in doing well despite ill-speech.\n14. Recognize the futility of human wisdom and the vanity of man, submitting to the wisdom of God.\n15. Let generosity in bearing misfortunes be the true measure of happiness, rather than external circumstances.\n16. Deny yourself in desires, finding greater blessings in contentment and modesty.",
+   "seconds": 116
+  },
+  {
+   "pair": [
+    "marcus",
+    "emerson"
+   ],
+   "prompt": "fa03f2be1ccc019b",
+   "reply": "1. Embrace simplicity in your life to avoid unnecessary complications and stress.\n2. Focus on the present moment, recognizing that the past is unchangeable and the future uncertain.\n3. Cultivate a mind free from passions, allowing for clearer judgment and action.\n4. Live in accordance with natural laws and your true nature, rather than societal expectations.\n5. Seek genuine understanding and improvement, valuing deep reflection over superficial displays.\n6. Practice charity and justice in your interactions with others, striving for genuine reconciliation.\n7. Let your actions be guided by reason and truth, avoiding impurities and biases.\n8. Accept life's imperfections and find happiness in the present, rather than dwelling on what is lost.\n9. Purify your intellect and heart annually, refining your understanding and moral compass.\n10. Honor the wisdom of the soul, recognizing its permanence and universality.\n11. Face your fears with courage and resolve, transforming them into opportunities for growth.\n12. Speak from the heart, even if it means being misunderstood, for honesty is the path to greatness.\n13. Let your actions reflect the nature of things, making virtue a central part of your life.\n14. Embrace the fleeting nature of life, cherishing each moment and living authentically.\n15. Trust in your own judgment, valuing the wisdom of your soul over external authorities.\n16. Find joy in the simple pleasures of life, recognizing that true happiness comes from within.",
+   "seconds": 80
+  },
+  {
+   "pair": [
+    "marcus",
+    "james"
+   ],
+   "prompt": "9b555a2044886b6a",
+   "reply": "1. Live simply, focusing on essential actions and thoughts to maintain a clear and peaceful mind.\n2. Embrace the present moment, understanding that life is fleeting and should be lived with mindfulness.\n3. Let your actions be guided by natural moral principles, avoiding superficial pretensions.\n4. Accept that external events are beyond your control, but your response to them is within your power.\n5. Strive for genuine improvement, valuing deep reflection and true learning over superficial displays.\n6. Practice just interactions with others, ensuring your speech and actions are truthful and charitable.\n7. Cultivate a mind free from passions, recognizing its strength and importance in guiding your life.\n8. Focus on the present, understanding that life is short and should be lived with purpose.\n9. Understand that your perception of events is crucial; a positive outlook can turn misfortune into opportunity.\n10. Recognize that clarity in thought and action comes from making clear distinctions and avoiding contradictions.\n11. Turn away from philosophical disputes that offer no clear future benefits, seeking practical wisdom instead.\n12. View truth as dynamic and malleable, always evolving with new knowledge and experiences.\n13. See yourself as part of the infinite universe, transcending separateness and embracing oneness.\n14. Balance the need for facts and principles in your life, understanding both are essential for daily living.\n15. Ground your duty to reality in practical expediencies, ensuring your actions have meaningful consequences.\n16. Seek comfort in religious philosophy that acknowledges the complexity of the human condition and the need for moral responsibility.",
+   "seconds": 90
+  },
+  {
+   "pair": [
+    "marcus",
+    "nietzsche"
+   ],
+   "prompt": "731e343d61198f1c",
+   "reply": "1. Embrace a life of simplicity, focusing on essential actions and thoughts.\n2. Let your mind remain detached from pleasure and pain, observing without judgment.\n3. Seek genuine improvement through deep reflection and honest self-examination.\n4. Live in accordance with natural human needs and true moral principles.\n5. Accept your circumstances with gratitude, seeing them as opportunities for growth.\n6. Strive for a mind free from passions, as it is a stronger and more resilient fortress.\n7. Honor your rational faculties and focus on the present moment, cherishing the fleeting nature of life.\n8. Recognize that true happiness lies in how you bear misfortunes with generosity.\n9. Cultivate a humble and introspective approach, learning from the wisdom of the past.\n10. Understand that the significance of great events and thoughts often unfolds over generations.\n11. Value the enduring qualities of art and culture, appreciating the timeless beauty of Mozart.\n12. Embrace skepticism as a tool to counteract pessimism and denial, fostering a more vibrant spirit.\n13. Acknowledge that adversity can lead to the development of strong, independent spirits and philosophers.\n14. Declare war on superficial values and atomistic requirements that hinder true understanding.\n15. Strive for genuine learning and reconciliation, avoiding pretentious displays of virtue.\n16. Live with integrity, ensuring your actions, speech, and understanding are free from error.",
+   "seconds": 86
+  },
+  {
+   "pair": [
+    "marcus",
+    "thoreau"
+   ],
+   "prompt": "ece5feee879d48fd",
+   "reply": "1. Embrace a life of simplicity and focus on genuine experiences rather than superficial possessions.\n2. Live in accordance with nature and reason, letting go of unnecessary thoughts and actions.\n3. Prioritize inner peace and virtue over external appearances and material wealth.\n4. Cultivate a mind free from passions and biases, finding strength in self-reflection.\n5. Seek true happiness in how you face life's challenges, not in external circumstances.\n6. Act with integrity and independence, resisting the pull of conformity and demagoguery.\n7. Engage actively with the world, seeking out the best knowledge and resources available.\n8. Value the present moment, understanding that life is fleeting and should be cherished.\n9. Let your actions be guided by charity and justice, rather than by fleeting desires.\n10. Embrace the unpredictability of life, finding joy in the momentary pleasures it offers.\n11. Strive for genuine improvement and deep reflection, avoiding pretentious displays of virtue.\n12. Honor your rational faculties and focus on the present, understanding the impermanence of life.\n13. Let your dwelling and external appearances be simple, as what truly matters is how you live.\n14. Work hard and engage in practical activities, as they can enrich your life and understanding.\n15. Maintain unbroken harmony in your interactions, letting speech flow naturally when needed.\n16. Reflect on the deeper meanings and wisdom in the world, seeking to understand beyond the surface.",
+   "seconds": 84
+  },
+  {
+   "pair": [
+    "montaigne",
+    "emerson"
+   ],
+   "prompt": "cebc64449ebc1f6a",
+   "reply": "1. One should cultivate a balanced life, embracing both the practical and the philosophical.\n2. In times of uncertainty, seek knowledge and critical thinking to maintain a stable moral compass.\n3. Honesty and integrity, even in small matters, are the foundation of a virtuous life.\n4. True wisdom lies in understanding and adhering to natural, intellectual, and moral laws.\n5. The soul's scale is one, and true happiness is found in enduring experiences that transcend time.\n6. Practice a thrifty honesty, paying debts promptly and finding joy in financial clarity.\n7. Face your fears with courage and resolve, transforming them into opportunities for growth.\n8. Embrace the wisdom of God, recognizing the limitations of human understanding and the vanity of earthly pursuits.\n9. Love should be the central focus of one's life, with all other pleasures paling in comparison.\n10. Adaptable to all customs and situations, one should strive to do what is good and virtuous.\n11. Use reason to serve faith, but always remember that true divine knowledge comes from faith alone.\n12. The more one denies himself, the more the gods give him, suggesting contentment and modesty lead to greater blessings.\n13. True marriage is the purification of the intellect and heart, not just physical attraction.\n14. Pictures must not be too picturesque; what truly matters is plain dealing and common sense.\n15. Speak your honest thought now and tomorrow, even if it contradicts what you said today, for greatness is often misunderstood.\n16. Virtue is the adherence in action to the nature of things, and the nature of things makes it prevalent.",
+   "seconds": 117
+  },
+  {
+   "pair": [
+    "montaigne",
+    "james"
+   ],
+   "prompt": "9d11a282fd082c89",
+   "reply": "1. One should adapt to various customs and situations, yet maintain a moral compass.\n2. Engage in activities like swimming for their practical benefits, not just for pleasure.\n3. Embrace knowledge and critical thinking, especially when religious beliefs are uncertain.\n4. Reject pretense in reason and instead rely on time and example for guidance.\n5. Focus on honor and virtue, minimizing bodily desires.\n6. Maintain hope and find comfort in past experiences to face life's challenges.\n7. Practice honesty by paying debts promptly and avoiding unnecessary bargaining.\n8. Develop a natural aversion to deceit, big or small.\n9. Use reason to support faith, but recognize that true divine knowledge comes from faith alone.\n10. Introduce Greek and Roman virtues to new cultures, avoiding exploitation.\n11. Submit to divine wisdom, acknowledging the limits of human understanding.\n12. Deny oneself to receive greater blessings, promoting contentment and modesty.\n13. Understand matter through sensations, not as an independent substance.\n14. Anything comes into existence due to someone's will, not material causes.\n15. Clarity in thinking and acting requires making distinctions when faced with contradictions.\n16. Live, think, and act by recognizing oneness with the infinite, transcending separateness.",
+   "seconds": 83
+  },
+  {
+   "pair": [
+    "montaigne",
+    "nietzsche"
+   ],
+   "prompt": "80c8482d1764e905",
+   "reply": "1. One should adapt to various customs and situations, yet always strive for virtue.\n2. Engage in activities that enhance your character, such as swimming, for practical and moral benefits.\n3. Embrace knowledge and critical thinking, especially in uncertain times, to preserve faith and reason.\n4. Reject pretense in reason and instead rely on time and example to guide moral actions.\n5. Focus on honor and virtue, minimizing bodily desires and avoiding deceit.\n6. Maintain hope and find solace in past experiences to face life's challenges.\n7. Practice honesty by paying debts promptly and finding joy in financial relief.\n8. Develop a natural aversion to deceit, whether in trivial or serious matters.\n9. Use reason to support faith, but recognize that true divine knowledge comes from faith alone.\n10. Introduce Greek and Roman virtues and culture to new peoples, avoiding exploitation.\n11. Submit to the wisdom of God, acknowledging the limitations of human wisdom and the vanity of man.\n12. Deny oneself to receive greater blessings, promoting contentment and modesty.\n13. Humans can learn from the gods, adopting a humble and introspective approach to life.\n14. Appreciate the enduring value of classical music, like Mozart, over fleeting modern tastes.\n15. Embrace skepticism as a tool to counteract pessimism and denial, fostering a vigorous spirit.\n16. Strive for intellectual depth and power, rejecting superficial virtues and Christian moralizing.",
+   "seconds": 95
+  },
+  {
+   "pair": [
+    "montaigne",
+    "thoreau"
+   ],
+   "prompt": "46d649690779c8bf",
+   "reply": "1. One should embrace adaptability and critical thinking to navigate diverse and uncertain situations.\n2. Engage in activities that enhance personal and communal well-being, such as swimming for both health and camaraderie.\n3. Knowledge and reason are essential tools to maintain a balanced and stable belief system in times of doubt.\n4. Reject the use of reason as an excuse for harmful actions; instead, rely on wisdom and example to guide behavior.\n5. Prioritize honor, virtue, and spiritual growth over material comforts and bodily necessities.\n6. Maintain hope and find comfort in past experiences to face life's challenges with resilience.\n7. Practice honesty and integrity in all matters, even in small and seemingly trivial interactions.\n8. Use reason to support faith, but recognize that true divine knowledge comes from divine revelation, not human effort.\n9. Advocate for the introduction of virtuous and cultural values among diverse populations to promote mutual respect and understanding.\n10. Submit to the wisdom of divine guidance, acknowledging the limitations of human understanding and the fleeting nature of earthly achievements.\n11. Contentment and modesty in desires lead to greater blessings and a more fulfilling life.\n12. The quality of one's life is more important than superficial appearances or material possessions.\n13. Transform communities into centers of lifelong learning and education, prioritizing intellectual growth over material wealth.\n14. Encourage independent and honest actions, free from the influence of conventional norms or manipulative rhetoric.\n15. Embrace a simple, natural lifestyle, free from unnecessary worries and responsibilities, to find true peace and joy.\n16. Seek out the best resources and knowledge, regardless of their origin, to enrich one's understanding and capabilities.",
+   "seconds": 95
+  },
+  {
+   "pair": [
+    "emerson",
+    "james"
+   ],
+   "prompt": "fca696cfd3fd239e",
+   "reply": "1. True wisdom lies in understanding the interconnectedness of all things and acting accordingly.\n2. The essence of courage is facing one's fears and acting with resolve, even when the outcome is uncertain.\n3. Clarity in thought and action comes from making clear distinctions and avoiding contradictions.\n4. The soul's journey is a continuous process of self-discovery and self-assertion, independent of external authorities.\n5. Love should be the central focus of life, but it must be grounded in mutual understanding and respect.\n6. Life's pleasures are fleeting; true happiness comes from aligning one's actions with the nature of things.\n7. The veil of truth is lifted when one speaks from the heart, sharing their honest thoughts openly.\n8. The true marriage is a spiritual union, deepening with each passing year, not just a physical or emotional bond.\n9. The soul's scale is one, emphasizing the permanence of certain truths over the transient nature of time and space.\n10. Greatness lies in being misunderstood, as it takes courage to stand by one's convictions.\n11. Virtue is the adherence to the nature of things, making it prevalent in one's actions.\n12. Pictures should not be overly picturesque; what truly astonishes is the simplicity and honesty of expression.\n13. To live serenely, one must confront fears and turn them into opportunities for growth.\n14. The infinite Being of the universe should be seen as one with oneself, eliminating all sense of separateness.\n15. The dynamic nature of truth requires constant reinterpretation and adaptation to new knowledge.\n16. The main claim is that one should believe in oneself and live according to eternal facts, rather than relying on past experiences or external authorities.",
+   "seconds": 122
+  },
+  {
+   "pair": [
+    "emerson",
+    "nietzsche"
+   ],
+   "prompt": "d2dff51c665d685c",
+   "reply": "1. True wisdom lies in understanding the eternal truths that transcend time and space.\n2. Marriage should be a continuous process of spiritual and intellectual growth, not just a moment of passion.\n3. The soul's scale is one, emphasizing the enduring nature of certain truths.\n4. Art should be honest and straightforward, avoiding overly decorative or artificial elements.\n5. Deep thinking and understanding of abstract concepts require deliberate effort and often come unexpectedly.\n6. Self-trust is the core of heroism, involving truthfulness, justice, generosity, and finding humor in the mundane.\n7. Face your fears directly to live serenely, as courage can often render fears unfounded.\n8. Speak from the heart, even if it contradicts previous statements, for greatness often means being misunderstood.\n9. Love should be the central focus of life, with all other pleasures being secondary.\n10. Virtue is the consistent adherence to the nature of things, making it prevalent in one's actions.\n11. Humans can learn from the gods, adopting a more humble and introspective approach to life.\n12. Great events and thoughts take time to fully understand, and their significance may not be recognized immediately.\n13. Strong thinkers should challenge appearances and skepticism to live more vigorously and joyously.\n14. In times of struggle, a stable and uniform type is established, while in times of abundance, varied and potentially monstrous variations arise.\n15. Skepticism serves as a better remedy against denial, helping to counteract pessimism and maintain a positive outlook.\n16. Wicked and unfortunate individuals may be better suited to discover certain truths, and severity and craft can foster strong, independent spirits.",
+   "seconds": 101
+  },
+  {
+   "pair": [
+    "emerson",
+    "thoreau"
+   ],
+   "prompt": "adfce1a52876f2c2",
+   "reply": "1. True wisdom lies in understanding the eternal truths that govern our lives.\n2. A lasting marriage is built on mutual respect and intellectual companionship, not just initial attraction.\n3. The soul's essence is found in its unchanging nature, transcending the fleeting moments of time.\n4. Simplicity in expression is more powerful than elaborate rhetoric; clarity and honesty are key.\n5. Courage is the foundation of true heroism, and it requires facing fears directly.\n6. Speak from the heart, and let your actions reflect your true self.\n7. Virtue is the alignment of one's actions with the natural order of things.\n8. Greatness is measured by one's willingness to be misunderstood for the sake of truth.\n9. Love should be the central focus of one's life, but it must be pursued with wisdom and understanding.\n10. Independence and integrity are essential in living a meaningful life, free from the constraints of convention.\n11. Embrace the uncertainties of life and find joy in the momentary pleasures it offers.\n12. Live simply and in harmony with nature, letting go of unnecessary worries.\n13. Seek out the best knowledge and resources, regardless of their origin, to enrich your life.\n14. Actively engage with the world and its possibilities, rather than remaining passive.\n15. Cultivate the skills to influence and guide others, as they are valuable for personal growth.\n16. Hard work, even for practical reasons, can lead to deeper understanding and fulfillment.",
+   "seconds": 90
+  },
+  {
+   "pair": [
+    "james",
+    "nietzsche"
+   ],
+   "prompt": "0bf4385d1a1efa34",
+   "reply": "1. Reality is a tapestry of perceptions, not an independent entity.\n2. Our existence is intertwined with the infinite, transcending individual boundaries.\n3. The clarity of thought and action lies in distinguishing between contradictions.\n4. Philosophical disputes often lead nowhere, and wise minds avoid them.\n5. Truth evolves, adapting to new knowledge and experiences.\n6. The meaning of ideas is found in their practical outcomes, not just in their concepts.\n7. Religion offers comfort, but its forms and philosophies are in constant flux.\n8. The greatest truths often emerge over generations, unseen in their full light.\n9. Music from the past can still resonate with us, while new compositions may fade.\n10. Free spirits and new philosophers question the status quo, seeking deeper truths.\n11. Skepticism is a powerful tool against denial and pessimism, fostering a vibrant life.\n12. Adversity shapes the stable, while abundance can lead to instability and excess.\n13. Wickedness and hardship can be catalysts for discovering hidden truths.\n14. Philosophers often hide their true thoughts behind their published works.\n15. Comfort and social status are not virtues, but rather the essence of superficiality.\n16. True intellectual power and depth are rare in the English, overshadowed by religious moralizing.",
+   "seconds": 122
+  },
+  {
+   "pair": [
+    "james",
+    "thoreau"
+   ],
+   "prompt": "bece7ac734620489",
+   "reply": "1. Understanding arises from our experiences and perceptions, not from an independent reality.\n2. Our existence is intertwined with the universe, transcending individual separateness.\n3. The clarity of thought and action comes from distinguishing between conflicting ideas.\n4. Engaging in philosophical debates is worthwhile only if they lead to practical outcomes.\n5. Truth evolves with new knowledge, adapting to the changing landscape of understanding.\n6. The essence of life lies in its practical applications, not just in theoretical constructs.\n7. Religious philosophy should inspire action and change, not just provide comfort.\n8. True wisdom is found in living a simple, nature-centered life, free from superficial concerns.\n9. Independence and integrity are more important than following societal norms or trends.\n10. The meaning of ideas is best understood through their real-world impact and consequences.\n11. Education should be accessible and pursued throughout one's life, not just in formal settings.\n12. We should seek out the best knowledge and resources, regardless of their origin or tradition.\n13. Active engagement with the world is more valuable than passive contemplation or inaction.\n14. Developing skills and abilities, like hunting and fishing, can be a valuable part of education.\n15. Moments of reflection and deep thought are more important than constant verbal communication.\n16. Hard work, even for practical reasons, can lead to deeper understanding and personal growth.",
+   "seconds": 85
+  },
+  {
+   "pair": [
+    "nietzsche",
+    "thoreau"
+   ],
+   "prompt": "054a13674b4533f1",
+   "reply": "1. True wisdom lies not in the grandiosity of one's dwelling but in the integrity of one's actions.\n2. Villages should become centers of lifelong learning, fostering a culture of continuous intellectual growth.\n3. Towns must prioritize education over superficial embellishments to truly thrive.\n4. True men stand firm in their convictions, unswayed by the whims of convention or demagogues.\n5. Life is a series of fleeting moments, best enjoyed with a playful, whimsical spirit.\n6. Embrace simplicity and the natural world, letting go of unnecessary burdens and worries.\n7. Seek out the best knowledge and resources, regardless of their origin, to enrich your understanding.\n8. Idle virtues are not enough; engage actively with the world to make a meaningful impact.\n9. Cultivate the skills of hunting and fishing as metaphors for developing the ability to guide and influence others.\n10. Preachers should use their voice to inspire reflection and pause, rather than preach on rest days.\n11. Look beyond the surface to uncover the deeper meanings and wisdom in the world around you.\n12. Hard work, even for practical reasons, can enrich your life and deepen your understanding.\n13. The best interactions are those that flow naturally, with minimal need for frequent speech.\n14. Strive for a life of comfort and simplicity, where virtue is not measured by fashion or political influence.\n15. Skepticism is a powerful tool against pessimism and denial, helping to maintain a balanced perspective.\n16. In times of struggle, uniformity is established; in times of abundance, varied and potentially monstrous variations arise.",
+   "seconds": 118
+  }
+ ]
+}

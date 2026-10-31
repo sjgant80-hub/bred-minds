@@ -1,0 +1,3066 @@
+{
+ "kind": "bred-minds.children",
+ "v": 1,
+ "pairs": [
+  {
+   "k": 0,
+   "pair": [
+    "marcus",
+    "montaigne"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "marcus",
+      "montaigne"
+     ],
+     "maxims": [
+      {
+       "maxim": "Embrace a life of simplicity, focusing on essential actions and thoughts."
+      },
+      {
+       "maxim": "Let your mind remain detached from pleasure and pain, observing sensations without judgment."
+      },
+      {
+       "maxim": "Seek genuine improvement through deep reflection and honest self-examination."
+      },
+      {
+       "maxim": "Practice charity and justice in all your interactions, trusting in divine will."
+      },
+      {
+       "maxim": "Honor your rational faculties and focus on the present moment, cherishing the fleeting nature of life."
+      },
+      {
+       "maxim": "Adapt to various customs and situations, always aiming to do what is good."
+      },
+      {
+       "maxim": "Develop a natural aversion to deceit, whether in minor matters or significant ones."
+      },
+      {
+       "maxim": "Let your actions be guided by virtue and honor, avoiding bodily necessities as much as possible."
+      },
+      {
+       "maxim": "Contemplate the insignificance of mortal life and death, finding nobility in doing well despite ill-speech."
+      },
+      {
+       "maxim": "Recognize the futility of human wisdom and the vanity of man, submitting to the wisdom of God."
+      },
+      {
+       "maxim": "Let generosity in bearing misfortunes be the true measure of happiness, rather than external circumstances."
+      },
+      {
+       "maxim": "Deny yourself in desires, finding greater blessings in contentment and modesty."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with"
+     ]
+    },
+    "id": "04a9906929bfcad8fe6f06f4e53aaedd0d64ab350f4f389d1f5722664f17da1a",
+    "steps": [
+     {
+      "maxim": "Embrace a life of simplicity, focusing on essential actions and thoughts.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Let your mind remain detached from pleasure and pain, observing sensations without judgment.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Seek genuine improvement through deep reflection and honest self-examination.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Practice charity and justice in all your interactions, trusting in divine will.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Strive for a mind free from passions, as it is a stronger and more fortified place.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Honor your rational faculties and focus on the present moment, cherishing the fleeting nature of life.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Adapt to various customs and situations, always aiming to do what is good.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Use reason to serve your faith, understanding that true divine knowledge comes from faith alone.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Develop a natural aversion to deceit, whether in minor matters or significant ones.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Practice thrifty honesty, finding joy in relieving financial burdens and avoiding scandal.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Let your actions be guided by virtue and honor, avoiding bodily necessities as much as possible.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Maintain hope and find consolation in past experiences to face life's challenges.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Contemplate the insignificance of mortal life and death, finding nobility in doing well despite ill-speech.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Recognize the futility of human wisdom and the vanity of man, submitting to the wisdom of God.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Let generosity in bearing misfortunes be the true measure of happiness, rather than external circumstances.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Deny yourself in desires, finding greater blessings in contentment and modesty.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "marcus",
+      "montaigne"
+     ],
+     "maxims": [
+      {
+       "maxim": "To live cheerfully, one should confine themselves to necessary actions and cut off unnecessary thoughts and actions."
+      },
+      {
+       "maxim": "A young man should be adaptable to all customs and situations, even to debauchery and excess, but should always strive to do what is good."
+      },
+      {
+       "maxim": "Let not your mind be influenced by pleasure or pain, but keep your understanding separate from them, only allowing natural sensations without adding opinions of good or bad."
+      },
+      {
+       "maxim": "He believed that swimming was of great use in war and often practiced it."
+      },
+      {
+       "maxim": "The main claim is that we should let our own judgment rest and remain calm regarding external things, as they do not come to us, and we should go to them instead, which will make all pursuing and flying cease."
+      },
+      {
+       "maxim": "The passage suggests that one should embrace knowledge and critical thinking, especially during times of religious uncertainty, to prevent the slide into atheism and maintain a stable belief system."
+      },
+      {
+       "maxim": "The main claim is that one should live according to the natural requirements of human nature, focusing on the practice of right and true moral tenets concerning what is good or evil."
+      },
+      {
+       "maxim": "Let us abandon the pretense of reason used as an excuse for wicked, bloody, and treacherous actions and instead rely on time and example to guide us."
+      },
+      {
+       "maxim": "If your current perception is correct, your action is charitable, and you are pleased with what comes from God, then that suffices."
+      },
+      {
+       "maxim": "A philosopher and a brave man should focus on honourable, great, and virtuous things and avoid bodily necessities as much as possible."
+      },
+      {
+       "maxim": "The main claim this passage makes is that one should seek genuine improvement and avoid superficial pursuits or pretentious displays, instead valuing genuine learning, reconciliation, and deep reflection."
+      },
+      {
+       "maxim": "The main claim is that one should maintain hope and find consolation in past experiences to navigate through life's challenges."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with"
+     ]
+    },
+    "id": "9263a5b41007369dcf2f6473dbb2b76d50f33bca52ec42bcf71b26ce7f6bce3c"
+   }
+  },
+  {
+   "k": 1,
+   "pair": [
+    "marcus",
+    "emerson"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "marcus",
+      "emerson"
+     ],
+     "maxims": [
+      {
+       "maxim": "Embrace simplicity in your life to avoid unnecessary complications and stress."
+      },
+      {
+       "maxim": "Focus on the present moment, recognizing that the past is unchangeable and the future uncertain."
+      },
+      {
+       "maxim": "Cultivate a mind free from passions, allowing for clearer judgment and action."
+      },
+      {
+       "maxim": "Live in accordance with natural laws and your true nature, rather than societal expectations."
+      },
+      {
+       "maxim": "Practice charity and justice in your interactions with others, striving for genuine reconciliation."
+      },
+      {
+       "maxim": "Let your actions be guided by reason and truth, avoiding impurities and biases."
+      },
+      {
+       "maxim": "Accept life's imperfections and find happiness in the present, rather than dwelling on what is lost."
+      },
+      {
+       "maxim": "Purify your intellect and heart annually, refining your understanding and moral compass."
+      },
+      {
+       "maxim": "Honor the wisdom of the soul, recognizing its permanence and universality."
+      },
+      {
+       "maxim": "Face your fears with courage and resolve, transforming them into opportunities for growth."
+      },
+      {
+       "maxim": "Speak from the heart, even if it means being misunderstood, for honesty is the path to greatness."
+      },
+      {
+       "maxim": "Let your actions reflect the nature of things, making virtue a central part of your life."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also"
+     ]
+    },
+    "id": "c4f24fe1c2766b8a5f58e45b3f6bcad0f19cbe061d14735e55e87778fbf2887a",
+    "steps": [
+     {
+      "maxim": "Embrace simplicity in your life to avoid unnecessary complications and stress.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Focus on the present moment, recognizing that the past is unchangeable and the future uncertain.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Cultivate a mind free from passions, allowing for clearer judgment and action.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Live in accordance with natural laws and your true nature, rather than societal expectations.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Seek genuine understanding and improvement, valuing deep reflection over superficial displays.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Practice charity and justice in your interactions with others, striving for genuine reconciliation.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Let your actions be guided by reason and truth, avoiding impurities and biases.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Accept life's imperfections and find happiness in the present, rather than dwelling on what is lost.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Purify your intellect and heart annually, refining your understanding and moral compass.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Honor the wisdom of the soul, recognizing its permanence and universality.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Face your fears with courage and resolve, transforming them into opportunities for growth.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Speak from the heart, even if it means being misunderstood, for honesty is the path to greatness.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Let your actions reflect the nature of things, making virtue a central part of your life.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Embrace the fleeting nature of life, cherishing each moment and living authentically.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Trust in your own judgment, valuing the wisdom of your soul over external authorities.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Find joy in the simple pleasures of life, recognizing that true happiness comes from within.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "marcus",
+      "emerson"
+     ],
+     "maxims": [
+      {
+       "maxim": "To live cheerfully, one should confine themselves to necessary actions and cut off unnecessary thoughts and actions."
+      },
+      {
+       "maxim": "Life is a festival only to the wise, who understand and adhere to natural, intellectual, and moral laws."
+      },
+      {
+       "maxim": "Let not your mind be influenced by pleasure or pain, but keep your understanding separate from them, only allowing natural sensations without adding opinions of good or bad."
+      },
+      {
+       "maxim": "The true marriage is the purification of the intellect and the heart from year to year, not the initial passion and physical attraction."
+      },
+      {
+       "maxim": "The main claim is that we should let our own judgment rest and remain calm regarding external things, as they do not come to us, and we should go to them instead, which will make all pursuing and flying cease."
+      },
+      {
+       "maxim": "The main claim this passage makes is that the soul's scale is one, emphasizing the permanence and universality of certain thoughts and experiences over the limitations of time and space."
+      },
+      {
+       "maxim": "The main claim is that one should live according to the natural requirements of human nature, focusing on the practice of right and true moral tenets concerning what is good or evil."
+      },
+      {
+       "maxim": "Pictures must not be too picturesque; what astonishes men is common-sense and plain dealing."
+      },
+      {
+       "maxim": "If your current perception is correct, your action is charitable, and you are pleased with what comes from God, then that suffices."
+      },
+      {
+       "maxim": "To think deeply and understand abstract truths requires intentional effort and often comes unexpectedly, much like the rhythm of breathing or the pulse of the heart."
+      },
+      {
+       "maxim": "The main claim this passage makes is that one should seek genuine improvement and avoid superficial pursuits or pretentious displays, instead valuing genuine learning, reconciliation, and deep reflection."
+      },
+      {
+       "maxim": "Self-trust is the essence of heroism, and it involves speaking the truth, being just and generous, persisting with undaunted boldness, and finding the littleness of common life amusing."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also"
+     ]
+    },
+    "id": "d8cfca761f0849be9e2211b5e984ba100ec9630c040d600e6d567da0813a48e2"
+   }
+  },
+  {
+   "k": 2,
+   "pair": [
+    "marcus",
+    "james"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "marcus",
+      "james"
+     ],
+     "maxims": [
+      {
+       "maxim": "Live simply, focusing on essential actions and thoughts to maintain a clear and peaceful mind."
+      },
+      {
+       "maxim": "Embrace the present moment, understanding that life is fleeting and should be lived with mindfulness."
+      },
+      {
+       "maxim": "Let your actions be guided by natural moral principles, avoiding superficial pretensions."
+      },
+      {
+       "maxim": "Accept that external events are beyond your control, but your response to them is within your power."
+      },
+      {
+       "maxim": "Practice just interactions with others, ensuring your speech and actions are truthful and charitable."
+      },
+      {
+       "maxim": "Cultivate a mind free from passions, recognizing its strength and importance in guiding your life."
+      },
+      {
+       "maxim": "Focus on the present, understanding that life is short and should be lived with purpose."
+      },
+      {
+       "maxim": "Understand that your perception of events is crucial; a positive outlook can turn misfortune into opportunity."
+      },
+      {
+       "maxim": "Recognize that clarity in thought and action comes from making clear distinctions and avoiding contradictions."
+      },
+      {
+       "maxim": "Turn away from philosophical disputes that offer no clear future benefits, seeking practical wisdom instead."
+      },
+      {
+       "maxim": "View truth as dynamic and malleable, always evolving with new knowledge and experiences."
+      },
+      {
+       "maxim": "See yourself as part of the infinite universe, transcending separateness and embracing oneness."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of"
+     ]
+    },
+    "id": "e063a884230667c06294d1ea58d03f9d51f66cbff9d6cb8583fe5d001adf854f",
+    "steps": [
+     {
+      "maxim": "Live simply, focusing on essential actions and thoughts to maintain a clear and peaceful mind.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace the present moment, understanding that life is fleeting and should be lived with mindfulness.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Let your actions be guided by natural moral principles, avoiding superficial pretensions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Accept that external events are beyond your control, but your response to them is within your power.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Strive for genuine improvement, valuing deep reflection and true learning over superficial displays.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Practice just interactions with others, ensuring your speech and actions are truthful and charitable.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Cultivate a mind free from passions, recognizing its strength and importance in guiding your life.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Focus on the present, understanding that life is short and should be lived with purpose.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Understand that your perception of events is crucial; a positive outlook can turn misfortune into opportunity.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Recognize that clarity in thought and action comes from making clear distinctions and avoiding contradictions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Turn away from philosophical disputes that offer no clear future benefits, seeking practical wisdom instead.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "View truth as dynamic and malleable, always evolving with new knowledge and experiences.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "See yourself as part of the infinite universe, transcending separateness and embracing oneness.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Balance the need for facts and principles in your life, understanding both are essential for daily living.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Ground your duty to reality in practical expediencies, ensuring your actions have meaningful consequences.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Seek comfort in religious philosophy that acknowledges the complexity of the human condition and the need for moral responsibility.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "marcus",
+      "james"
+     ],
+     "maxims": [
+      {
+       "maxim": "To live cheerfully, one should confine themselves to necessary actions and cut off unnecessary thoughts and actions."
+      },
+      {
+       "maxim": "Berkeley's criticism of matter tells us that it is known only through our sensations, so we should understand matter in terms of those sensations rather than as an independent substance."
+      },
+      {
+       "maxim": "Let not your mind be influenced by pleasure or pain, but keep your understanding separate from them, only allowing natural sensations without adding opinions of good or bad."
+      },
+      {
+       "maxim": "The main claim is that anything coming into existence is ultimately due to someone wishing it to be there, rather than material causes or logical necessities."
+      },
+      {
+       "maxim": "The main claim is that we should let our own judgment rest and remain calm regarding external things, as they do not come to us, and we should go to them instead, which will make all pursuing and flying cease."
+      },
+      {
+       "maxim": "The main claim is that clarity in thinking or acting depends on making distinctions when faced with contradictions."
+      },
+      {
+       "maxim": "The main claim is that one should live according to the natural requirements of human nature, focusing on the practice of right and true moral tenets concerning what is good or evil."
+      },
+      {
+       "maxim": "The wise man should turn his back on philosophical disputes from which nothing definite can be seen to follow in the future."
+      },
+      {
+       "maxim": "If your current perception is correct, your action is charitable, and you are pleased with what comes from God, then that suffices."
+      },
+      {
+       "maxim": "Truth is not static but dynamic, always performing the function of connecting old and new knowledge, and thus should be viewed as malleable and open to reinterpretation."
+      },
+      {
+       "maxim": "The main claim this passage makes is that one should seek genuine improvement and avoid superficial pursuits or pretentious displays, instead valuing genuine learning, reconciliation, and deep reflection."
+      },
+      {
+       "maxim": "To live, think, and act, one must see oneself as one with the infinite Being of the universe, eliminating all separateness and recognizing the oneness of existence."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of"
+     ]
+    },
+    "id": "b3e57d42eed08841f169e20c6ad5c04b3520a5f3dbb4d6aa66973f9410ef9d44"
+   }
+  },
+  {
+   "k": 3,
+   "pair": [
+    "marcus",
+    "nietzsche"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "marcus",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "Embrace a life of simplicity, focusing on essential actions and thoughts."
+      },
+      {
+       "maxim": "Let your mind remain detached from pleasure and pain, observing without judgment."
+      },
+      {
+       "maxim": "Seek genuine improvement through deep reflection and honest self-examination."
+      },
+      {
+       "maxim": "Live in accordance with natural human needs and true moral principles."
+      },
+      {
+       "maxim": "Strive for a mind free from passions, as it is a stronger and more resilient fortress."
+      },
+      {
+       "maxim": "Honor your rational faculties and focus on the present moment, cherishing the fleeting nature of life."
+      },
+      {
+       "maxim": "Recognize that true happiness lies in how you bear misfortunes with generosity."
+      },
+      {
+       "maxim": "Cultivate a humble and introspective approach, learning from the wisdom of the past."
+      },
+      {
+       "maxim": "Understand that the significance of great events and thoughts often unfolds over generations."
+      },
+      {
+       "maxim": "Value the enduring qualities of art and culture, appreciating the timeless beauty of Mozart."
+      },
+      {
+       "maxim": "Embrace skepticism as a tool to counteract pessimism and denial, fostering a more vibrant spirit."
+      },
+      {
+       "maxim": "Acknowledge that adversity can lead to the development of strong, independent spirits and philosophers."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "93bf5cdc27b9213dfca442a8445500c83e4d58e53058e6b9dd9e28fe60f7463f",
+    "steps": [
+     {
+      "maxim": "Embrace a life of simplicity, focusing on essential actions and thoughts.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Let your mind remain detached from pleasure and pain, observing without judgment.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Seek genuine improvement through deep reflection and honest self-examination.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Live in accordance with natural human needs and true moral principles.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Accept your circumstances with gratitude, seeing them as opportunities for growth.",
+      "ok": false,
+      "why": "0 content words shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "Strive for a mind free from passions, as it is a stronger and more resilient fortress.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Honor your rational faculties and focus on the present moment, cherishing the fleeting nature of life.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Recognize that true happiness lies in how you bear misfortunes with generosity.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Cultivate a humble and introspective approach, learning from the wisdom of the past.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Understand that the significance of great events and thoughts often unfolds over generations.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Value the enduring qualities of art and culture, appreciating the timeless beauty of Mozart.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace skepticism as a tool to counteract pessimism and denial, fostering a more vibrant spirit.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Acknowledge that adversity can lead to the development of strong, independent spirits and philosophers.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Declare war on superficial values and atomistic requirements that hinder true understanding.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Strive for genuine learning and reconciliation, avoiding pretentious displays of virtue.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Live with integrity, ensuring your actions, speech, and understanding are free from error.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "marcus",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "To live cheerfully, one should confine themselves to necessary actions and cut off unnecessary thoughts and actions."
+      },
+      {
+       "maxim": "The main claim this passage makes is that humans are more human and could potentially learn from the gods, suggesting a more humble and introspective approach to life, thought, and action."
+      },
+      {
+       "maxim": "Let not your mind be influenced by pleasure or pain, but keep your understanding separate from them, only allowing natural sensations without adding opinions of good or bad."
+      },
+      {
+       "maxim": "The greatest events and thoughts take many generations to be fully understood, and those who experience them may not recognize their true significance in the moment."
+      },
+      {
+       "maxim": "The main claim is that we should let our own judgment rest and remain calm regarding external things, as they do not come to us, and we should go to them instead, which will make all pursuing and flying cease."
+      },
+      {
+       "maxim": "The passage suggests that we should appreciate the music of Mozart, as it represents a \"good old\" time that still speaks to us, while the intelligence and taste for Beethoven are likely to fade sooner."
+      },
+      {
+       "maxim": "The main claim is that one should live according to the natural requirements of human nature, focusing on the practice of right and true moral tenets concerning what is good or evil."
+      },
+      {
+       "maxim": "Such kind of men are we, we free spirits! And perhaps ye are also something of the same kind, ye coming ones? ye NEW philosophers?"
+      },
+      {
+       "maxim": "If your current perception is correct, your action is charitable, and you are pleased with what comes from God, then that suffices."
+      },
+      {
+       "maxim": "Stronger thinkers, who are still eager for life, may side against appearance and speak skeptically of \"perspective,\" suggesting they are trying to reclaim old ideas to live more vigorously and joyously than by \"modern ideas."
+      },
+      {
+       "maxim": "The main claim this passage makes is that one should seek genuine improvement and avoid superficial pursuits or pretentious displays, instead valuing genuine learning, reconciliation, and deep reflection."
+      },
+      {
+       "maxim": "The main claim is that in times of struggle and constant adversity, a stable and uniform type is established, whereas in times of abundance, varied and potentially monstrous variations tend to arise."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "0bf50c0c49c2ddf1bb94503d4c2f9e8279451bebd5653713f093d8780035aecb"
+   }
+  },
+  {
+   "k": 4,
+   "pair": [
+    "marcus",
+    "thoreau"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "marcus",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "Embrace a life of simplicity and focus on genuine experiences rather than superficial possessions."
+      },
+      {
+       "maxim": "Live in accordance with nature and reason, letting go of unnecessary thoughts and actions."
+      },
+      {
+       "maxim": "Prioritize inner peace and virtue over external appearances and material wealth."
+      },
+      {
+       "maxim": "Cultivate a mind free from passions and biases, finding strength in self-reflection."
+      },
+      {
+       "maxim": "Seek true happiness in how you face life's challenges, not in external circumstances."
+      },
+      {
+       "maxim": "Engage actively with the world, seeking out the best knowledge and resources available."
+      },
+      {
+       "maxim": "Value the present moment, understanding that life is fleeting and should be cherished."
+      },
+      {
+       "maxim": "Let your actions be guided by charity and justice, rather than by fleeting desires."
+      },
+      {
+       "maxim": "Embrace the unpredictability of life, finding joy in the momentary pleasures it offers."
+      },
+      {
+       "maxim": "Strive for genuine improvement and deep reflection, avoiding pretentious displays of virtue."
+      },
+      {
+       "maxim": "Let your dwelling and external appearances be simple, as what truly matters is how you live."
+      },
+      {
+       "maxim": "Work hard and engage in practical activities, as they can enrich your life and understanding."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "01c52a12dd3238487f59fb94cd854c62dcac0f2edb371db824e9188e8504be86",
+    "steps": [
+     {
+      "maxim": "Embrace a life of simplicity and focus on genuine experiences rather than superficial possessions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Live in accordance with nature and reason, letting go of unnecessary thoughts and actions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Prioritize inner peace and virtue over external appearances and material wealth.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Cultivate a mind free from passions and biases, finding strength in self-reflection.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Seek true happiness in how you face life's challenges, not in external circumstances.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Act with integrity and independence, resisting the pull of conformity and demagoguery.",
+      "ok": false,
+      "why": "1 content word shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "Engage actively with the world, seeking out the best knowledge and resources available.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Value the present moment, understanding that life is fleeting and should be cherished.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Let your actions be guided by charity and justice, rather than by fleeting desires.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Embrace the unpredictability of life, finding joy in the momentary pleasures it offers.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Strive for genuine improvement and deep reflection, avoiding pretentious displays of virtue.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Honor your rational faculties and focus on the present, understanding the impermanence of life.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Let your dwelling and external appearances be simple, as what truly matters is how you live.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Work hard and engage in practical activities, as they can enrich your life and understanding.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Maintain unbroken harmony in your interactions, letting speech flow naturally when needed.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Reflect on the deeper meanings and wisdom in the world, seeking to understand beyond the surface.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "marcus",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "To live cheerfully, one should confine themselves to necessary actions and cut off unnecessary thoughts and actions."
+      },
+      {
+       "maxim": "The main claim is that it matters more how one lives and conducts oneself than the style of one's dwelling or external appearances."
+      },
+      {
+       "maxim": "Let not your mind be influenced by pleasure or pain, but keep your understanding separate from them, only allowing natural sensations without adding opinions of good or bad."
+      },
+      {
+       "maxim": "It is time for villages to become universities where lifelong liberal studies are pursued, and for towns to spend money on education rather than on less valuable trappings."
+      },
+      {
+       "maxim": "The main claim is that we should let our own judgment rest and remain calm regarding external things, as they do not come to us, and we should go to them instead, which will make all pursuing and flying cease."
+      },
+      {
+       "maxim": "The passage claims that true men should act independently and with integrity, rather than following conventions or demagogues."
+      },
+      {
+       "maxim": "The main claim is that one should live according to the natural requirements of human nature, focusing on the practice of right and true moral tenets concerning what is good or evil."
+      },
+      {
+       "maxim": "The passage describes a cat's whimsical and playful approach to eating corn, suggesting a life filled with uncertainty and momentary pleasures."
+      },
+      {
+       "maxim": "If your current perception is correct, your action is charitable, and you are pleased with what comes from God, then that suffices."
+      },
+      {
+       "maxim": "The passage suggests that one should live a simple, nature-centered life, free from unnecessary worries and responsibilities."
+      },
+      {
+       "maxim": "The main claim this passage makes is that one should seek genuine improvement and avoid superficial pursuits or pretentious displays, instead valuing genuine learning, reconciliation, and deep reflection."
+      },
+      {
+       "maxim": "We should not be provincial in our thinking or actions; instead, we should seek out the best resources and knowledge available, regardless of their origin."
+      }
+     ],
+     "voice": [
+      "XX. They will say commonly, Meddle not with many things, if thou wilt live cheerfully. Certainly there is nothing better, than for a man to confine himself to necessary actions; to such and so many only, as reason in a creature that knows itself born for society, will command and enjoin. This will not only procure that cheerfulness, which from",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "6e99d0d5a5dd894aff13e4b442ea87cf4052315786ab4f930e39b17dca11640e"
+   }
+  },
+  {
+   "k": 5,
+   "pair": [
+    "montaigne",
+    "emerson"
+   ],
+   "asked": true,
+   "child": {
+    "grown": false,
+    "card": null,
+    "id": null,
+    "steps": [
+     {
+      "maxim": "One should cultivate a balanced life, embracing both the practical and the philosophical.",
+      "ok": false,
+      "why": "1 content word shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "In times of uncertainty, seek knowledge and critical thinking to maintain a stable moral compass.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Honesty and integrity, even in small matters, are the foundation of a virtuous life.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "True wisdom lies in understanding and adhering to natural, intellectual, and moral laws.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The soul's scale is one, and true happiness is found in enduring experiences that transcend time.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Practice a thrifty honesty, paying debts promptly and finding joy in financial clarity.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Face your fears with courage and resolve, transforming them into opportunities for growth.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace the wisdom of God, recognizing the limitations of human understanding and the vanity of earthly pursuits.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Love should be the central focus of one's life, with all other pleasures paling in comparison.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Adaptable to all customs and situations, one should strive to do what is good and virtuous.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Use reason to serve faith, but always remember that true divine knowledge comes from faith alone.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "The more one denies himself, the more the gods give him, suggesting contentment and modesty lead to greater blessings.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "True marriage is the purification of the intellect and heart, not just physical attraction.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Pictures must not be too picturesque; what truly matters is plain dealing and common sense.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Speak your honest thought now and tomorrow, even if it contradicts what you said today, for greatness is often misunderstood.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Virtue is the adherence in action to the nature of things, and the nature of things makes it prevalent.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "montaigne",
+      "emerson"
+     ],
+     "maxims": [
+      {
+       "maxim": "A young man should be adaptable to all customs and situations, even to debauchery and excess, but should always strive to do what is good."
+      },
+      {
+       "maxim": "Life is a festival only to the wise, who understand and adhere to natural, intellectual, and moral laws."
+      },
+      {
+       "maxim": "He believed that swimming was of great use in war and often practiced it."
+      },
+      {
+       "maxim": "The true marriage is the purification of the intellect and the heart from year to year, not the initial passion and physical attraction."
+      },
+      {
+       "maxim": "The passage suggests that one should embrace knowledge and critical thinking, especially during times of religious uncertainty, to prevent the slide into atheism and maintain a stable belief system."
+      },
+      {
+       "maxim": "The main claim this passage makes is that the soul's scale is one, emphasizing the permanence and universality of certain thoughts and experiences over the limitations of time and space."
+      },
+      {
+       "maxim": "Let us abandon the pretense of reason used as an excuse for wicked, bloody, and treacherous actions and instead rely on time and example to guide us."
+      },
+      {
+       "maxim": "Pictures must not be too picturesque; what astonishes men is common-sense and plain dealing."
+      },
+      {
+       "maxim": "A philosopher and a brave man should focus on honourable, great, and virtuous things and avoid bodily necessities as much as possible."
+      },
+      {
+       "maxim": "To think deeply and understand abstract truths requires intentional effort and often comes unexpectedly, much like the rhythm of breathing or the pulse of the heart."
+      },
+      {
+       "maxim": "The main claim is that one should maintain hope and find consolation in past experiences to navigate through life's challenges."
+      },
+      {
+       "maxim": "Self-trust is the essence of heroism, and it involves speaking the truth, being just and generous, persisting with undaunted boldness, and finding the littleness of common life amusing."
+      }
+     ],
+     "voice": [
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with",
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also"
+     ]
+    },
+    "id": "4e9c5aaf363aff8109d14ae6f1a14735ace08d17e61959b74eb20307a74ef2d3"
+   }
+  },
+  {
+   "k": 6,
+   "pair": [
+    "montaigne",
+    "james"
+   ],
+   "asked": true,
+   "child": {
+    "grown": false,
+    "card": null,
+    "id": null,
+    "steps": [
+     {
+      "maxim": "One should adapt to various customs and situations, yet maintain a moral compass.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Engage in activities like swimming for their practical benefits, not just for pleasure.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace knowledge and critical thinking, especially when religious beliefs are uncertain.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Reject pretense in reason and instead rely on time and example for guidance.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Focus on honor and virtue, minimizing bodily desires.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Maintain hope and find comfort in past experiences to face life's challenges.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Practice honesty by paying debts promptly and avoiding unnecessary bargaining.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Develop a natural aversion to deceit, big or small.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Use reason to support faith, but recognize that true divine knowledge comes from faith alone.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Introduce Greek and Roman virtues to new cultures, avoiding exploitation.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Submit to divine wisdom, acknowledging the limits of human understanding.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Deny oneself to receive greater blessings, promoting contentment and modesty.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Understand matter through sensations, not as an independent substance.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Anything comes into existence due to someone's will, not material causes.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Clarity in thinking and acting requires making distinctions when faced with contradictions.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Live, think, and act by recognizing oneness with the infinite, transcending separateness.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "montaigne",
+      "james"
+     ],
+     "maxims": [
+      {
+       "maxim": "A young man should be adaptable to all customs and situations, even to debauchery and excess, but should always strive to do what is good."
+      },
+      {
+       "maxim": "Berkeley's criticism of matter tells us that it is known only through our sensations, so we should understand matter in terms of those sensations rather than as an independent substance."
+      },
+      {
+       "maxim": "He believed that swimming was of great use in war and often practiced it."
+      },
+      {
+       "maxim": "The main claim is that anything coming into existence is ultimately due to someone wishing it to be there, rather than material causes or logical necessities."
+      },
+      {
+       "maxim": "The passage suggests that one should embrace knowledge and critical thinking, especially during times of religious uncertainty, to prevent the slide into atheism and maintain a stable belief system."
+      },
+      {
+       "maxim": "The main claim is that clarity in thinking or acting depends on making distinctions when faced with contradictions."
+      },
+      {
+       "maxim": "Let us abandon the pretense of reason used as an excuse for wicked, bloody, and treacherous actions and instead rely on time and example to guide us."
+      },
+      {
+       "maxim": "The wise man should turn his back on philosophical disputes from which nothing definite can be seen to follow in the future."
+      },
+      {
+       "maxim": "A philosopher and a brave man should focus on honourable, great, and virtuous things and avoid bodily necessities as much as possible."
+      },
+      {
+       "maxim": "Truth is not static but dynamic, always performing the function of connecting old and new knowledge, and thus should be viewed as malleable and open to reinterpretation."
+      },
+      {
+       "maxim": "The main claim is that one should maintain hope and find consolation in past experiences to navigate through life's challenges."
+      },
+      {
+       "maxim": "To live, think, and act, one must see oneself as one with the infinite Being of the universe, eliminating all separateness and recognizing the oneness of existence."
+      }
+     ],
+     "voice": [
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with",
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of"
+     ]
+    },
+    "id": "04c6b9f3439320aeb77393e45c3a0b76c455b47b7a209fe008df2f62cb92ad21"
+   }
+  },
+  {
+   "k": 7,
+   "pair": [
+    "montaigne",
+    "nietzsche"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "montaigne",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "One should adapt to various customs and situations, yet always strive for virtue."
+      },
+      {
+       "maxim": "Embrace knowledge and critical thinking, especially in uncertain times, to preserve faith and reason."
+      },
+      {
+       "maxim": "Focus on honor and virtue, minimizing bodily desires and avoiding deceit."
+      },
+      {
+       "maxim": "Develop a natural aversion to deceit, whether in trivial or serious matters."
+      },
+      {
+       "maxim": "Introduce Greek and Roman virtues and culture to new peoples, avoiding exploitation."
+      },
+      {
+       "maxim": "Submit to the wisdom of God, acknowledging the limitations of human wisdom and the vanity of man."
+      },
+      {
+       "maxim": "Deny oneself to receive greater blessings, promoting contentment and modesty."
+      },
+      {
+       "maxim": "Appreciate the enduring value of classical music, like Mozart, over fleeting modern tastes."
+      },
+      {
+       "maxim": "Embrace skepticism as a tool to counteract pessimism and denial, fostering a vigorous spirit."
+      },
+      {
+       "maxim": "Strive for intellectual depth and power, rejecting superficial virtues and Christian moralizing."
+      }
+     ],
+     "voice": [
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "ee307ee08d2307573655493b380b800f937ddbbb4398edad1c311d56949e2027",
+    "steps": [
+     {
+      "maxim": "One should adapt to various customs and situations, yet always strive for virtue.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Engage in activities that enhance your character, such as swimming, for practical and moral benefits.",
+      "ok": false,
+      "why": "1 content word shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "Embrace knowledge and critical thinking, especially in uncertain times, to preserve faith and reason.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Reject pretense in reason and instead rely on time and example to guide moral actions.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Focus on honor and virtue, minimizing bodily desires and avoiding deceit.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Maintain hope and find solace in past experiences to face life's challenges.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Practice honesty by paying debts promptly and finding joy in financial relief.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Develop a natural aversion to deceit, whether in trivial or serious matters.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Use reason to support faith, but recognize that true divine knowledge comes from faith alone.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Introduce Greek and Roman virtues and culture to new peoples, avoiding exploitation.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Submit to the wisdom of God, acknowledging the limitations of human wisdom and the vanity of man.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Deny oneself to receive greater blessings, promoting contentment and modesty.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Humans can learn from the gods, adopting a humble and introspective approach to life.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Appreciate the enduring value of classical music, like Mozart, over fleeting modern tastes.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace skepticism as a tool to counteract pessimism and denial, fostering a vigorous spirit.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Strive for intellectual depth and power, rejecting superficial virtues and Christian moralizing.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "montaigne",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "A young man should be adaptable to all customs and situations, even to debauchery and excess, but should always strive to do what is good."
+      },
+      {
+       "maxim": "The main claim this passage makes is that humans are more human and could potentially learn from the gods, suggesting a more humble and introspective approach to life, thought, and action."
+      },
+      {
+       "maxim": "He believed that swimming was of great use in war and often practiced it."
+      },
+      {
+       "maxim": "The greatest events and thoughts take many generations to be fully understood, and those who experience them may not recognize their true significance in the moment."
+      },
+      {
+       "maxim": "The passage suggests that one should embrace knowledge and critical thinking, especially during times of religious uncertainty, to prevent the slide into atheism and maintain a stable belief system."
+      },
+      {
+       "maxim": "The passage suggests that we should appreciate the music of Mozart, as it represents a \"good old\" time that still speaks to us, while the intelligence and taste for Beethoven are likely to fade sooner."
+      },
+      {
+       "maxim": "Let us abandon the pretense of reason used as an excuse for wicked, bloody, and treacherous actions and instead rely on time and example to guide us."
+      },
+      {
+       "maxim": "Such kind of men are we, we free spirits! And perhaps ye are also something of the same kind, ye coming ones? ye NEW philosophers?"
+      },
+      {
+       "maxim": "A philosopher and a brave man should focus on honourable, great, and virtuous things and avoid bodily necessities as much as possible."
+      },
+      {
+       "maxim": "Stronger thinkers, who are still eager for life, may side against appearance and speak skeptically of \"perspective,\" suggesting they are trying to reclaim old ideas to live more vigorously and joyously than by \"modern ideas."
+      },
+      {
+       "maxim": "The main claim is that one should maintain hope and find consolation in past experiences to navigate through life's challenges."
+      },
+      {
+       "maxim": "The main claim is that in times of struggle and constant adversity, a stable and uniform type is established, whereas in times of abundance, varied and potentially monstrous variations tend to arise."
+      }
+     ],
+     "voice": [
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "d4e604c58365cebddcdd922b1c7fcf5b7436a0031aa9ba0b3f18d883d111f991"
+   }
+  },
+  {
+   "k": 8,
+   "pair": [
+    "montaigne",
+    "thoreau"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "montaigne",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "One should embrace adaptability and critical thinking to navigate diverse and uncertain situations."
+      },
+      {
+       "maxim": "Engage in activities that enhance personal and communal well-being, such as swimming for both health and camaraderie."
+      },
+      {
+       "maxim": "Knowledge and reason are essential tools to maintain a balanced and stable belief system in times of doubt."
+      },
+      {
+       "maxim": "Reject the use of reason as an excuse for harmful actions; instead, rely on wisdom and example to guide behavior."
+      },
+      {
+       "maxim": "Prioritize honor, virtue, and spiritual growth over material comforts and bodily necessities."
+      },
+      {
+       "maxim": "Maintain hope and find comfort in past experiences to face life's challenges with resilience."
+      },
+      {
+       "maxim": "Practice honesty and integrity in all matters, even in small and seemingly trivial interactions."
+      },
+      {
+       "maxim": "Use reason to support faith, but recognize that true divine knowledge comes from divine revelation, not human effort."
+      },
+      {
+       "maxim": "Advocate for the introduction of virtuous and cultural values among diverse populations to promote mutual respect and understanding."
+      },
+      {
+       "maxim": "Submit to the wisdom of divine guidance, acknowledging the limitations of human understanding and the fleeting nature of earthly achievements."
+      },
+      {
+       "maxim": "The quality of one's life is more important than superficial appearances or material possessions."
+      },
+      {
+       "maxim": "Transform communities into centers of lifelong learning and education, prioritizing intellectual growth over material wealth."
+      }
+     ],
+     "voice": [
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "35d2865ab8849f241de1bd95ad3ac197f5f2a60f73291f2aa728d0f21e99ef51",
+    "steps": [
+     {
+      "maxim": "One should embrace adaptability and critical thinking to navigate diverse and uncertain situations.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Engage in activities that enhance personal and communal well-being, such as swimming for both health and camaraderie.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Knowledge and reason are essential tools to maintain a balanced and stable belief system in times of doubt.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Reject the use of reason as an excuse for harmful actions; instead, rely on wisdom and example to guide behavior.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Prioritize honor, virtue, and spiritual growth over material comforts and bodily necessities.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Maintain hope and find comfort in past experiences to face life's challenges with resilience.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Practice honesty and integrity in all matters, even in small and seemingly trivial interactions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Use reason to support faith, but recognize that true divine knowledge comes from divine revelation, not human effort.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Advocate for the introduction of virtuous and cultural values among diverse populations to promote mutual respect and understanding.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Submit to the wisdom of divine guidance, acknowledging the limitations of human understanding and the fleeting nature of earthly achievements.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Contentment and modesty in desires lead to greater blessings and a more fulfilling life.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "The quality of one's life is more important than superficial appearances or material possessions.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Transform communities into centers of lifelong learning and education, prioritizing intellectual growth over material wealth.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Encourage independent and honest actions, free from the influence of conventional norms or manipulative rhetoric.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace a simple, natural lifestyle, free from unnecessary worries and responsibilities, to find true peace and joy.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Seek out the best resources and knowledge, regardless of their origin, to enrich one's understanding and capabilities.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "montaigne",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "A young man should be adaptable to all customs and situations, even to debauchery and excess, but should always strive to do what is good."
+      },
+      {
+       "maxim": "The main claim is that it matters more how one lives and conducts oneself than the style of one's dwelling or external appearances."
+      },
+      {
+       "maxim": "He believed that swimming was of great use in war and often practiced it."
+      },
+      {
+       "maxim": "It is time for villages to become universities where lifelong liberal studies are pursued, and for towns to spend money on education rather than on less valuable trappings."
+      },
+      {
+       "maxim": "The passage suggests that one should embrace knowledge and critical thinking, especially during times of religious uncertainty, to prevent the slide into atheism and maintain a stable belief system."
+      },
+      {
+       "maxim": "The passage claims that true men should act independently and with integrity, rather than following conventions or demagogues."
+      },
+      {
+       "maxim": "Let us abandon the pretense of reason used as an excuse for wicked, bloody, and treacherous actions and instead rely on time and example to guide us."
+      },
+      {
+       "maxim": "The passage describes a cat's whimsical and playful approach to eating corn, suggesting a life filled with uncertainty and momentary pleasures."
+      },
+      {
+       "maxim": "A philosopher and a brave man should focus on honourable, great, and virtuous things and avoid bodily necessities as much as possible."
+      },
+      {
+       "maxim": "The passage suggests that one should live a simple, nature-centered life, free from unnecessary worries and responsibilities."
+      },
+      {
+       "maxim": "The main claim is that one should maintain hope and find consolation in past experiences to navigate through life's challenges."
+      },
+      {
+       "maxim": "We should not be provincial in our thinking or actions; instead, we should seek out the best resources and knowledge available, regardless of their origin."
+      }
+     ],
+     "voice": [
+      "All singularity in our manners and conditions is to be avoided, as inconsistent with civil society. Who would not be astonished at so strange a constitution as that of Demophoon, steward to Alexander the Great, who sweated in the shade and shivered in the sun? I have seen those who have run from the smell of a mellow apple with",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "b339f244d5e9a876c113dd7f2cdf66fd567dc084b0a835628a37f7c95055de89"
+   }
+  },
+  {
+   "k": 9,
+   "pair": [
+    "emerson",
+    "james"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "emerson",
+      "james"
+     ],
+     "maxims": [
+      {
+       "maxim": "True wisdom lies in understanding the interconnectedness of all things and acting accordingly."
+      },
+      {
+       "maxim": "The essence of courage is facing one's fears and acting with resolve, even when the outcome is uncertain."
+      },
+      {
+       "maxim": "Clarity in thought and action comes from making clear distinctions and avoiding contradictions."
+      },
+      {
+       "maxim": "The soul's journey is a continuous process of self-discovery and self-assertion, independent of external authorities."
+      },
+      {
+       "maxim": "Love should be the central focus of life, but it must be grounded in mutual understanding and respect."
+      },
+      {
+       "maxim": "Life's pleasures are fleeting; true happiness comes from aligning one's actions with the nature of things."
+      },
+      {
+       "maxim": "The veil of truth is lifted when one speaks from the heart, sharing their honest thoughts openly."
+      },
+      {
+       "maxim": "The true marriage is a spiritual union, deepening with each passing year, not just a physical or emotional bond."
+      },
+      {
+       "maxim": "The soul's scale is one, emphasizing the permanence of certain truths over the transient nature of time and space."
+      },
+      {
+       "maxim": "Greatness lies in being misunderstood, as it takes courage to stand by one's convictions."
+      },
+      {
+       "maxim": "Virtue is the adherence to the nature of things, making it prevalent in one's actions."
+      },
+      {
+       "maxim": "Pictures should not be overly picturesque; what truly astonishes is the simplicity and honesty of expression."
+      }
+     ],
+     "voice": [
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also",
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of"
+     ]
+    },
+    "id": "b4fde0007a2d2378dbae857d081d2696c9376182331800afb624ed3d1afddb62",
+    "steps": [
+     {
+      "maxim": "True wisdom lies in understanding the interconnectedness of all things and acting accordingly.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The essence of courage is facing one's fears and acting with resolve, even when the outcome is uncertain.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Clarity in thought and action comes from making clear distinctions and avoiding contradictions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The soul's journey is a continuous process of self-discovery and self-assertion, independent of external authorities.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Love should be the central focus of life, but it must be grounded in mutual understanding and respect.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Life's pleasures are fleeting; true happiness comes from aligning one's actions with the nature of things.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The veil of truth is lifted when one speaks from the heart, sharing their honest thoughts openly.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The true marriage is a spiritual union, deepening with each passing year, not just a physical or emotional bond.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The soul's scale is one, emphasizing the permanence of certain truths over the transient nature of time and space.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Greatness lies in being misunderstood, as it takes courage to stand by one's convictions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Virtue is the adherence to the nature of things, making it prevalent in one's actions.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Pictures should not be overly picturesque; what truly astonishes is the simplicity and honesty of expression.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "To live serenely, one must confront fears and turn them into opportunities for growth.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The infinite Being of the universe should be seen as one with oneself, eliminating all sense of separateness.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The dynamic nature of truth requires constant reinterpretation and adaptation to new knowledge.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The main claim is that one should believe in oneself and live according to eternal facts, rather than relying on past experiences or external authorities.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "emerson",
+      "james"
+     ],
+     "maxims": [
+      {
+       "maxim": "Life is a festival only to the wise, who understand and adhere to natural, intellectual, and moral laws."
+      },
+      {
+       "maxim": "Berkeley's criticism of matter tells us that it is known only through our sensations, so we should understand matter in terms of those sensations rather than as an independent substance."
+      },
+      {
+       "maxim": "The true marriage is the purification of the intellect and the heart from year to year, not the initial passion and physical attraction."
+      },
+      {
+       "maxim": "The main claim is that anything coming into existence is ultimately due to someone wishing it to be there, rather than material causes or logical necessities."
+      },
+      {
+       "maxim": "The main claim this passage makes is that the soul's scale is one, emphasizing the permanence and universality of certain thoughts and experiences over the limitations of time and space."
+      },
+      {
+       "maxim": "The main claim is that clarity in thinking or acting depends on making distinctions when faced with contradictions."
+      },
+      {
+       "maxim": "Pictures must not be too picturesque; what astonishes men is common-sense and plain dealing."
+      },
+      {
+       "maxim": "The wise man should turn his back on philosophical disputes from which nothing definite can be seen to follow in the future."
+      },
+      {
+       "maxim": "To think deeply and understand abstract truths requires intentional effort and often comes unexpectedly, much like the rhythm of breathing or the pulse of the heart."
+      },
+      {
+       "maxim": "Truth is not static but dynamic, always performing the function of connecting old and new knowledge, and thus should be viewed as malleable and open to reinterpretation."
+      },
+      {
+       "maxim": "Self-trust is the essence of heroism, and it involves speaking the truth, being just and generous, persisting with undaunted boldness, and finding the littleness of common life amusing."
+      },
+      {
+       "maxim": "To live, think, and act, one must see oneself as one with the infinite Being of the universe, eliminating all separateness and recognizing the oneness of existence."
+      }
+     ],
+     "voice": [
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also",
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of"
+     ]
+    },
+    "id": "baf60c2bb2ee001360d8b9ad686420f28c3d75f3f0034800a98e03465363e158"
+   }
+  },
+  {
+   "k": 10,
+   "pair": [
+    "emerson",
+    "nietzsche"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "emerson",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "True wisdom lies in understanding the eternal truths that transcend time and space."
+      },
+      {
+       "maxim": "Marriage should be a continuous process of spiritual and intellectual growth, not just a moment of passion."
+      },
+      {
+       "maxim": "The soul's scale is one, emphasizing the enduring nature of certain truths."
+      },
+      {
+       "maxim": "Deep thinking and understanding of abstract concepts require deliberate effort and often come unexpectedly."
+      },
+      {
+       "maxim": "Self-trust is the core of heroism, involving truthfulness, justice, generosity, and finding humor in the mundane."
+      },
+      {
+       "maxim": "Face your fears directly to live serenely, as courage can often render fears unfounded."
+      },
+      {
+       "maxim": "Speak from the heart, even if it contradicts previous statements, for greatness often means being misunderstood."
+      },
+      {
+       "maxim": "Virtue is the consistent adherence to the nature of things, making it prevalent in one's actions."
+      },
+      {
+       "maxim": "Great events and thoughts take time to fully understand, and their significance may not be recognized immediately."
+      },
+      {
+       "maxim": "Strong thinkers should challenge appearances and skepticism to live more vigorously and joyously."
+      },
+      {
+       "maxim": "Skepticism serves as a better remedy against denial, helping to counteract pessimism and maintain a positive outlook."
+      }
+     ],
+     "voice": [
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "4a1c2482c739a2381e8d9781eb176229480f4c51a329d354af9e4a5e6d7edfb6",
+    "steps": [
+     {
+      "maxim": "True wisdom lies in understanding the eternal truths that transcend time and space.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Marriage should be a continuous process of spiritual and intellectual growth, not just a moment of passion.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The soul's scale is one, emphasizing the enduring nature of certain truths.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Art should be honest and straightforward, avoiding overly decorative or artificial elements.",
+      "ok": false,
+      "why": "1 content word shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "Deep thinking and understanding of abstract concepts require deliberate effort and often come unexpectedly.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Self-trust is the core of heroism, involving truthfulness, justice, generosity, and finding humor in the mundane.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Face your fears directly to live serenely, as courage can often render fears unfounded.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Speak from the heart, even if it contradicts previous statements, for greatness often means being misunderstood.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Love should be the central focus of life, with all other pleasures being secondary.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Virtue is the consistent adherence to the nature of things, making it prevalent in one's actions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Humans can learn from the gods, adopting a more humble and introspective approach to life.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Great events and thoughts take time to fully understand, and their significance may not be recognized immediately.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Strong thinkers should challenge appearances and skepticism to live more vigorously and joyously.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "In times of struggle, a stable and uniform type is established, while in times of abundance, varied and potentially monstrous variations arise.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Skepticism serves as a better remedy against denial, helping to counteract pessimism and maintain a positive outlook.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Wicked and unfortunate individuals may be better suited to discover certain truths, and severity and craft can foster strong, independent spirits.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "emerson",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "Life is a festival only to the wise, who understand and adhere to natural, intellectual, and moral laws."
+      },
+      {
+       "maxim": "The main claim this passage makes is that humans are more human and could potentially learn from the gods, suggesting a more humble and introspective approach to life, thought, and action."
+      },
+      {
+       "maxim": "The true marriage is the purification of the intellect and the heart from year to year, not the initial passion and physical attraction."
+      },
+      {
+       "maxim": "The greatest events and thoughts take many generations to be fully understood, and those who experience them may not recognize their true significance in the moment."
+      },
+      {
+       "maxim": "The main claim this passage makes is that the soul's scale is one, emphasizing the permanence and universality of certain thoughts and experiences over the limitations of time and space."
+      },
+      {
+       "maxim": "The passage suggests that we should appreciate the music of Mozart, as it represents a \"good old\" time that still speaks to us, while the intelligence and taste for Beethoven are likely to fade sooner."
+      },
+      {
+       "maxim": "Pictures must not be too picturesque; what astonishes men is common-sense and plain dealing."
+      },
+      {
+       "maxim": "Such kind of men are we, we free spirits! And perhaps ye are also something of the same kind, ye coming ones? ye NEW philosophers?"
+      },
+      {
+       "maxim": "To think deeply and understand abstract truths requires intentional effort and often comes unexpectedly, much like the rhythm of breathing or the pulse of the heart."
+      },
+      {
+       "maxim": "Stronger thinkers, who are still eager for life, may side against appearance and speak skeptically of \"perspective,\" suggesting they are trying to reclaim old ideas to live more vigorously and joyously than by \"modern ideas."
+      },
+      {
+       "maxim": "Self-trust is the essence of heroism, and it involves speaking the truth, being just and generous, persisting with undaunted boldness, and finding the littleness of common life amusing."
+      },
+      {
+       "maxim": "The main claim is that in times of struggle and constant adversity, a stable and uniform type is established, whereas in times of abundance, varied and potentially monstrous variations tend to arise."
+      }
+     ],
+     "voice": [
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "8bb4e1672f9089934e0187d0f87c7399d69038f3883d46825559a18f52eabd45"
+   }
+  },
+  {
+   "k": 11,
+   "pair": [
+    "emerson",
+    "thoreau"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "emerson",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "True wisdom lies in understanding the eternal truths that govern our lives."
+      },
+      {
+       "maxim": "A lasting marriage is built on mutual respect and intellectual companionship, not just initial attraction."
+      },
+      {
+       "maxim": "The soul's essence is found in its unchanging nature, transcending the fleeting moments of time."
+      },
+      {
+       "maxim": "Courage is the foundation of true heroism, and it requires facing fears directly."
+      },
+      {
+       "maxim": "Speak from the heart, and let your actions reflect your true self."
+      },
+      {
+       "maxim": "Virtue is the alignment of one's actions with the natural order of things."
+      },
+      {
+       "maxim": "Greatness is measured by one's willingness to be misunderstood for the sake of truth."
+      },
+      {
+       "maxim": "Love should be the central focus of one's life, but it must be pursued with wisdom and understanding."
+      },
+      {
+       "maxim": "Independence and integrity are essential in living a meaningful life, free from the constraints of convention."
+      },
+      {
+       "maxim": "Embrace the uncertainties of life and find joy in the momentary pleasures it offers."
+      },
+      {
+       "maxim": "Live simply and in harmony with nature, letting go of unnecessary worries."
+      },
+      {
+       "maxim": "Actively engage with the world and its possibilities, rather than remaining passive."
+      }
+     ],
+     "voice": [
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "d90425629245e0d9ab0915f58b176473fb23bc2de0857db660d6ad06ae7f9d00",
+    "steps": [
+     {
+      "maxim": "True wisdom lies in understanding the eternal truths that govern our lives.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "A lasting marriage is built on mutual respect and intellectual companionship, not just initial attraction.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The soul's essence is found in its unchanging nature, transcending the fleeting moments of time.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Simplicity in expression is more powerful than elaborate rhetoric; clarity and honesty are key.",
+      "ok": false,
+      "why": "0 content words shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "Courage is the foundation of true heroism, and it requires facing fears directly.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Speak from the heart, and let your actions reflect your true self.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Virtue is the alignment of one's actions with the natural order of things.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Greatness is measured by one's willingness to be misunderstood for the sake of truth.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Love should be the central focus of one's life, but it must be pursued with wisdom and understanding.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Independence and integrity are essential in living a meaningful life, free from the constraints of convention.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Embrace the uncertainties of life and find joy in the momentary pleasures it offers.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Live simply and in harmony with nature, letting go of unnecessary worries.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Seek out the best knowledge and resources, regardless of their origin, to enrich your life.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Actively engage with the world and its possibilities, rather than remaining passive.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Cultivate the skills to influence and guide others, as they are valuable for personal growth.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Hard work, even for practical reasons, can lead to deeper understanding and fulfillment.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "emerson",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "Life is a festival only to the wise, who understand and adhere to natural, intellectual, and moral laws."
+      },
+      {
+       "maxim": "The main claim is that it matters more how one lives and conducts oneself than the style of one's dwelling or external appearances."
+      },
+      {
+       "maxim": "The true marriage is the purification of the intellect and the heart from year to year, not the initial passion and physical attraction."
+      },
+      {
+       "maxim": "It is time for villages to become universities where lifelong liberal studies are pursued, and for towns to spend money on education rather than on less valuable trappings."
+      },
+      {
+       "maxim": "The main claim this passage makes is that the soul's scale is one, emphasizing the permanence and universality of certain thoughts and experiences over the limitations of time and space."
+      },
+      {
+       "maxim": "The passage claims that true men should act independently and with integrity, rather than following conventions or demagogues."
+      },
+      {
+       "maxim": "Pictures must not be too picturesque; what astonishes men is common-sense and plain dealing."
+      },
+      {
+       "maxim": "The passage describes a cat's whimsical and playful approach to eating corn, suggesting a life filled with uncertainty and momentary pleasures."
+      },
+      {
+       "maxim": "To think deeply and understand abstract truths requires intentional effort and often comes unexpectedly, much like the rhythm of breathing or the pulse of the heart."
+      },
+      {
+       "maxim": "The passage suggests that one should live a simple, nature-centered life, free from unnecessary worries and responsibilities."
+      },
+      {
+       "maxim": "Self-trust is the essence of heroism, and it involves speaking the truth, being just and generous, persisting with undaunted boldness, and finding the littleness of common life amusing."
+      },
+      {
+       "maxim": "We should not be provincial in our thinking or actions; instead, we should seek out the best resources and knowledge available, regardless of their origin."
+      }
+     ],
+     "voice": [
+      "We need books of this tart cathartic virtue more than books of political science or of private economy. Life is a festival only to the wise. Seen from the nook and chimney-side of prudence, it wears a ragged and dangerous front. The violations of the laws of nature by our predecessors and our contemporaries are punished in us also",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "8641f240ac14051ea45454cb055f9b68e7c2553104b1d55ec6e85adf2c2ca300"
+   }
+  },
+  {
+   "k": 12,
+   "pair": [
+    "james",
+    "nietzsche"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "james",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "Reality is a tapestry of perceptions, not an independent entity."
+      },
+      {
+       "maxim": "Our existence is intertwined with the infinite, transcending individual boundaries."
+      },
+      {
+       "maxim": "The clarity of thought and action lies in distinguishing between contradictions."
+      },
+      {
+       "maxim": "Philosophical disputes often lead nowhere, and wise minds avoid them."
+      },
+      {
+       "maxim": "Truth evolves, adapting to new knowledge and experiences."
+      },
+      {
+       "maxim": "The meaning of ideas is found in their practical outcomes, not just in their concepts."
+      },
+      {
+       "maxim": "Religion offers comfort, but its forms and philosophies are in constant flux."
+      },
+      {
+       "maxim": "The greatest truths often emerge over generations, unseen in their full light."
+      },
+      {
+       "maxim": "Music from the past can still resonate with us, while new compositions may fade."
+      },
+      {
+       "maxim": "Free spirits and new philosophers question the status quo, seeking deeper truths."
+      },
+      {
+       "maxim": "Skepticism is a powerful tool against denial and pessimism, fostering a vibrant life."
+      },
+      {
+       "maxim": "Adversity shapes the stable, while abundance can lead to instability and excess."
+      }
+     ],
+     "voice": [
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "bf988a4d5fa17301267ea684e9857bd1617e828344241c1518dd2a04aa2bf696",
+    "steps": [
+     {
+      "maxim": "Reality is a tapestry of perceptions, not an independent entity.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Our existence is intertwined with the infinite, transcending individual boundaries.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The clarity of thought and action lies in distinguishing between contradictions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Philosophical disputes often lead nowhere, and wise minds avoid them.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Truth evolves, adapting to new knowledge and experiences.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The meaning of ideas is found in their practical outcomes, not just in their concepts.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Religion offers comfort, but its forms and philosophies are in constant flux.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The greatest truths often emerge over generations, unseen in their full light.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Music from the past can still resonate with us, while new compositions may fade.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Free spirits and new philosophers question the status quo, seeking deeper truths.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Skepticism is a powerful tool against denial and pessimism, fostering a vibrant life.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Adversity shapes the stable, while abundance can lead to instability and excess.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Wickedness and hardship can be catalysts for discovering hidden truths.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Philosophers often hide their true thoughts behind their published works.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Comfort and social status are not virtues, but rather the essence of superficiality.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "True intellectual power and depth are rare in the English, overshadowed by religious moralizing.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "james",
+      "nietzsche"
+     ],
+     "maxims": [
+      {
+       "maxim": "Berkeley's criticism of matter tells us that it is known only through our sensations, so we should understand matter in terms of those sensations rather than as an independent substance."
+      },
+      {
+       "maxim": "The main claim this passage makes is that humans are more human and could potentially learn from the gods, suggesting a more humble and introspective approach to life, thought, and action."
+      },
+      {
+       "maxim": "The main claim is that anything coming into existence is ultimately due to someone wishing it to be there, rather than material causes or logical necessities."
+      },
+      {
+       "maxim": "The greatest events and thoughts take many generations to be fully understood, and those who experience them may not recognize their true significance in the moment."
+      },
+      {
+       "maxim": "The main claim is that clarity in thinking or acting depends on making distinctions when faced with contradictions."
+      },
+      {
+       "maxim": "The passage suggests that we should appreciate the music of Mozart, as it represents a \"good old\" time that still speaks to us, while the intelligence and taste for Beethoven are likely to fade sooner."
+      },
+      {
+       "maxim": "The wise man should turn his back on philosophical disputes from which nothing definite can be seen to follow in the future."
+      },
+      {
+       "maxim": "Such kind of men are we, we free spirits! And perhaps ye are also something of the same kind, ye coming ones? ye NEW philosophers?"
+      },
+      {
+       "maxim": "Truth is not static but dynamic, always performing the function of connecting old and new knowledge, and thus should be viewed as malleable and open to reinterpretation."
+      },
+      {
+       "maxim": "Stronger thinkers, who are still eager for life, may side against appearance and speak skeptically of \"perspective,\" suggesting they are trying to reclaim old ideas to live more vigorously and joyously than by \"modern ideas."
+      },
+      {
+       "maxim": "To live, think, and act, one must see oneself as one with the infinite Being of the universe, eliminating all separateness and recognizing the oneness of existence."
+      },
+      {
+       "maxim": "The main claim is that in times of struggle and constant adversity, a stable and uniform type is established, whereas in times of abundance, varied and potentially monstrous variations tend to arise."
+      }
+     ],
+     "voice": [
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of",
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through"
+     ]
+    },
+    "id": "54f6c6ba540d8acc91f7291ef1f827efa097619d54ded8b9f9f2be8d2fd822d5"
+   }
+  },
+  {
+   "k": 13,
+   "pair": [
+    "james",
+    "thoreau"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "james",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "Understanding arises from our experiences and perceptions, not from an independent reality."
+      },
+      {
+       "maxim": "Our existence is intertwined with the universe, transcending individual separateness."
+      },
+      {
+       "maxim": "The clarity of thought and action comes from distinguishing between conflicting ideas."
+      },
+      {
+       "maxim": "Engaging in philosophical debates is worthwhile only if they lead to practical outcomes."
+      },
+      {
+       "maxim": "Truth evolves with new knowledge, adapting to the changing landscape of understanding."
+      },
+      {
+       "maxim": "The essence of life lies in its practical applications, not just in theoretical constructs."
+      },
+      {
+       "maxim": "Religious philosophy should inspire action and change, not just provide comfort."
+      },
+      {
+       "maxim": "True wisdom is found in living a simple, nature-centered life, free from superficial concerns."
+      },
+      {
+       "maxim": "Independence and integrity are more important than following societal norms or trends."
+      },
+      {
+       "maxim": "The meaning of ideas is best understood through their real-world impact and consequences."
+      },
+      {
+       "maxim": "Education should be accessible and pursued throughout one's life, not just in formal settings."
+      },
+      {
+       "maxim": "Active engagement with the world is more valuable than passive contemplation or inaction."
+      }
+     ],
+     "voice": [
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "a3dc77a8430ecdbb69356036ec1782ecc81cb69e1fd10210d5d5e9af826adfe4",
+    "steps": [
+     {
+      "maxim": "Understanding arises from our experiences and perceptions, not from an independent reality.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Our existence is intertwined with the universe, transcending individual separateness.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The clarity of thought and action comes from distinguishing between conflicting ideas.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Engaging in philosophical debates is worthwhile only if they lead to practical outcomes.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Truth evolves with new knowledge, adapting to the changing landscape of understanding.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "The essence of life lies in its practical applications, not just in theoretical constructs.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Religious philosophy should inspire action and change, not just provide comfort.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "True wisdom is found in living a simple, nature-centered life, free from superficial concerns.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Independence and integrity are more important than following societal norms or trends.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "The meaning of ideas is best understood through their real-world impact and consequences.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Education should be accessible and pursued throughout one's life, not just in formal settings.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "We should seek out the best knowledge and resources, regardless of their origin or tradition.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Active engagement with the world is more valuable than passive contemplation or inaction.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Developing skills and abilities, like hunting and fishing, can be a valuable part of education.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Moments of reflection and deep thought are more important than constant verbal communication.",
+      "ok": false,
+      "why": "0 content words shared with the parents, not 2",
+      "both": false
+     },
+     {
+      "maxim": "Hard work, even for practical reasons, can lead to deeper understanding and personal growth.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "james",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "Berkeley's criticism of matter tells us that it is known only through our sensations, so we should understand matter in terms of those sensations rather than as an independent substance."
+      },
+      {
+       "maxim": "The main claim is that it matters more how one lives and conducts oneself than the style of one's dwelling or external appearances."
+      },
+      {
+       "maxim": "The main claim is that anything coming into existence is ultimately due to someone wishing it to be there, rather than material causes or logical necessities."
+      },
+      {
+       "maxim": "It is time for villages to become universities where lifelong liberal studies are pursued, and for towns to spend money on education rather than on less valuable trappings."
+      },
+      {
+       "maxim": "The main claim is that clarity in thinking or acting depends on making distinctions when faced with contradictions."
+      },
+      {
+       "maxim": "The passage claims that true men should act independently and with integrity, rather than following conventions or demagogues."
+      },
+      {
+       "maxim": "The wise man should turn his back on philosophical disputes from which nothing definite can be seen to follow in the future."
+      },
+      {
+       "maxim": "The passage describes a cat's whimsical and playful approach to eating corn, suggesting a life filled with uncertainty and momentary pleasures."
+      },
+      {
+       "maxim": "Truth is not static but dynamic, always performing the function of connecting old and new knowledge, and thus should be viewed as malleable and open to reinterpretation."
+      },
+      {
+       "maxim": "The passage suggests that one should live a simple, nature-centered life, free from unnecessary worries and responsibilities."
+      },
+      {
+       "maxim": "To live, think, and act, one must see oneself as one with the infinite Being of the universe, eliminating all separateness and recognizing the oneness of existence."
+      },
+      {
+       "maxim": "We should not be provincial in our thinking or actions; instead, we should seek out the best resources and knowledge available, regardless of their origin."
+      }
+     ],
+     "voice": [
+      "This is the only pragmatic application of the substance-idea with which I am acquainted; and it is obvious that it will only be treated seriously by those who already believe in the 'real presence' on independent grounds. MATERIAL SUBSTANCE was criticized by Berkeley with such telling effect that his name has reverberated through all subsequent philosophy. Berkeley's treatment of",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "35d4eabb0b2ab83291ebe5b76c584552957a712099e171d134518887e797c459"
+   }
+  },
+  {
+   "k": 14,
+   "pair": [
+    "nietzsche",
+    "thoreau"
+   ],
+   "asked": true,
+   "child": {
+    "grown": true,
+    "card": {
+     "kind": "child",
+     "pair": [
+      "nietzsche",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "True wisdom lies not in the grandiosity of one's dwelling but in the integrity of one's actions."
+      },
+      {
+       "maxim": "Villages should become centers of lifelong learning, fostering a culture of continuous intellectual growth."
+      },
+      {
+       "maxim": "Towns must prioritize education over superficial embellishments to truly thrive."
+      },
+      {
+       "maxim": "True men stand firm in their convictions, unswayed by the whims of convention or demagogues."
+      },
+      {
+       "maxim": "Life is a series of fleeting moments, best enjoyed with a playful, whimsical spirit."
+      },
+      {
+       "maxim": "Embrace simplicity and the natural world, letting go of unnecessary burdens and worries."
+      },
+      {
+       "maxim": "Idle virtues are not enough; engage actively with the world to make a meaningful impact."
+      },
+      {
+       "maxim": "Cultivate the skills of hunting and fishing as metaphors for developing the ability to guide and influence others."
+      },
+      {
+       "maxim": "Preachers should use their voice to inspire reflection and pause, rather than preach on rest days."
+      },
+      {
+       "maxim": "Look beyond the surface to uncover the deeper meanings and wisdom in the world around you."
+      },
+      {
+       "maxim": "The best interactions are those that flow naturally, with minimal need for frequent speech."
+      },
+      {
+       "maxim": "Strive for a life of comfort and simplicity, where virtue is not measured by fashion or political influence."
+      }
+     ],
+     "voice": [
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "2a1f49c42b46db3467982612d30b6677e257ccffc632cc45f23ecf98bab31824",
+    "steps": [
+     {
+      "maxim": "True wisdom lies not in the grandiosity of one's dwelling but in the integrity of one's actions.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Villages should become centers of lifelong learning, fostering a culture of continuous intellectual growth.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Towns must prioritize education over superficial embellishments to truly thrive.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "True men stand firm in their convictions, unswayed by the whims of convention or demagogues.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Life is a series of fleeting moments, best enjoyed with a playful, whimsical spirit.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Embrace simplicity and the natural world, letting go of unnecessary burdens and worries.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Seek out the best knowledge and resources, regardless of their origin, to enrich your understanding.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "Idle virtues are not enough; engage actively with the world to make a meaningful impact.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Cultivate the skills of hunting and fishing as metaphors for developing the ability to guide and influence others.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Preachers should use their voice to inspire reflection and pause, rather than preach on rest days.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Look beyond the surface to uncover the deeper meanings and wisdom in the world around you.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Hard work, even for practical reasons, can enrich your life and deepen your understanding.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     },
+     {
+      "maxim": "The best interactions are those that flow naturally, with minimal need for frequent speech.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "Strive for a life of comfort and simplicity, where virtue is not measured by fashion or political influence.",
+      "ok": true,
+      "why": "kept",
+      "both": true
+     },
+     {
+      "maxim": "Skepticism is a powerful tool against pessimism and denial, helping to maintain a balanced perspective.",
+      "ok": true,
+      "why": "kept",
+      "both": false
+     },
+     {
+      "maxim": "In times of struggle, uniformity is established; in times of abundance, varied and potentially monstrous variations arise.",
+      "ok": false,
+      "why": "a copy of a parent maxim",
+      "both": false
+     }
+    ]
+   },
+   "cross": {
+    "card": {
+     "kind": "cross",
+     "pair": [
+      "nietzsche",
+      "thoreau"
+     ],
+     "maxims": [
+      {
+       "maxim": "The main claim this passage makes is that humans are more human and could potentially learn from the gods, suggesting a more humble and introspective approach to life, thought, and action."
+      },
+      {
+       "maxim": "The main claim is that it matters more how one lives and conducts oneself than the style of one's dwelling or external appearances."
+      },
+      {
+       "maxim": "The greatest events and thoughts take many generations to be fully understood, and those who experience them may not recognize their true significance in the moment."
+      },
+      {
+       "maxim": "It is time for villages to become universities where lifelong liberal studies are pursued, and for towns to spend money on education rather than on less valuable trappings."
+      },
+      {
+       "maxim": "The passage suggests that we should appreciate the music of Mozart, as it represents a \"good old\" time that still speaks to us, while the intelligence and taste for Beethoven are likely to fade sooner."
+      },
+      {
+       "maxim": "The passage claims that true men should act independently and with integrity, rather than following conventions or demagogues."
+      },
+      {
+       "maxim": "Such kind of men are we, we free spirits! And perhaps ye are also something of the same kind, ye coming ones? ye NEW philosophers?"
+      },
+      {
+       "maxim": "The passage describes a cat's whimsical and playful approach to eating corn, suggesting a life filled with uncertainty and momentary pleasures."
+      },
+      {
+       "maxim": "Stronger thinkers, who are still eager for life, may side against appearance and speak skeptically of \"perspective,\" suggesting they are trying to reclaim old ideas to live more vigorously and joyously than by \"modern ideas."
+      },
+      {
+       "maxim": "The passage suggests that one should live a simple, nature-centered life, free from unnecessary worries and responsibilities."
+      },
+      {
+       "maxim": "The main claim is that in times of struggle and constant adversity, a stable and uniform type is established, whereas in times of abundance, varied and potentially monstrous variations tend to arise."
+      },
+      {
+       "maxim": "We should not be provincial in our thinking or actions; instead, we should seek out the best resources and knowledge available, regardless of their origin."
+      }
+     ],
+     "voice": [
+      "I--have no reason to cover my nakedness!\" One suspects that this kind of divinity and philosopher perhaps lacks shame?--He once said: \"Under certain circumstances I love mankind\"--and referred thereby to Ariadne, who was present; \"in my opinion man is an agreeable, brave, inventive animal, that has not his equal upon earth, he makes his way even through",
+      "The most interesting dwellings in this country, as the painter knows, are the most unpretending, humble log huts and cottages of the poor commonly; it is the life of the inhabitants whose shells they are, and not any peculiarity in their surfaces merely, which makes them _picturesque;_ and equally interesting will be the citizen’s suburban box, when his life shall"
+     ]
+    },
+    "id": "1c0d233e270a540f8173d923abefacff828eb3bf1ecba1910c70fbf2ca070f5c"
+   }
+  }
+ ]
+}
