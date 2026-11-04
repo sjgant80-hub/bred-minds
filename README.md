@@ -15,9 +15,11 @@ These are MODELS of thought-patterns grown from public texts: not the people, no
   `grow-maxims` → `cards` → `write` → `judge` → `measure-1`; organ 2: `breed` → `write2` → `judge2` → `measure-2`. `receipts/` what was measured. `after-1` writes
   `data/after/`: what was looked at after a receipt, labelled as not sealed.
 - `index.html` + `page/` the live page: it runs the same kernels in the browser and reads only committed files.
-- `vendor/` copied byte for byte: the seed library, and the estate's sourced cost basis (`vendor/SOURCES.json` names the
-  commit; the runner re-fetches it and fails on one differing byte). The cost case over the years reads UK CPI and the
-  Microsoft 365 Copilot seat from it.
+- `vendor/` copied byte for byte: the seed library (`sjgant80-hub/seed-library`) and the estate's sourced cost basis
+  (`sjgant80-hub/sovereign-enterprise`). `vendor/SOURCES.json` names each file's commit, blob id and SHA-256;
+  `test/vendor.test.mjs` fails on a file with no record or a changed byte, and the runner re-fetches every file from its
+  commit and fails on one differing byte. The cost case over the years reads UK CPI and the Microsoft 365 Copilot seat
+  from the basis.
 - `test/page.test.mjs` keeps the page honest: no measured result typed in, every typed number a seal's design number or a
   named fact, and every file the page loads kept by the service worker for offline use.
 

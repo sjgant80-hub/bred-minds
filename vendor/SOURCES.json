@@ -1,7 +1,7 @@
 {
  "kind": "bred-minds.vendor",
  "v": 1,
- "note": "Copied byte for byte from the public repository at the commit named. Never edit a vendored file; re-vendor. GitHub's runner fetches the file at that commit and fails the build if a byte differs; test/years.test.mjs pins its SHA-256.",
+ "note": "Copied byte for byte from the public repository at the commit named. Never edit a vendored file; re-vendor. GitHub's runner fetches every file here at its commit and fails the build if a byte differs; test/vendor.test.mjs checks every file under vendor/ is named here with its hash, and test/years.test.mjs pins the basis's SHA-256.",
  "files": [
   {
    "path": "vendor/sovereign-enterprise/data/basis.json",
@@ -12,6 +12,26 @@
    "sha256": "83e9c2effa2f81596dcfa7110f030940032c1910cdf928d27d628ae59d73bb42",
    "licence": "MIT",
    "what": "the estate's sourced cost basis (every external figure with its source and the date it was read); the case over the years reads UK CPI and the Microsoft 365 Copilot seat from it"
+  },
+  {
+   "path": "vendor/seed-library/seedlib.mjs",
+   "repo": "sjgant80-hub/seed-library",
+   "commit": "47cd0015b1ea2c6dba8f036ee2c5b07b05c7fe58",
+   "src": "seedlib.mjs",
+   "blob": "0c0494d540d1d83c90f2a89585cb57c860adeaac",
+   "sha256": "f1904ed31b48794ac3454453d5853e799509dcdf8b8695ffea8bcedfd6f60e72",
+   "licence": "MIT",
+   "what": "the seed library: its seeded shuffle (src/text.mjs) draws every passage and every batch order here"
+  },
+  {
+   "path": "vendor/seed-library/sha256.mjs",
+   "repo": "sjgant80-hub/seed-library",
+   "commit": "47cd0015b1ea2c6dba8f036ee2c5b07b05c7fe58",
+   "src": "sha256.mjs",
+   "blob": "e7572da3271187eee0087c50c99dd718e0667608",
+   "sha256": "8ebd4260e8b79fbdf9824ecbe6d6cde621cc003f1d358255101c01bb26763233",
+   "licence": "MIT",
+   "what": "the seed library's own SHA-256, which seedlib.mjs imports"
   }
  ]
 }
