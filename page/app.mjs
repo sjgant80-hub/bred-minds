@@ -7,6 +7,7 @@ import { readReply, recognises, LABELS } from '../src/judge.mjs';
 import { gate, firstWords } from '../src/card.mjs';
 import { compare, ASSUME } from '../src/cost.mjs';
 import { childGate, carries, balance } from '../src/breed.mjs';
+import { yearsCase, sourcesOf as basisSources } from '../src/years.mjs';
 
 window.__bm = true;
 const $ = (id) => document.getElementById(id);
@@ -49,6 +50,7 @@ const batches = order ? await Promise.all([1, 2, 3, 4].map((n) => getJSON('data/
 const after = receipt ? await getJSON('data/after/organ-1-lean.json') : null;
 const usage = batches.every(Boolean) && batches.length ? await getJSON('data/judge/usage.json') : null;
 const [seal2, kids, receipt2, persp2, order2] = await Promise.all([getJSON('claims/organ-2.json'), getJSON('data/children.json'), getJSON('receipts/organ-2.json'), getJSON('data/local/perspectives-2.json'), getJSON('data/judge2/order.json')]);
+const basis = await getJSON('vendor/sovereign-enterprise/data/basis.json');
 const batches2 = order2 ? await Promise.all([1, 2, 3, 4, 5, 6, 7, 8].map((n) => getJSON('data/judge2/batch-' + n + '.json'))) : [];
 const reading2 = new Map();
 if (order2 && batches2.every(Boolean)) order2.keys.forEach((k, i) => { const b = batches2[Math.floor(i / 45)]; reading2.set(k, readReply(b.reply, 45)[i % 45]); });
@@ -254,7 +256,8 @@ function leanView(a = after, check = null) {
     h('div', { class: 'scroll' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Answers'), h('th', { class: 'num' }, 'n'), MINDS.map((m) => h('th', { class: 'num' }, NAMES[m].split(' ').pop())))),
       h('tbody', {}, a.groups.map((g) => h('tr', {}, h('td', {}, label(g)), h('td', { class: 'num' }, g.n), MINDS.map((m) => h('td', { class: 'num' + (g.kind === 'card' && g.mind === m ? ' held' : '') }, g.sent[m] ? String(g.sent[m]) : '·'))))))),
     h('p', {}, h('b', {}, 'Read plainly. '), 'The 80 controls (20 answers written from no card, 60 from shams) are the answers no single mind wrote. The trace model sent ' + L.leanK + ' of them to ' + NAMES[L.pair[0]] + ' or ' + NAMES[L.pair[1]] + ': it leans toward those two for any modern-English advice. So a card answer it gives to one of them is only partly the card speaking. Outside the lean, the answers from ' + NAMES[L.best].split(' ').pop() + '\'s card went to him ' + L.card[L.best] + ' times in 20, where only ' + L.ctrl[L.best] + ' of the 80 controls did: that is the cleanest sign the words carried. ' + (L.weak.length ? L.weak.map((m) => NAMES[m]).join(', ').replace(/, ([^,]*)$/, ' and $1') + ' it almost never named. Why is a guess, not a measured cause: perhaps that the maxims were stated in modern English, and the Marcus and Montaigne it was fitted on are 17th-century translations. That does not explain Thoreau, whose answers went mostly to Emerson, his neighbour in Concord and in vocabulary.' : '')),
-    h('p', { class: 'note' }, 'The judge does not share the lean: it recognised the card answers of all six minds 18 to 20 times in 20, and the shams 5 times in 60. The lesson is written into the next seal: a word-count check is barred against the controls, not against chance.'),
+    (() => { const d = receipt && receipt.detail; if (!d) return null; const js = d.perMind.map((x) => x.judge), n = d.perMind[0].n;
+      return h('p', { class: 'note' }, 'The judge does not share the lean: it recognised the card answers of all six minds ' + Math.min(...js) + ' to ' + Math.max(...js) + ' times in ' + n + ', and the shams ' + d.shamJudge.k + ' times in ' + d.shamJudge.n + '. The lesson is written into the next seal: a word-count check is barred against the controls, not against chance.'); })(),
     check);
 }
 
@@ -345,14 +348,15 @@ function traced() {
 
 // ---------- blueprint ----------
 function blueprint() {
-  const what = { text: 'The traces: the author\'s own span, passages, FIT and TEST, words, the blocked-word check, the seeded shuffle', trace: 'The trace model: naive Bayes over words; no language model inside', card: 'The gate, card growth, sham cards and the card id', stats: 'Wilson intervals and the bootstrap lower bound', judge: 'Reading the judge\'s replies; the recognition rule', cost: 'The cost case on this page', breed: 'Organ 2: the pairs, the child gate (Latin script, traced, no copy), the child and the naive cross, what the judge carried, balance, the trace pair, the control' };
+  const what = { text: 'The traces: the author\'s own span, passages, FIT and TEST, words, the blocked-word check, the seeded shuffle', trace: 'The trace model: naive Bayes over words; no language model inside', card: 'The gate, card growth, sham cards and the card id', stats: 'Wilson intervals and the bootstrap lower bound', judge: 'Reading the judge\'s replies; the recognition rule', cost: 'The cost case on this page: one check, people against the rail', years: 'The cost case over the years: UK CPI and the Copilot seat from the vendored, sourced basis, at your own checks, years and seat', breed: 'Organ 2: the pairs, the child gate (Latin script, traced, no copy), the child and the naive cross, what the judge carried, balance, the trace pair, the control' };
   const rows = witness ? witness.kernels : Object.keys(what).map((k) => ({ kernel: k }));
   fill($('kernels').querySelector('tbody'), rows.map((r) => h('tr', {}, h('td', {}, h('code', {}, 'src/' + r.kernel + '.mjs')), h('td', {}, what[r.kernel] || ''), h('td', { class: 'num' }, r.total ? r.killed + ' / ' + r.total : '—'))));
 }
 
 // ---------- the case ----------
 const RANGES = { maximMinutes: [0, 5, 0.5, 'Minutes to write a maxim'], askSeconds: [0, 120, 5, 'Seconds to ask the seat for an answer'], decideSeconds: [0, 60, 5, 'Seconds to decide whose an answer is'], reviewers: [1, 5, 1, 'Reviewers reading every answer'], setupMinutes: [0, 120, 5, 'Minutes of a person to start and check the rail'], charsPerToken: [2, 5, 0.5, 'Characters per judge token'], seats: [0, 5, 1, 'AI seats held for the check'] };
-const over = { ...ASSUME }; let perMonth = 1;
+const over = { ...ASSUME }; let perMonth = 1, years = 3, seatPick = 'chatgpt';
+const SEATNAME = { chatgpt: () => ((lock && lock.entries.find((e) => e.id === 'chatgpt-business')) || {}).product || 'ChatGPT Business', copilot: () => ((basis && basis['seat.copilot']) || {}).product || 'Microsoft 365 Copilot' };
 function runRecord() {
   if (!items || !drawn || !maxims || prompts.length !== 4 || !prompts.every((x) => typeof x === 'string')) return null;
   return { passageWords: drawn.minds.flatMap((m) => m.passages.map((p) => words(p.text).length)), perspectiveWords: items.map((x) => words(x.reply).length),
@@ -362,7 +366,8 @@ function runRecord() {
 function caseView() {
   const run = runRecord();
   fill($('sources').querySelector('tbody'), (lock ? lock.entries : []).map((e) => { const url = (String(e.source).match(/https?:\/\/\S+/) || [])[0];
-    return h('tr', {}, h('td', {}, e.what || e.product || e.model || e.chip || e.id), h('td', { class: 'mono' }, e.value ?? e.price ?? e.wpm ?? e.pencePerKwh ?? e.gbpPerUsd ?? (e.inPerM != null ? e.inPerM + ' / ' + e.outPerM + ' per M' : e.wattsHigh + ' W max')), h('td', {}, url ? h('a', { href: url }, (e.publisher || e.provider || e.vendor || new URL(url).hostname)) : e.source), h('td', {}, e.checked)); }));
+    return h('tr', {}, h('td', {}, e.what || e.product || e.model || e.chip || (e.kind === 'fx' ? 'Pounds per US dollar (ECB euro reference rates)' : e.id)), h('td', { class: 'mono' }, e.value ?? e.price ?? e.wpm ?? e.pencePerKwh ?? e.gbpPerUsd ?? (e.inPerM != null ? e.inPerM + ' / ' + e.outPerM + ' per M' : e.wattsHigh + ' W max')), h('td', {}, url ? h('a', { href: url }, (e.publisher || e.provider || e.vendor || new URL(url).hostname)) : e.source), h('td', {}, e.checked)); }));
+  if (basis) $('sources').querySelector('tbody').append(...basisSources(basis).map((x) => h('tr', {}, h('td', {}, x.what), h('td', { class: 'mono' }, String(x.value)), h('td', {}, x.source ? h('a', { href: x.source }, new URL(x.source).hostname) : ''), h('td', {}, 'basis, ' + (basis[x.key].via || 'read 2026-10-14')))));
   if (!run) { fill('costlead', 'Computed when the run is complete'); fill('costvs', h('p', { class: 'note' }, 'The case counts the words read, the seconds the local model ran and the characters the judge read and wrote, from this run\'s own records. It appears once the judge\'s replies are committed.')); return; }
   const c = compare(run, lock, over, perMonth), P = c.people, R = c.rail;
   fill('costlead', 'People: ' + hrs(P.totalHours) + ', ' + gbp(P.total) + ' · The rail: ' + gbp(R.total));
@@ -370,7 +375,7 @@ function caseView() {
     h('div', { class: 'panel' }, h('h3', {}, 'People with an AI seat'), h('ul', {},
       h('li', {}, 'Read the ' + run.passageWords.length + ' source passages: ' + hrs(P.hours.read)), h('li', {}, 'Write a maxim from each: ' + hrs(P.hours.write)),
       h('li', {}, 'Ask the seat for the ' + run.perspectiveWords.length + ' answers: ' + hrs(P.hours.ask)), h('li', {}, 'Read every answer blind and decide whose it is (' + c.assume.reviewers + ' reviewer' + (c.assume.reviewers === 1 ? '' : 's') + '): ' + hrs(P.hours.review)),
-      h('li', {}, 'Staff time at the National Living Wage (' + gbp(c.rates.wage) + ' an hour): ' + gbp(P.staff)), h('li', {}, c.assume.seats + ' AI seat' + (c.assume.seats === 1 ? '' : 's') + ' for the month: ' + gbp(P.seat))),
+      h('li', {}, 'Staff time at the National Living Wage (' + gbp(c.rates.wage) + ' an hour): ' + gbp(P.staff)), h('li', {}, c.assume.seats + ' AI seat' + (c.assume.seats === 1 ? '' : 's') + ', ' + SEATNAME.chatgpt() + ', for the month: ' + gbp(P.seat))),
       h('p', {}, h('b', {}, 'Total: ' + gbp(P.total)))),
     h('div', { class: 'panel' }, h('h3', {}, 'This rail'), h('ul', {},
       h('li', {}, 'A person starts and checks it: ' + hrs(R.totalHours) + ', ' + gbp(R.staff)),
@@ -389,11 +394,18 @@ function caseView() {
     h('li', {}, 'Power: ' + Math.round(run.localSeconds).toLocaleString('en-GB') + ' seconds × ' + r.watts + ' W ÷ 3,600,000 = ' + R.kWh.toFixed(3) + ' kWh × ' + r.pencePerKwh + 'p = ' + gbp(R.power) + '.'),
     h('li', {}, 'Judge: (' + R.tokens.in.toLocaleString('en-GB') + ' × $' + r.inPerM + ' + ' + R.tokens.out.toLocaleString('en-GB') + ' × $' + r.outPerM + ') ÷ 1,000,000 × ' + r.gbpPerUsd + ' £ per $ = ' + gbp(R.judge) + '.')),
     h('p', { class: 'note' }, 'The counts are from this run\'s own records; the rates from data/prices.lock.json; the arithmetic is src/cost.mjs, under the mutation gate.'));
-  fill('year', h('label', { class: 'controls' }, 'Checks a month ', (() => { const i = h('input', { type: 'number', min: '1', max: '500', value: String(perMonth), 'aria-label': 'Checks a month' }); i.addEventListener('input', () => { const v = Number(i.value); if (Number.isFinite(v) && v >= 1 && v <= 500) { perMonth = v; caseView(); } }); return i; })()),
-    h('p', {}, 'At ' + perMonth + ' check' + (perMonth === 1 ? '' : 's') + ' a month: people ' + gbp(c.year.people) + ' a year; the rail ' + gbp(c.year.rail) + '. ', h('b', {}, gbp(c.year.save) + ' saved and ' + Math.round(c.year.hoursBack) + ' hours of staff time back'), ', every one of them re-checkable.'),
+  const y = yearsCase({ peopleStaff: P.staff, peopleHours: P.totalHours, seats: c.assume.seats, chatgptSeat: c.rates.seat, railTotal: R.total, railHours: R.totalHours }, basis, { checksPerMonth: perMonth, years, seat: seatPick });
+  const whole = (lo, hi, v, label, set) => { const i = h('input', { type: 'number', min: String(lo), max: String(hi), step: '1', value: String(v), 'aria-label': label }); i.addEventListener('change', () => { const n = Number(i.value); if (Number.isInteger(n) && n >= lo && n <= hi) { set(n); caseView(); } }); return i; };
+  const pick = h('select', { 'aria-label': 'The AI seat you pay for now' }, ['chatgpt', 'copilot'].map((k) => h('option', { value: k, selected: k === seatPick }, SEATNAME[k]())));
+  pick.addEventListener('change', () => { seatPick = pick.value; caseView(); });
+  fill('year', h('div', { class: 'controls' }, h('label', {}, 'Checks a month ', whole(1, 500, perMonth, 'Checks a month', (n) => { perMonth = n; })), h('label', {}, 'Years ', whole(1, 10, years, 'Years', (n) => { years = n; })), h('label', {}, 'The AI seat you pay for now ', pick)),
+    y.ok ? h('p', {}, 'A year at ' + perMonth + ' check' + (perMonth === 1 ? '' : 's') + ' a month: people ' + gbp(y.perYear.people) + '; the rail ' + gbp(y.perYear.rail) + '. ', h('b', {}, 'Over ' + years + ' year' + (years === 1 ? '' : 's') + ': people ' + gbp(y.over.people) + ', the rail ' + gbp(y.over.rail) + ', so ' + gbp(y.savingOver) + ' saved and ' + Math.round(y.hoursBackOver).toLocaleString('en-GB') + ' hours of staff time back'), ', every one of them re-checkable.') : h('p', { class: 'note' }, 'The case over the years needs ' + y.why + '.'),
+    y.ok ? h('p', { class: 'note' }, 'Each later year rises by UK CPI (' + pct(y.cpi, 1) + ', ONS, read from the vendored basis), on both sides, the rail included, which counts against it. The seat: ' + SEATNAME[seatPick]() + ' at ' + gbp(y.seatPerMonth) + ' a month, ' + c.assume.seats + ' held each month there is a check. Staff hours are not inflated. The arithmetic is src/years.mjs, under the mutation gate.') : null,
     (() => { const med = lock.entries.find((e) => e.id === 'ons-ashe-2025-median-hourly'), alt = med && compare(run, { entries: lock.entries.map((e) => (e.id === 'uk-national-living-wage' ? { ...e, value: med.value } : e)) }, over, perMonth);
-      return alt ? h('p', { class: 'note' }, 'At the UK median hourly wage (' + gbp(med.value) + ', ONS) instead of the legal floor: people ' + gbp(alt.people.total) + ' a check, the rail ' + gbp(alt.rail.total) + '; ' + gbp(alt.year.save) + ' saved a year at this rate of checks.') : null; })());
-  $('runtime').textContent = 'For this check the local model ran for ' + hrs(maxims.items.reduce((a, x) => a + x.seconds, 0) / 3600) + ' on the 144 maxims and ' + hrs(items.reduce((a, x) => a + x.seconds, 0) / 3600) + ' on the 200 answers.';
+      const ay = alt && yearsCase({ peopleStaff: alt.people.staff, peopleHours: alt.people.totalHours, seats: alt.assume.seats, chatgptSeat: alt.rates.seat, railTotal: alt.rail.total, railHours: alt.rail.totalHours }, basis, { checksPerMonth: perMonth, years, seat: seatPick });
+      return alt && ay && ay.ok ? h('p', { class: 'note' }, 'At the UK median hourly wage (' + gbp(med.value) + ', ONS) instead of the legal floor: people ' + gbp(alt.people.total) + ' a check with a ChatGPT seat, the rail ' + gbp(alt.rail.total) + '; with the seat chosen above, ' + gbp(ay.savingPerYear) + ' saved a year and ' + gbp(ay.savingOver) + ' over ' + years + ' year' + (years === 1 ? '' : 's') + ' at this rate of checks.') : null; })());
+  $('runtime').textContent = 'For this check the local model ran for ' + hrs(maxims.items.reduce((a, x) => a + x.seconds, 0) / 3600) + ' on the ' + maxims.items.length + ' maxims and ' + hrs(items.reduce((a, x) => a + x.seconds, 0) / 3600) + ' on the ' + items.length + ' answers.';
+  fill('finrole', 'One check\'s electricity came to ' + gbp(R.power) + ' and its judge to ' + gbp(R.judge) + ', counted from this run\'s own records above');
 }
 function sliders() {
   fill('sliders', Object.entries(RANGES).map(([k, [lo, hi, st, label]]) => {
@@ -409,7 +421,7 @@ function words2() {
   const risks = [
     ['The judge knows these thinkers too well; it may guess from famous ideas.', 'That is why the shams exist. A sham card carries maxims from all six under one label; the receipt compares real cards against shams' + (receipt ? ' (B5 ' + (held('B5') ? 'held' : 'failed') + ').' : '.')],
     ['A model is not the person.', 'Agreed, and the page says so first. A card is twelve sentences a small model drew from a translation. It is tested for whether a pattern carried, not for whether it says what the author would say.'],
-    ['The judge is a cloud model.', 'It sees only the generated answers, in shuffled batches of 50, cold. Swap in a local judge and the whole run stays on the machine; the receipt names which judge was used.'],
+    ['The judge is a cloud model.', 'It sees only the generated answers, in shuffled batches of 50, cold. Swap in a local judge and the whole run stays on the machine; the receipt names which judge was used. A local judge has not been measured here: it would be sealed and measured in its own run, against the same shams, before anyone relied on it.'],
     ['The local model writes modern English; the books are old translations.', receipt ? (held('B6') ? (leanRead() ? 'It mattered. The trace model, fitted only on the old books, held its sealed bar on the card answers, but it leans toward Emerson and James for any modern-English advice, and it almost never named the minds read from 17th-century translations. The page shows every call, and the next organ bars the word-count check against the controls instead of chance.' : 'The trace model, fitted only on the old books, still recognised the card answers: the voice carried into the words.') : 'Measured and said plainly: the trace model did not recognise the card answers at the sealed bar. What carried, carried as ideas, not as the old books\' words.') : 'B6 measures exactly this, and the expectation written before the run left it open.'],
     ['A result like this can be tuned until it looks good.', 'Not here. The prompts, seeds, questions, thresholds and claims were committed before any model was asked anything, and the measurement refuses to run if the seal changed.'],
   ];
@@ -418,10 +430,21 @@ function words2() {
     ? 'Organ 1 asked whether a twelve-line card grown from an author\'s own words carries a recognisable pattern of thought. ' + receipt.held + ' of ' + receipt.verdicts.length + ' sealed claims held. ' + (d.cardJudge ? 'A cold judge recognised ' + d.cardJudge.k + ' of ' + d.cardJudge.n + ' card answers (' + pct(d.cardJudge.rate) + ', chance 17%)' + (d.shamJudge ? ' against ' + d.shamJudge.k + ' of ' + d.shamJudge.n + ' sham answers' : '') + '. ' : '') + 'The whole check ran on one ordinary laptop, its only cloud step a judge that never saw a card, and it rebuilds byte for byte on GitHub\'s runner. The method is the product: any persona, from any source you own, grown and proven the same way before anyone relies on it.' + (receipt2 ? ' Organ 2 then tried breeding two cards into one. ' + receipt2.held + ' of ' + receipt2.verdicts.length + ' of its sealed claims held: a bred child carried both parents well above the control (one parent alone), but a plain mix of their own maxims carried both better. That failure is the useful part, because it tells you which method to use before you spend on the wrong one.' : '')
     : 'The board case is written from the receipt once it is committed.');
   if (receipt) fill('paperresults', h('p', {}, h('b', {}, 'Results. '), headline() + ' ' + receipt.verdicts.map((v) => v.id + ' ' + (v.held ? 'held' : 'failed')).join(', ') + '.'));
-  if (receipt2) { const pp = receipt2.detail.perPair, cs = pp.reduce((a, x) => a + (x.grown ? x.child : 0), 0), xs = pp.reduce((a, x) => a + x.cross, 0);
-    fill('bizbreed', h('b', {}, 'Blending two sources: '), 'if you want one persona that carries two sources (two authors, two house styles, two experts), use the plain mix. Organ 2 measured it: six of each source\'s own lines, alternating, carried both sources in ' + xs + ' of 150 answers. Asking a small local model to write a blended card in one pass carried both in ' + cs + ' of 150, and two pairs grew no card at all. The test that caught it is the same one you would run on yours.'); }
+  if (receipt2) { const pp = receipt2.detail.perPair, cs = pp.reduce((a, x) => a + (x.grown ? x.child : 0), 0), xs = pp.reduce((a, x) => a + x.cross, 0), n2 = persp2 ? persp2.items.filter((x) => x.kind === 'cross').length : 0;
+    fill('bizbreed', h('b', {}, 'Blending two sources: '), 'if you want one persona that carries two sources (two authors, two house styles, two experts), use the plain mix. Organ 2 measured it: six of each source\'s own lines, alternating, carried both sources in ' + xs + ' of ' + n2 + ' answers. Asking a small local model to write a blended card in one pass carried both in ' + cs + ' of ' + n2 + ', and ' + (pp.length - pp.filter((x) => x.grown).length) + ' pairs grew no card at all. The test that caught it is the same one you would run on yours.'); }
   fill('paper2results', receipt2 ? h('p', {}, h('b', {}, 'Organ 2 results. '), headline2() + ' ' + receipt2.verdicts.map((v) => v.id + ' ' + (v.held ? 'held' : 'failed')).join(', ') + '.')
     : h('p', { class: 'note' }, seal2 ? 'Organ 2 is sealed (claims/organ-2.json, committed before its code) and being bred; its results appear here from its receipt.' : ''));
+}
+
+// ---------- facts read from the records (the straight answers, the books' size, the model's digest) ----------
+function factsView() {
+  if (sources) { const mb = (sources.minds.reduce((a, m) => a + m.bytes, 0) / 1e6).toFixed(1) + ' MB'; document.querySelectorAll('.booksize').forEach((e) => { e.textContent = mb; }); }
+  if (receipt) $('digest').textContent = receipt.asked.maxims.digest.slice(0, 12);
+  if (maxims && cards) fill('ngate', 'Of the ' + maxims.items.length + ' sentences the local model wrote, ' + cards.minds.reduce((a, m) => a + m.kept, 0) + ' passed the gate and ' + cards.minds.reduce((a, m) => a + (m.grown ? m.card.maxims.length : 0), 0) + ' are on the cards.');
+  const d = receipt && receipt.detail;
+  if (d && d.shamJudge && d.cardJudge) fill('shamvs', 'It named the label ' + d.shamJudge.k + ' times in ' + d.shamJudge.n + ', against ' + d.cardJudge.k + ' times in ' + d.cardJudge.n + ' for real cards.');
+  if (items && reading.size) { const none = (kind) => items.filter((x) => x.kind === kind).map((x) => reading.get(keyOf(x))).filter(Boolean).map((p) => p.none), mean = (a) => a.reduce((s, x) => s + x, 0) / a.length;
+    const b = none('base'), c = none('card'); if (b.length && c.length) fill('nonevs', 'It gave "none" ' + mean(b).toFixed(1) + ' points on average, against ' + mean(c).toFixed(1) + ' for card answers.'); }
 }
 
 // ---------- start ----------
@@ -433,5 +456,6 @@ $('toglossary').addEventListener('click', openGlossary);
 if (location.hash === '#glossary') openGlossary();
 $('attr').addEventListener('click', () => model && attributeMine());
 $('unseen').addEventListener('click', () => model && unseen.length && pickUnseen());
+factsView();
 if (receipt) $('sealnote').append(' Sealed at commit ', h('code', {}, receipt.sealed.commit.slice(0, 7)), '; measured once.');
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});

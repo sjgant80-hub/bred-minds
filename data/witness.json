@@ -45,9 +45,16 @@
    "killed": 59,
    "total": 59,
    "clean": true
+  },
+  {
+   "kernel": "years",
+   "killed": 24,
+   "total": 24,
+   "clean": true,
+   "ran": "2026-11-04"
   }
  ],
- "killed": 152,
- "total": 152,
- "note": "GitHub's runner re-runs the same gate on every push and fails the build if any mutant survives"
+ "killed": 176,
+ "total": 176,
+ "note": "GitHub's runner re-runs the same gate on every push, fails the build if any mutant survives, and fails it if a kernel's count differs from this record (tools/witness-check.mjs)"
 }

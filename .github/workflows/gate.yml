@@ -13,9 +13,18 @@ jobs:
       - name: the mutation gate - every mutant of every kernel must be killed by its tests
         run: |
           git clone --depth 1 --branch v0.6 https://github.com/sjgant80-hub/witness.git /tmp/witness6
-          for k in text trace card stats judge cost breed; do
+          node tools/witness-check.mjs --kernels
+          for k in text trace card stats judge cost breed years; do
             node /tmp/witness6/witness.mjs mutate src/$k.mjs --timeout 120000 --cap 600 --test node --test test/$k.test.mjs | tee /tmp/w.txt
             grep -q '"clean": true' /tmp/w.txt || { echo "::error::mutants survived in src/$k.mjs"; exit 1; }
+            node tools/witness-check.mjs $k /tmp/w.txt || { echo "::error::src/$k.mjs's count differs from data/witness.json, which the page shows"; exit 1; }
+          done
+      - name: the vendored cost basis is the upstream file at its pinned commit, byte for byte
+        run: |
+          node -e "for (const f of require('./vendor/SOURCES.json').files) console.log([f.repo, f.commit, f.src, f.path].join(' '))" | while read repo commit src path; do
+            curl -sfL "https://raw.githubusercontent.com/$repo/$commit/$src" -o /tmp/upstream
+            cmp /tmp/upstream "$path" || { echo "::error::$path differs from $repo at $commit"; exit 1; }
+            echo "$path is $repo/$src at $commit, byte for byte"
           done
       - name: the cards and the page's passages rebuild byte for byte from the committed texts and replies
         run: |

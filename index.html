@@ -16,7 +16,7 @@
   <h1>Bred Minds</h1>
   <p class="lede">Six great minds, grown as small pattern-models from their own public-domain books, on one laptop. Then a hard test: a small local model writes new answers from each model alone, and a judge who never sees the models has to say whose pattern of thought each answer carries.</p>
   <p class="honest"><b>What these are.</b> Models of thought-patterns grown from public texts. They are not the people, not resurrections and not conscious. A mind here is a <b>card</b>: twelve one-sentence maxims drawn from the author's own words, each checked against the passage it came from, plus two short samples of the author's voice. Nothing here claims to know what the author would really say.</p>
-  <p class="note" id="sealnote">Every claim below was written down and sealed before the code that measures it, then measured once. The failures are kept. Every number on this page is read from the committed records as it loads.</p>
+  <p class="note" id="sealnote">Every claim below was written down and sealed before the code that measures it, then measured once. The failures are kept. Every measured number on this page is read from the committed records as it loads; a test fails the build if one is typed in. The design numbers in the text (how many passages, words, questions) are the seal's own.</p>
 </header>
 <nav class="tabs" aria-label="Sections"><div class="in" id="tabs">
   <a href="#overview">Overview</a><a href="#start">Start here</a><a href="#cards">The cards</a><a href="#blind">Blind test</a><a href="#trace">Trace model</a><a href="#results">Results</a><a href="#breeding">Breeding</a><a href="#how">How it works</a><a href="#blueprint">Blueprint</a><a href="#business">For your business</a><a href="#case">The case</a><a href="#paper">White paper</a><a href="#answers">Straight answers</a>
@@ -35,15 +35,17 @@
   <ol class="steps">
     <li><b>Open a card</b> (<a href="#cards">The cards</a>). Pick a mind and read its twelve maxims. Open any maxim to see the passage of the book it came from, and why the gate kept it.</li>
     <li><b>Take the blind test</b> (<a href="#blind">Blind test</a>). You get an answer the local model wrote from one card, from a sham card, or from no card at all. Guess whose pattern it carries. Then see the truth, and what the judge said.</li>
-    <li><b>Grow the trace model in your browser</b> (<a href="#trace">Trace model</a>). The page fetches the six books from this site (5.4 MB), checks each one's fingerprint, cuts the passages, fits the model and re-runs its test on passages it never saw. Then paste any text and see whose words it reads most like.</li>
+    <li><b>Grow the trace model in your browser</b> (<a href="#trace">Trace model</a>). The page fetches the six books from this site (<span class="booksize">a few MB</span>), checks each one's fingerprint, cuts the passages, fits the model and re-runs its test on passages it never saw. Then paste any text and see whose words it reads most like.</li>
     <li><b>Read the results</b> (<a href="#results">Results</a>): the seven sealed claims, each held or failed, with its numbers.</li>
     <li><b>Meet the children</b> (<a href="#breeding">Breeding</a>). Pick any of the 15 pairs. Read the child the local model wrote from both parents, beside the plain cross of their own maxims. The child's gate re-runs in your browser, maxim by maxim.</li>
     <li><b>Re-run it yourself.</b> Everything the measurement reads is committed. On any machine with Node 20 or later:
       <pre>git clone https://github.com/sjgant80-hub/bred-minds
 cd bred-minds
 npm test
-node tools/measure-1.mjs --check</pre>
-      The last line rebuilds the receipt from the committed replies and says whether it matches byte for byte. No model is asked anything.</li>
+node tools/measure-1.mjs --check
+node tools/breed.mjs --check
+node tools/measure-2.mjs --check</pre>
+      The measure lines rebuild each organ's receipt from the committed replies, and the breed line rebuilds organ 2's children; each says whether it matches byte for byte. No model is asked anything.</li>
   </ol>
   <details class="panel" id="glossary"><summary>The words this page uses, in plain terms</summary>
     <dl>
@@ -94,7 +96,7 @@ node tools/measure-1.mjs --check</pre>
 <section id="trace">
   <h2>The trace model</h2>
   <p>The judge is a large language model, and it knows these six thinkers well. The trace model is the other check: it has no language model inside it. It counts words. It was fitted on 8 of every 10 passages of the six old books, and it attributes a text to the author whose word counts make that text most likely. If it recognises a card's answers too, the pattern carried into the words themselves.</p>
-  <div class="controls"><button class="go" id="load">Load the six books and grow the model (5.4 MB)</button><span class="out" id="loadout" aria-live="polite"></span></div>
+  <div class="controls"><button class="go" id="load">Load the six books and grow the model (<span class="booksize">a few MB</span>)</button><span class="out" id="loadout" aria-live="polite"></span></div>
   <div id="books"></div>
   <div class="panel" id="tryit" hidden>
     <label for="mine"><b>Paste any text</b> (a paragraph works best), or take a passage the model never saw</label>
@@ -234,14 +236,15 @@ node tools/measure-1.mjs --check</pre>
     <p class="note">Every price and rate is read from <code>data/prices.lock.json</code>, each with its source and the date it was checked. The amounts of work (words read, seconds the model ran, characters the judge read and wrote) are counted from this run's own records. The assumptions start at the floor; move them and the kernel (<code>src/cost.mjs</code>) recomputes.</p>
     <div class="sliders" id="sliders"></div>
   </details>
+  <h3>Over the years, at your own rate of checks</h3>
   <div class="panel" id="year"></div>
   <details class="panel"><summary>The sources behind every figure</summary><div class="scroll"><table id="sources"><thead><tr><th>Figure</th><th>Value</th><th>Source</th><th>Checked</th></tr></thead><tbody></tbody></table></div></details>
   <h3>For each role</h3>
   <div class="grid g2">
-    <div class="panel role"><h3>Chief executive</h3><p>A persona product that can prove it carries its source, blind and against shams. That is a claim others in the market do not make, because they cannot show it.</p></div>
-    <div class="panel role"><h3>Finance</h3><p>The check runs on a laptop you already own: pennies of electricity and a few pence of judge, against hours of staff reading. No per-seat licence for the rail, no new hardware. The figures above are computed, not typed.</p></div>
-    <div class="panel role"><h3>Operations</h3><p>No review panel to schedule. Re-run on every change of source or model; the receipt says held or failed, claim by claim.</p></div>
-    <div class="panel role"><h3>Technology and security</h3><p>The books, the maxims and the answers are made on your machine by a local model pinned by its digest. The one cloud step is the judge, and it reads only the generated answers: never the source text, never the card. Swap in a local judge and nothing leaves the machine. Open code, MIT licence, no lock-in.</p></div>
+    <div class="panel role"><h3>Chief executive (CEO)</h3><p>A persona product that can prove it carries its source, blind and against shams. That is a claim others in the market do not make, because they cannot show it.</p></div>
+    <div class="panel role"><h3>Finance (CFO)</h3><p>The check runs on a laptop you already own. <span id="finrole">Its electricity and its judge are counted from this run's own records above</span>, against hours of staff reading. No per-seat licence for the rail, no new hardware. The figures above are computed, not typed, and over the years they rise with UK inflation on both sides.</p></div>
+    <div class="panel role"><h3>Operations (COO)</h3><p>No review panel to schedule. Re-run on every change of source or model; the receipt says held or failed, claim by claim.</p></div>
+    <div class="panel role"><h3>Technology and security (CTO, CISO)</h3><p>The books, the maxims and the answers are made on your machine by a local model pinned by its digest. The one cloud step is the judge, and it reads only the generated answers: never the source text, never the card. Swap in a local judge and nothing leaves the machine; that judge is then measured in its own sealed run, because a receipt holds only for the judge it names. Open code, MIT licence, no lock-in.</p></div>
     <div class="panel role"><h3>Editorial, content and learning teams</h3><p>Every maxim is traced to the passage it came from, and the gate's reason is kept for every one it dropped. Review the few that failed, not everything.</p></div>
     <div class="panel role"><h3>Audit and compliance</h3><p>The claims were committed before the code that measures them; the receipt rebuilds byte for byte from committed records on GitHub's own runner. An auditor re-runs it instead of trusting a report.</p></div>
   </div>
@@ -254,8 +257,17 @@ node tools/measure-1.mjs --check</pre>
   </ul>
   <h3>Deployment</h3>
   <p>Node 20 or later, Ollama, and qwen2.5:7b (a 4.7 GB download). This run used an ordinary laptop: an Intel Core i7-1255U with 16 GB of memory and no graphics card. <span id="runtime"></span></p>
+  <p>The judge step is run by hand, on purpose. <code>node tools/judge.mjs prompts</code> writes each shuffled batch as one prompt file and keeps the order apart. A fresh judge session reads one batch file and writes one reply; <code>node tools/judge.mjs record</code> files that reply beside the hash of the prompt it answered. Then <code>node tools/measure-1.mjs</code> writes the receipt. Organ 2 runs the same way through <code>tools/judge2.mjs</code> and <code>tools/measure-2.mjs</code>.</p>
   <h3>Ownership, support and exit</h3>
-  <p>The code is MIT-licensed: no licence fee, and it keeps running without us. The supplier is <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Support, service levels, warranty and liability are agreed per deployment, in each deployment's agreement. To leave, keep the repository: everything it needs is in it.</p>
+  <p>The code is MIT-licensed: no licence fee, and it keeps running without us. The supplier is <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>; contact them through that site. Support, service levels, warranty and liability are agreed per deployment, in each deployment's agreement. What you grow from your own texts is yours and stays in your copy: nothing is sent to the supplier. To leave, keep the repository: everything it needs is in it.</p>
+  <h3>For procurement</h3>
+  <ul>
+    <li><b>What you get:</b> the repository: the kernels, the tools in their order, the tests, the mutation gate that runs on every push, the seal-and-receipt method and this page. No prices are on this page; any engagement is agreed with the supplier.</li>
+    <li><b>What it runs on, and the licences:</b> Node.js 20 or later; <a href="https://github.com/ollama/ollama">Ollama</a> (MIT licence) to run the local model; qwen2.5:7b, pinned by its digest <code id="digest">named in the receipt</code>, under the Apache License 2.0 as its own manifest states (<code>ollama show qwen2.5:7b --license</code>). The six books are public domain, with Project Gutenberg's licence in each file. The mutation gate (<a href="https://github.com/sjgant80-hub/witness">witness</a> v0.6, MIT) runs only on GitHub's runner.</li>
+    <li><b>The one outside service:</b> the cold judge, a Claude Opus 5.5 session from Anthropic, used under Anthropic's own terms. It sees only the generated answers. You may use any judge you trust; the receipt names the one used.</li>
+    <li><b>What leaves the machine:</b> the tools talk only to the local model on the same machine (<code>127.0.0.1</code>); the page loads only files from its own site. Nothing reports back to the supplier.</li>
+    <li><b>What a contract can rely on:</b> the receipts, which anyone rebuilds byte for byte from the committed records (<a href="#start">Start here</a>, the last step), and the failures kept beside the claims that held.</li>
+  </ul>
   <h3>Risks, answered straight</h3>
   <div id="risks"></div>
   <h3>For the board</h3>
@@ -288,12 +300,12 @@ node tools/measure-1.mjs --check</pre>
       <li>Every maxim on every card opens to the passage it came from, so a reader can judge it against the book in seconds.</li>
       <li>Every sentence the gate dropped is listed with its reason.</li>
     </ul>
-    <p>Of the 144 sentences the local model wrote, 126 passed the gate and 72 are on the cards. Some read as summaries ("The main claim is that…"), and one ends in Chinese. They are shown as they are. What the blind test adds is evidence that a pattern carried, not that every maxim is right.</p></details>
+    <p><span id="ngate">Of the sentences the local model wrote, most passed the gate, and twelve a mind are on the cards.</span> Some read as summaries ("The main claim is that…"), and one ends in Chinese. They are shown as they are. What the blind test adds is evidence that a pattern carried, not that every maxim is right.</p></details>
   <details class="panel"><summary>Could the judge just be biased, or guessing from famous ideas?</summary>
     <p>It knows these thinkers well, so it is tested against three controls in the same blind batches:</p>
     <ul>
-      <li><b>Sham answers</b>, from cards that mix all six minds under one label. It named the label 5 times in 60, against 114 times in 120 for real cards.</li>
-      <li><b>Base answers</b>, from no card. It gave "none" 80.7 points on average, against 13.4 for card answers.</li>
+      <li><b>Sham answers</b>, from cards that mix all six minds under one label. <span id="shamvs">How often it named the label, against how often it named a real card's mind, is under Results.</span></li>
+      <li><b>Base answers</b>, from no card. <span id="nonevs">Its average number for "none" on them, against card answers, is under Results.</span></li>
       <li><b>The trace model</b>, which has no language model inside it at all.</li>
     </ul>
     <p>A judge guessing from fame would score the shams as high as the cards. It did not. This is one run, so its record is this receipt, not a history. You can swap in any judge you trust, and the receipt names which judge was used.</p></details>
