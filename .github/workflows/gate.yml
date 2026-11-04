@@ -21,6 +21,8 @@ jobs:
           done
       - name: the vendored cost basis is the upstream file at its pinned commit, byte for byte
         run: |
+          set -o pipefail
+          test "$(node -p "require('./vendor/SOURCES.json').files.length")" -ge 1
           node -e "for (const f of require('./vendor/SOURCES.json').files) console.log([f.repo, f.commit, f.src, f.path].join(' '))" | while read repo commit src path; do
             curl -sfL "https://raw.githubusercontent.com/$repo/$commit/$src" -o /tmp/upstream
             cmp /tmp/upstream "$path" || { echo "::error::$path differs from $repo at $commit"; exit 1; }
